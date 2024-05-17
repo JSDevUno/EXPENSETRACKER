@@ -88,11 +88,13 @@ public class Login extends javax.swing.JFrame {
         kGradientPanel1.setkBorderRadius(0);
         kGradientPanel1.setkEndColor(new java.awt.Color(0, 0, 51));
         kGradientPanel1.setkStartColor(new java.awt.Color(102, 0, 102));
+        kGradientPanel1.setName("panelsale"); // NOI18N
 
         kGradientPanel2.setkBorderRadius(20);
         kGradientPanel2.setkEndColor(new java.awt.Color(0, 0, 153));
         kGradientPanel2.setOpaque(false);
 
+        TextUsername.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         TextUsername.setForeground(new java.awt.Color(255, 255, 255));
         TextUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         TextUsername.setOpaque(false);
@@ -101,6 +103,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Username:");
 
+        TextPassword.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         TextPassword.setForeground(new java.awt.Color(255, 255, 255));
         TextPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
 
@@ -154,7 +157,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel12)
-                .addGap(159, 159, 159))
+                .addGap(164, 164, 164))
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,22 +203,21 @@ public class Login extends javax.swing.JFrame {
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8)
+                .addGap(12, 12, 12))
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel8))
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                         .addGap(96, 96, 96)
-                        .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 93, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGap(148, 148, 148)
-                .addComponent(jLabel6)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(jLabel6)))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
