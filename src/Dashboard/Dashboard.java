@@ -1151,6 +1151,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         kButton3.setText("NEW PRODUCT");
         kButton3.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        kButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kButton3ActionPerformed(evt);
+            }
+        });
 
         kButton4.setText("UPDATE PRODUCT");
         kButton4.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
@@ -2383,7 +2388,7 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+    //ADD CUSTOMER
     private void kButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton7ActionPerformed
         String custname=txtCustname.getText();
         String custphone=txtCustphone.getText();
@@ -2415,7 +2420,7 @@ public class Dashboard extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_kButton7ActionPerformed
-
+    //SEARCH COMBO BOX CUSTOMER
     private void kButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton1ActionPerformed
         try {
             String cid=custID.getSelectedItem().toString();
@@ -2435,7 +2440,7 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_kButton1ActionPerformed
-
+    //UPDATE CUSTOMER
     private void custUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custUpdateActionPerformed
         try {
             String custname=txtCustname.getText();
@@ -2467,7 +2472,7 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_custUpdateActionPerformed
-
+    //DELETE CUSTOMER
     private void custDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custDeleteActionPerformed
         try {
             String cid=custID.getSelectedItem().toString();
@@ -2490,6 +2495,12 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_custDeleteActionPerformed
+
+    private void kButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton3ActionPerformed
+                    newProduct np = new newProduct();
+                    np.setVisible(true);
+                    np.setLocationRelativeTo(null);
+    }//GEN-LAST:event_kButton3ActionPerformed
     
     
     public static void main(String args[]) {
@@ -2591,9 +2602,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -2656,9 +2664,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
@@ -2668,9 +2673,6 @@ public class Dashboard extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton kButton13;
     private com.k33ptoo.components.KButton kButton14;
     private com.k33ptoo.components.KButton kButton15;
-    private com.k33ptoo.components.KButton kButton16;
-    private com.k33ptoo.components.KButton kButton17;
-    private com.k33ptoo.components.KButton kButton18;
     private com.k33ptoo.components.KButton kButton2;
     private com.k33ptoo.components.KButton kButton3;
     private com.k33ptoo.components.KButton kButton4;
@@ -2680,8 +2682,6 @@ public class Dashboard extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton kButton9;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel10;
-    private com.k33ptoo.components.KGradientPanel kGradientPanel11;
-    private com.k33ptoo.components.KGradientPanel kGradientPanel12;
     private com.k33ptoo.components.KGradientPanel kGradientPanel13;
     private com.k33ptoo.components.KGradientPanel kGradientPanel14;
     private com.k33ptoo.components.KGradientPanel kGradientPanel15;

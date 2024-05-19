@@ -1739,6 +1739,9 @@
                       <Font name="Tw Cen MT" size="14" style="1"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kButton3ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="com.k33ptoo.components.KButton" name="kButton4">
                   <Properties>
