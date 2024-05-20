@@ -316,7 +316,7 @@ public class newProduct extends javax.swing.JFrame {
     }//GEN-LAST:event_addProdActionPerformed
 
     private void browseAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseAddActionPerformed
-       JFileChooser ch = new JFileChooser("C:\\Users\\Windows 10\\Pictures\\BlueStacks"); //pabago na lang ng path depende sa path nyo
+       JFileChooser ch = new JFileChooser("C:\\Users\\Windows 10\\Pictures\\BlueStacks"); //PARANG FILE STREAM LANG TO
        FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGE", "png", "jpg" , "jpeg");
        ch.addChoosableFileFilter(fnef);
        int result = ch.showOpenDialog(null);

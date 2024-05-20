@@ -43,10 +43,6 @@ public class Dashboard extends javax.swing.JFrame {
         jTable3.getColumnModel().getColumn(6).setCellRenderer(new ImageIconCellRenderer());
     }
 
-    Object getName(JComboBox<String> prodID) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
     class ImageIconCellRenderer implements TableCellRenderer{
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
@@ -2399,7 +2395,7 @@ public class Dashboard extends javax.swing.JFrame {
         try {
             pst=con.prepareStatement("SELECT productID FROM product");
             rs=pst.executeQuery();
-            custID.removeAllItems();
+            prodID.removeAllItems();
             while(rs.next()){
                 prodID.addItem(rs.getString(1));
             }
@@ -2443,7 +2439,7 @@ public class Dashboard extends javax.swing.JFrame {
         while(rs.next()){
             Vector<Object> v2 = new Vector<>();
             for (int i = 1; i <= query; i++) {
-                if (i == query) { // Check if this is the image column
+                if (i == query) { 
                     byte[] imageData = rs.getBytes("image");
                     if (imageData != null) {
                         ImageIcon imageIcon = new ImageIcon(imageData);

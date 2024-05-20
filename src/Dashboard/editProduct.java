@@ -346,7 +346,6 @@ public class editProduct extends javax.swing.JFrame {
                 editCategory.setText(" ");
                 editName.requestFocus();
                 db.fetchprod();
-                db.loadProduct();
             } else {
                 JOptionPane.showMessageDialog(this, "PRODUCT FAILED TO UPDATE!");
             }
@@ -379,7 +378,7 @@ public class editProduct extends javax.swing.JFrame {
 
     private void kButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton1ActionPerformed
        try {
-            String pid = (String) db.getName(prodID);
+            String pid = prodID.getSelectedItem().toString();
             pst = con.prepareStatement("SELECT * FROM product WHERE productID=?");
             pst.setString(1, pid);
             rs = pst.executeQuery();
@@ -391,17 +390,17 @@ public class editProduct extends javax.swing.JFrame {
                 editDesc.setText(rs.getString("description"));
                 editCategory.setText(rs.getString("category"));
 
-                // Retrieve and display the image
+              
                 byte[] imageData = rs.getBytes("image");
                 if (imageData != null) {
                     ImageIcon imageIcon = new ImageIcon(imageData);
                     Image image = imageIcon.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
                     jLabel1.setIcon(new ImageIcon(image));
 
-                    // Set imagePath to null as it's being loaded from the database
+                    
                     imagePath = null;
                 } else {
-                    jLabel1.setIcon(null); // No image available
+                    jLabel1.setIcon(null); 
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "PRODUCT DOES NOT EXIST!");
