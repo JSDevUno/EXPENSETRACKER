@@ -4,38 +4,38 @@
  */
 package Dashboard;
 
-import bsms.Db;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import java.sql.*;
 import javax.imageio.ImageIO;
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
  * @author Windows 10
  */
-public class newProduct extends javax.swing.JFrame {
+public class editProduct extends javax.swing.JFrame {
 
     /**
-     * Creates new form newProduct
+     * Creates new form editProduct
      */
     Dashboard db;
     Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
-    public newProduct() {
+    public editProduct() {
         initComponents();
-        con = Db.myconnection();
-        setLocationRelativeTo(null);
     }
     private String imagePath;
     /**
@@ -47,17 +47,16 @@ public class newProduct extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFileChooser1 = new javax.swing.JFileChooser();
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         kGradientPanel2 = new com.k33ptoo.components.KGradientPanel();
-        txtName = new javax.swing.JTextField();
-        txtQty = new javax.swing.JTextField();
-        txtPrice = new javax.swing.JTextField();
-        txtDesc = new javax.swing.JTextField();
-        txtCategory = new javax.swing.JTextField();
-        browseAdd = new com.k33ptoo.components.KButton();
+        editName = new javax.swing.JTextField();
+        editQty = new javax.swing.JTextField();
+        editPrice = new javax.swing.JTextField();
+        editDesc = new javax.swing.JTextField();
+        editCategory = new javax.swing.JTextField();
+        browseEdit = new com.k33ptoo.components.KButton();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
@@ -66,25 +65,28 @@ public class newProduct extends javax.swing.JFrame {
         jLabel43 = new javax.swing.JLabel();
         kGradientPanel3 = new com.k33ptoo.components.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
-        addProd = new com.k33ptoo.components.KButton();
+        editProd = new com.k33ptoo.components.KButton();
+        kButton1 = new com.k33ptoo.components.KButton();
+        prodID = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         kGradientPanel1.setkBorderRadius(0);
+        kGradientPanel1.setPreferredSize(new java.awt.Dimension(639, 746));
 
         jPanel1.setBackground(new java.awt.Color(51, 0, 51));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("ADD PRODUCT");
+        jLabel2.setText("EDIT PRODUCT");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(201, 201, 201)
+                .addGap(206, 206, 206)
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -100,26 +102,26 @@ public class newProduct extends javax.swing.JFrame {
         kGradientPanel2.setkEndColor(new java.awt.Color(0, 0, 102));
         kGradientPanel2.setOpaque(false);
 
-        txtName.setBackground(new java.awt.Color(255, 255, 255));
-        txtName.setForeground(new java.awt.Color(0, 0, 0));
+        editName.setBackground(new java.awt.Color(255, 255, 255));
+        editName.setForeground(new java.awt.Color(0, 0, 0));
 
-        txtQty.setBackground(new java.awt.Color(255, 255, 255));
-        txtQty.setForeground(new java.awt.Color(0, 0, 0));
+        editQty.setBackground(new java.awt.Color(255, 255, 255));
+        editQty.setForeground(new java.awt.Color(0, 0, 0));
 
-        txtPrice.setBackground(new java.awt.Color(255, 255, 255));
-        txtPrice.setForeground(new java.awt.Color(0, 0, 0));
+        editPrice.setBackground(new java.awt.Color(255, 255, 255));
+        editPrice.setForeground(new java.awt.Color(0, 0, 0));
 
-        txtDesc.setBackground(new java.awt.Color(255, 255, 255));
-        txtDesc.setForeground(new java.awt.Color(0, 0, 0));
+        editDesc.setBackground(new java.awt.Color(255, 255, 255));
+        editDesc.setForeground(new java.awt.Color(0, 0, 0));
 
-        txtCategory.setBackground(new java.awt.Color(255, 255, 255));
-        txtCategory.setForeground(new java.awt.Color(0, 0, 0));
+        editCategory.setBackground(new java.awt.Color(255, 255, 255));
+        editCategory.setForeground(new java.awt.Color(0, 0, 0));
 
-        browseAdd.setText("BROWSE");
-        browseAdd.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        browseAdd.addActionListener(new java.awt.event.ActionListener() {
+        browseEdit.setText("BROWSE");
+        browseEdit.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        browseEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                browseAddActionPerformed(evt);
+                browseEditActionPerformed(evt);
             }
         });
 
@@ -159,10 +161,10 @@ public class newProduct extends javax.swing.JFrame {
                     .addComponent(jLabel40))
                 .addGap(28, 28, 28)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                        .addComponent(txtQty)))
+                        .addComponent(editName, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                        .addComponent(editQty)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel41)
@@ -170,9 +172,9 @@ public class newProduct extends javax.swing.JFrame {
                     .addComponent(jLabel43))
                 .addGap(28, 28, 28)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(browseAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                    .addComponent(txtDesc, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                    .addComponent(txtCategory))
+                    .addComponent(browseEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(editDesc, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(editCategory))
                 .addGap(35, 35, 35))
         );
         kGradientPanel2Layout.setVerticalGroup(
@@ -180,23 +182,23 @@ public class newProduct extends javax.swing.JFrame {
             .addGroup(kGradientPanel2Layout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel38)
                     .addComponent(jLabel41))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel39)
                     .addComponent(jLabel42))
                 .addGap(80, 80, 80)
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(editPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel40))
                     .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(browseAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(browseEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel43)))
                 .addGap(70, 70, 70))
         );
@@ -220,44 +222,66 @@ public class newProduct extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        addProd.setText("ADD");
-        addProd.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        addProd.addActionListener(new java.awt.event.ActionListener() {
+        editProd.setText("UPDATE");
+        editProd.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        editProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addProdActionPerformed(evt);
+                editProdActionPerformed(evt);
             }
         });
+
+        kButton1.setText("SEARCH ID:");
+        kButton1.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        kButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kButton1ActionPerformed(evt);
+            }
+        });
+
+        prodID.setBackground(new java.awt.Color(255, 255, 255));
+        prodID.setForeground(new java.awt.Color(0, 0, 0));
+        prodID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1" }));
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
         kGradientPanel1Layout.setHorizontalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(kGradientPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(183, 183, 183))
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
+                .addGap(270, 270, 270)
+                .addComponent(editProd, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(addProd, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(prodID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                            .addComponent(kGradientPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(183, 183, 183))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
+                            .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(20, 20, 20)))))
         );
         kGradientPanel1Layout.setVerticalGroup(
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGap(9, 9, 9)
+                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(prodID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(kGradientPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(addProd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addComponent(editProd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -268,54 +292,70 @@ public class newProduct extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProdActionPerformed
-        String prodName=txtName.getText();
-        String prodQty=txtQty.getText();
-        String prodPrice=txtPrice.getText();
-        String prodDesc=txtDesc.getText();
-        String prodCategory=txtCategory.getText();
-        
+    private void editProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editProdActionPerformed
         try {
-            File imageFile = new File(imagePath);
-            byte[] imageData = null;
-            try {
-                imageData = Files.readAllBytes(imageFile.toPath());
-            } catch (IOException ex) {
-                Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
+             String name = editName.getText();
+             String price = editPrice.getText();
+             String qty = editQty.getText();
+             String desc = editDesc.getText();
+             String category = editCategory.getText();
+             String pid = prodID.getSelectedItem().toString();
+
+             String sql;
+             if (imagePath != null && !imagePath.isEmpty()) {
+                 File imageFile = new File(imagePath);
+                 byte[] imageData = null;
+                 try {
+                     imageData = Files.readAllBytes(imageFile.toPath());
+                 } catch (IOException ex) {
+                     Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+                 sql = "UPDATE product SET productName=?, quantity=?, price=?, description=?, category=?, image=? WHERE productID=?";
+                 pst = con.prepareStatement(sql);
+                 pst.setString(1, name);
+                 pst.setString(2, qty);
+                 pst.setString(3, price);
+                 pst.setString(4, desc);
+                 pst.setString(5, category);
+                 pst.setBytes(6, imageData);
+                 pst.setString(7, pid);
+            } else {
+                 sql = "UPDATE product SET productName=?, quantity=?, price=?, description=?, category=? WHERE productID=?";
+                 pst = con.prepareStatement(sql);
+                 pst.setString(1, name);
+                 pst.setString(2, qty);
+                 pst.setString(3, price);
+                 pst.setString(4, desc);
+                 pst.setString(5, category);
+                 pst.setString(6, pid);
             }
-            pst=con.prepareStatement("INSERT INTO product (productName, quantity, price, description, category,image) VALUES(?,?,?,?,?,?)");
-            pst.setString(1, prodName);
-            pst.setString(2, prodQty);
-            pst.setString(3, prodPrice);
-            pst.setString(4, prodDesc);
-            pst.setString(5, prodCategory);
-            pst.setBytes(6, imageData);
-            
-            int k=pst.executeUpdate();
-            
-            if(k==1){
-                JOptionPane.showMessageDialog(this, "PRODUCT ADDED!");
-                txtName.setText(" ");
-                txtQty.setText(" ");
-                txtPrice.setText(" ");
-                txtDesc.setText(" ");  
-                txtCategory.setText(" ");  
+
+            int k = pst.executeUpdate();
+            if (k == 1) {
+                JOptionPane.showMessageDialog(this, "PRODUCT UPDATED!");
+                editName.setText(" ");
+                editPrice.setText(" ");
+                editQty.setText(" ");
+                editDesc.setText(" ");
+                editCategory.setText(" ");
+                editName.requestFocus();
                 db.fetchprod();
-            }else{
-                JOptionPane.showMessageDialog(this, "PRODUCT FAILED TO ADD!");
+                db.loadProduct();
+            } else {
+                JOptionPane.showMessageDialog(this, "PRODUCT FAILED TO UPDATE!");
             }
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_addProdActionPerformed
+    }//GEN-LAST:event_editProdActionPerformed
 
-    private void browseAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseAddActionPerformed
+    private void browseEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseEditActionPerformed
        JFileChooser ch = new JFileChooser("C:\\Users\\Windows 10\\Pictures\\BlueStacks"); //pabago na lang ng path depende sa path nyo
        FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGE", "png", "jpg" , "jpeg");
        ch.addChoosableFileFilter(fnef);
@@ -335,7 +375,41 @@ public class newProduct extends javax.swing.JFrame {
         } else if (result == JFileChooser.CANCEL_OPTION) {
             System.out.println("No file selected");
         }
-    }//GEN-LAST:event_browseAddActionPerformed
+    }//GEN-LAST:event_browseEditActionPerformed
+
+    private void kButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton1ActionPerformed
+       try {
+            String pid = (String) db.getName(prodID);
+            pst = con.prepareStatement("SELECT * FROM product WHERE productID=?");
+            pst.setString(1, pid);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                editName.setText(rs.getString("productName"));
+                editQty.setText(rs.getString("quantity"));
+                editPrice.setText(rs.getString("price"));
+                editDesc.setText(rs.getString("description"));
+                editCategory.setText(rs.getString("category"));
+
+                // Retrieve and display the image
+                byte[] imageData = rs.getBytes("image");
+                if (imageData != null) {
+                    ImageIcon imageIcon = new ImageIcon(imageData);
+                    Image image = imageIcon.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
+                    jLabel1.setIcon(new ImageIcon(image));
+
+                    // Set imagePath to null as it's being loaded from the database
+                    imagePath = null;
+                } else {
+                    jLabel1.setIcon(null); // No image available
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "PRODUCT DOES NOT EXIST!");
+            }
+    } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }//GEN-LAST:event_kButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -354,28 +428,32 @@ public class newProduct extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(newProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(newProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(newProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(newProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(editProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new newProduct().setVisible(true);
+                new editProduct().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.k33ptoo.components.KButton addProd;
-    private com.k33ptoo.components.KButton browseAdd;
-    private javax.swing.JFileChooser jFileChooser1;
+    private com.k33ptoo.components.KButton browseEdit;
+    private javax.swing.JTextField editCategory;
+    private javax.swing.JTextField editDesc;
+    private javax.swing.JTextField editName;
+    private javax.swing.JTextField editPrice;
+    private com.k33ptoo.components.KButton editProd;
+    private javax.swing.JTextField editQty;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel38;
@@ -385,13 +463,10 @@ public class newProduct extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JPanel jPanel1;
+    private com.k33ptoo.components.KButton kButton1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel2;
     private com.k33ptoo.components.KGradientPanel kGradientPanel3;
-    private javax.swing.JTextField txtCategory;
-    private javax.swing.JTextField txtDesc;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPrice;
-    private javax.swing.JTextField txtQty;
+    private javax.swing.JComboBox<String> prodID;
     // End of variables declaration//GEN-END:variables
 }
