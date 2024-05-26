@@ -18,6 +18,7 @@ import javax.swing.*;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
@@ -26,6 +27,7 @@ public class Dashboard extends javax.swing.JFrame {
     /**
      * Creates new form Dashboard
      */
+    private newProduct np;
     Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
@@ -141,10 +143,10 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
-        kButton2 = new com.k33ptoo.components.KButton();
+        searchProd = new com.k33ptoo.components.KButton();
         kButton3 = new com.k33ptoo.components.KButton();
         kButton4 = new com.k33ptoo.components.KButton();
-        kButton5 = new com.k33ptoo.components.KButton();
+        removeProduct = new com.k33ptoo.components.KButton();
         prodID = new javax.swing.JComboBox<>();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -813,9 +815,16 @@ public class Dashboard extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -875,7 +884,15 @@ public class Dashboard extends javax.swing.JFrame {
             new String [] {
                 "ID", "Name", "Phone", "Email", "Address"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable2.setFocusable(false);
         jTable2.setOpaque(false);
         jTable2.getTableHeader().setReorderingAllowed(false);
@@ -1161,8 +1178,13 @@ public class Dashboard extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTable3);
 
-        kButton2.setText("SEARCH");
-        kButton2.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        searchProd.setText("SEARCH");
+        searchProd.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        searchProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchProdActionPerformed(evt);
+            }
+        });
 
         kButton3.setText("NEW PRODUCT");
         kButton3.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
@@ -1180,11 +1202,11 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        kButton5.setText("REMOVE PRODUCT");
-        kButton5.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        kButton5.addActionListener(new java.awt.event.ActionListener() {
+        removeProduct.setText("REMOVE PRODUCT");
+        removeProduct.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        removeProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kButton5ActionPerformed(evt);
+                removeProductActionPerformed(evt);
             }
         });
 
@@ -1199,7 +1221,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(prodID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(searchProd, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(62, 62, 62)
@@ -1209,7 +1231,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(kButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(kButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(removeProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 870, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(68, Short.MAX_VALUE))
         );
@@ -1218,7 +1240,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchProd, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(prodID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1226,7 +1248,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(kButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(kButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(removeProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(87, Short.MAX_VALUE))
         );
 
@@ -2423,6 +2445,24 @@ public class Dashboard extends javax.swing.JFrame {
                 }
                 dtm.addRow(v2);
             }
+            
+            pst = con.prepareStatement("SELECT * FROM customer ORDER BY customerID DESC");
+            rs = pst.executeQuery();
+            ResultSetMetaData rssDesc = rs.getMetaData();
+            int queryDesc = rssDesc.getColumnCount();
+            DefaultTableModel dtm3 = (DefaultTableModel) jTable1.getModel();
+            dtm3.setRowCount(0);
+            while (rs.next()) {
+                Vector v3 = new Vector();
+                for (int i = 1; i <= queryDesc; i++) {
+                    v3.add(rs.getString("customerID"));
+                    v3.add(rs.getString("customerName"));
+                    v3.add(rs.getString("phoneNumber"));
+                    v3.add(rs.getString("email"));
+                    v3.add(rs.getString("address"));
+                }
+                dtm3.addRow(v3);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2570,16 +2610,72 @@ public class Dashboard extends javax.swing.JFrame {
         np.setVisible(true);
         np.setLocationRelativeTo(null);
     }//GEN-LAST:event_kButton3ActionPerformed
-    //REMOVE PRODUCT
-    private void kButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton5ActionPerformed
 
-    }//GEN-LAST:event_kButton5ActionPerformed
-    // UPDATE PRODUCT
+   // UPDATE PRODUCT
     private void kButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton4ActionPerformed
         editProduct ep = new editProduct();
         ep.setVisible(true);
         ep.setLocationRelativeTo(null);
     }//GEN-LAST:event_kButton4ActionPerformed
+    // REMOVE PRODUCT
+    private void removeProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeProductActionPerformed
+        try {
+            String pid=prodID.getSelectedItem().toString();
+            pst=con.prepareStatement("DELETE FROM product WHERE productID=?");
+            pst.setString(1, pid);
+            int k=pst.executeUpdate();
+            if(k==1){
+                JOptionPane.showMessageDialog(this, "PRODUCT DELETED!");
+                fetchprod();
+                loadProduct();
+            }else{
+                JOptionPane.showMessageDialog(this, "PRODUCT FAILED TO DELETE!");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_removeProductActionPerformed
+    
+    private void searchProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchProdActionPerformed
+       /* try {
+            int query;
+            String pid = prodID.getSelectedItem().toString();
+            pst = con.prepareStatement("SELECT * FROM product WHERE productID=?");
+            pst.setString(1, pid);
+            rs = pst.executeQuery();
+            ResultSetMetaData rss = rs.getMetaData();
+            query = rss.getColumnCount();
+            DefaultTableModel dtm = (DefaultTableModel) jTable2.getModel();
+            dtm.setRowCount(0);
+
+            if (rs.next()) {           
+                Vector<Object> v2 = new Vector<>();
+                v2.add(rs.getString("productID"));
+                v2.add(rs.getString("productName"));
+                v2.add(rs.getInt("quantity"));
+                v2.add(rs.getDouble("price"));
+                v2.add(rs.getString("description"));
+                v2.add(rs.getString("category"));
+                byte[] imageData = rs.getBytes("image");
+                if (imageData != null) {
+                    ImageIcon imageIcon = new ImageIcon(imageData);
+                    v2.add(imageIcon);
+                } else {
+                    v2.add(null);
+                }
+                dtm.addRow(v2);
+
+                
+                int rowIndex = 0;
+                jTable2.setRowSelectionInterval(rowIndex, rowIndex);
+                jTable2.scrollRectToVisible(new Rectangle(jTable2.getCellRect(rowIndex, 0, true)));
+            } else {
+                JOptionPane.showMessageDialog(this, "PRODUCT DOES NOT EXIST!");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+    }//GEN-LAST:event_searchProdActionPerformed
     
     
     public static void main(String args[]) {
@@ -2751,10 +2847,8 @@ public class Dashboard extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton kButton13;
     private com.k33ptoo.components.KButton kButton14;
     private com.k33ptoo.components.KButton kButton15;
-    private com.k33ptoo.components.KButton kButton2;
     private com.k33ptoo.components.KButton kButton3;
     private com.k33ptoo.components.KButton kButton4;
-    private com.k33ptoo.components.KButton kButton5;
     private com.k33ptoo.components.KButton kButton7;
     private com.k33ptoo.components.KButton kButton8;
     private com.k33ptoo.components.KButton kButton9;
@@ -2782,6 +2876,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel menu7;
     private javax.swing.JPanel menu8;
     private javax.swing.JComboBox<String> prodID;
+    private com.k33ptoo.components.KButton removeProduct;
+    private com.k33ptoo.components.KButton searchProd;
     private java.awt.TextArea textArea1;
     private javax.swing.JTextArea txtCustaddress;
     private javax.swing.JTextField txtCustemail;

@@ -1020,11 +1020,11 @@
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="5" rowCount="4">
-                            <Column editable="true" title="ID" type="java.lang.Integer"/>
-                            <Column editable="true" title="Name" type="java.lang.String"/>
-                            <Column editable="true" title="Phone" type="java.lang.Integer"/>
-                            <Column editable="true" title="Email" type="java.lang.String"/>
-                            <Column editable="true" title="Address" type="java.lang.String"/>
+                            <Column editable="false" title="ID" type="java.lang.Integer"/>
+                            <Column editable="false" title="Name" type="java.lang.String"/>
+                            <Column editable="false" title="Phone" type="java.lang.Integer"/>
+                            <Column editable="false" title="Email" type="java.lang.String"/>
+                            <Column editable="false" title="Address" type="java.lang.String"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1151,11 +1151,11 @@
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="5" rowCount="4">
-                            <Column editable="true" title="ID" type="java.lang.Object"/>
-                            <Column editable="true" title="Name" type="java.lang.Object"/>
-                            <Column editable="true" title="Phone" type="java.lang.Object"/>
-                            <Column editable="true" title="Email" type="java.lang.Object"/>
-                            <Column editable="true" title="Address" type="java.lang.Object"/>
+                            <Column editable="false" title="ID" type="java.lang.Object"/>
+                            <Column editable="false" title="Name" type="java.lang.Object"/>
+                            <Column editable="false" title="Phone" type="java.lang.Object"/>
+                            <Column editable="false" title="Email" type="java.lang.Object"/>
+                            <Column editable="false" title="Address" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1604,7 +1604,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="prodID" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="kButton2" min="-2" pref="88" max="-2" attributes="0"/>
+                          <Component id="searchProd" min="-2" pref="88" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -1615,7 +1615,7 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="kButton4" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="kButton5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="removeProduct" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jScrollPane3" min="-2" pref="870" max="-2" attributes="0"/>
                           </Group>
@@ -1628,7 +1628,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="kButton2" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                              <Component id="searchProd" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                               <Component id="prodID" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -1637,7 +1637,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="kButton3" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="kButton4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="kButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="removeProduct" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="87" max="32767" attributes="0"/>
                       </Group>
@@ -1714,13 +1714,16 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="com.k33ptoo.components.KButton" name="kButton2">
+                <Component class="com.k33ptoo.components.KButton" name="searchProd">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="SEARCH"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tw Cen MT" size="14" style="1"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchProdActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="com.k33ptoo.components.KButton" name="kButton3">
                   <Properties>
@@ -1744,7 +1747,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kButton4ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="com.k33ptoo.components.KButton" name="kButton5">
+                <Component class="com.k33ptoo.components.KButton" name="removeProduct">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="REMOVE PRODUCT"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1752,7 +1755,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kButton5ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeProductActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="prodID">
