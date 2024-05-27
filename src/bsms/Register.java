@@ -23,6 +23,7 @@ public class Register extends javax.swing.JFrame {
     Connection con = null;
     PreparedStatement pst = null;
     public Register() {
+        setLocationRelativeTo(null);
         initComponents();
         con = Db.myconnection();
     }
