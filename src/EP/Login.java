@@ -85,12 +85,13 @@ public class Login extends javax.swing.JFrame {
         kGradientPanel1.setkStartColor(new java.awt.Color(0, 204, 204));
         kGradientPanel1.setName("panelsale"); // NOI18N
 
+        jLabel6.setBackground(new java.awt.Color(0, 255, 255));
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("EXPENSE-TRACKER");
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Username:");
 
         TextUsername.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
@@ -99,7 +100,7 @@ public class Login extends javax.swing.JFrame {
         TextUsername.setOpaque(false);
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Password:");
 
         TextPassword.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
