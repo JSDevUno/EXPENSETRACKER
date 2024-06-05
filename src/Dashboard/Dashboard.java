@@ -1277,7 +1277,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_menu3MousePressed
 
     private void menu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu8MouseClicked
-       jTabbedPane1.setSelectedIndex(8);
+       jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_menu8MouseClicked
 
     private void menu8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu8MousePressed
