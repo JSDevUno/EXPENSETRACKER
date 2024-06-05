@@ -156,9 +156,9 @@ public class Dashboard extends javax.swing.JFrame {
         kButton3 = new com.k33ptoo.components.KButton();
         prodID1 = new javax.swing.JComboBox<>();
         searchProd3 = new com.k33ptoo.components.KButton();
-        inadd1 = new com.k33ptoo.components.KButton();
-        inupdate1 = new com.k33ptoo.components.KButton();
-        indelete1 = new com.k33ptoo.components.KButton();
+        budadd = new com.k33ptoo.components.KButton();
+        budupdate = new com.k33ptoo.components.KButton();
+        buddelete = new com.k33ptoo.components.KButton();
         jLabel46 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
         jLabel47 = new javax.swing.JLabel();
@@ -1070,23 +1070,23 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        inadd1.setText("ADD");
-        inadd1.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        inadd1.addActionListener(new java.awt.event.ActionListener() {
+        budadd.setText("ADD");
+        budadd.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        budadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inadd1ActionPerformed(evt);
+                budaddActionPerformed(evt);
             }
         });
 
-        inupdate1.setText("UPDATE");
-        inupdate1.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        budupdate.setText("UPDATE");
+        budupdate.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
 
-        indelete1.setText("DELETE");
-        indelete1.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        indelete1.setPreferredSize(new java.awt.Dimension(185, 31));
-        indelete1.addActionListener(new java.awt.event.ActionListener() {
+        buddelete.setText("DELETE");
+        buddelete.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        buddelete.setPreferredSize(new java.awt.Dimension(185, 31));
+        buddelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                indelete1ActionPerformed(evt);
+                buddeleteActionPerformed(evt);
             }
         });
 
@@ -1133,10 +1133,10 @@ public class Dashboard extends javax.swing.JFrame {
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(indelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buddelete, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(inupdate1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, Short.MAX_VALUE)
-                                .addComponent(inadd1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)))
+                                .addComponent(budupdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, Short.MAX_VALUE)
+                                .addComponent(budadd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)))
                         .addGap(34, 34, 34)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel46)
@@ -1166,18 +1166,18 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inadd1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(budadd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel46)
                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inupdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(budupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel47)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(indelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buddelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel48))
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(61, Short.MAX_VALUE))
@@ -1831,13 +1831,13 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_searchProd3ActionPerformed
 
-    private void inadd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inadd1ActionPerformed
+    private void budaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_budaddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inadd1ActionPerformed
+    }//GEN-LAST:event_budaddActionPerformed
 
-    private void indelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indelete1ActionPerformed
+    private void buddeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buddeleteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_indelete1ActionPerformed
+    }//GEN-LAST:event_buddeleteActionPerformed
     
     
     public static void main(String args[]) {
@@ -1874,16 +1874,16 @@ public class Dashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.border.BevelBorder bevelBorder1;
+    private com.k33ptoo.components.KButton budadd;
+    private com.k33ptoo.components.KButton buddelete;
+    private com.k33ptoo.components.KButton budupdate;
     private com.k33ptoo.components.KButton custDelete;
     private javax.swing.JComboBox<String> custID;
     private com.k33ptoo.components.KButton custUpdate;
     private javax.swing.JPanel home;
     private com.k33ptoo.components.KButton inadd;
-    private com.k33ptoo.components.KButton inadd1;
     private com.k33ptoo.components.KButton indelete;
-    private com.k33ptoo.components.KButton indelete1;
     private com.k33ptoo.components.KButton inupdate;
-    private com.k33ptoo.components.KButton inupdate1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
