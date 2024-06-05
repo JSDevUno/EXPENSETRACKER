@@ -4,7 +4,7 @@
  */
 package Dashboard;
 
-import bsms.Db;
+import EP.Db;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;

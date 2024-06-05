@@ -8,8 +8,8 @@ package Dashboard;
  *
  * @author Windows 10
  */
-import bsms.Db;
-import bsms.Login;
+import EP.Db;
+import EP.Login;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
