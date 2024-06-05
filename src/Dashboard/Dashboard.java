@@ -20,7 +20,12 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Vector;
+import javax.imageio.ImageIO;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 public class Dashboard extends javax.swing.JFrame {
@@ -47,7 +52,7 @@ public class Dashboard extends javax.swing.JFrame {
         ClickedColor = new Color(0,255,255);
         jTable3.getColumnModel().getColumn(6).setCellRenderer(new ImageIconCellRenderer());
     }
-
+    private String imagePath;
     class ImageIconCellRenderer implements TableCellRenderer{
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
@@ -91,6 +96,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -363,7 +369,17 @@ public class Dashboard extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 102, 102));
         jButton1.setFont(new java.awt.Font("Tw Cen MT", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("INSERT PROFILE");
+        jButton1.setText("BROWSE");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setBackground(new java.awt.Color(0, 102, 102));
+        jButton2.setFont(new java.awt.Font("Tw Cen MT", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("INSERT");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -386,13 +402,14 @@ public class Dashboard extends javax.swing.JFrame {
                                 .addComponent(jLabel4))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(32, 32, 32)
-                                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jButton1)
+                                        .addGap(29, 29, 29)
+                                        .addComponent(jButton2))
+                                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -400,7 +417,9 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addGap(24, 24, 24)
                 .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1010,7 +1029,7 @@ public class Dashboard extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabel6MouseClicked
 
-    public void loadCustomer(){
+    public void loadCustomer(){//
         try {
             pst=con.prepareStatement("SELECT customerID FROM customer");
             rs=pst.executeQuery();
@@ -1022,7 +1041,7 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void loadProduct(){
+    public void loadProduct(){//
         try {
             pst=con.prepareStatement("SELECT productID FROM product");
             rs=pst.executeQuery();
@@ -1034,7 +1053,7 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void fetch(){
+    public void fetch(){//
         try {
             int query;
             pst=con.prepareStatement("SELECT * FROM customer");
@@ -1076,7 +1095,7 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void fetchprod(){
+    public void fetchprod(){//
     try {
         pst = con.prepareStatement("SELECT * FROM product");
         rs = pst.executeQuery();
@@ -1293,6 +1312,28 @@ public class Dashboard extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JFileChooser ch = new JFileChooser("C:\\Users\\Windows 10\\Pictures\\BlueStacks"); //PARANG FILE STREAM LANG TO
+        FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGE", "png", "jpg" , "jpeg");
+        ch.addChoosableFileFilter(fnef);
+        int result = ch.showOpenDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedImageFile = ch.getSelectedFile();
+            imagePath = selectedImageFile.getAbsolutePath();
+            BufferedImage img;
+            try {
+                img = ImageIO.read(selectedImageFile);
+                ImageIcon ii = new ImageIcon(img);
+                Image image = ii.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
+                jLabel1.setIcon(new ImageIcon(image));
+            } catch (IOException ex) {
+                Logger.getLogger(newProduct.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+         } else if (result == JFileChooser.CANCEL_OPTION) {
+             System.out.println("No file selected");
+         }
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     
     public static void main(String args[]) {
@@ -1334,6 +1375,7 @@ public class Dashboard extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton custUpdate;
     private javax.swing.JPanel home;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
