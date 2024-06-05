@@ -42,14 +42,14 @@ public class Dashboard extends javax.swing.JFrame {
         initComponents();
         userID = UserSession.getUserID();
         con = Db.myconnection();
-        loadCustomer();
-        loadProduct();
-        fetch();
-        fetchprod(); 
+        //loadCustomer();
+        //loadProduct();
+        //fetch();
+        //fetchprod(); 
         setLocationRelativeTo(null);
         DefaultColor = new Color(51,51,51);
         ClickedColor = new Color(0,255,255);
-        jTable3.getColumnModel().getColumn(6).setCellRenderer(new ImageIconCellRenderer());
+        //jTable3.getColumnModel().getColumn(6).setCellRenderer(new ImageIconCellRenderer());
     }
     private String imagePath;
     class ImageIconCellRenderer implements TableCellRenderer{
@@ -1016,11 +1016,12 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel45))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel42)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(inupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel42)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(indelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1576,7 +1577,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseClicked
 
     public void loadCustomer(){//
-        try {
+        /*try {
             pst=con.prepareStatement("SELECT customerID FROM customer");
             rs=pst.executeQuery();
             custID.removeAllItems();
@@ -1597,10 +1598,10 @@ public class Dashboard extends javax.swing.JFrame {
             }
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }
     public void fetch(){//
-        try {
+        /*try {
             int query;
             pst=con.prepareStatement("SELECT * FROM customer");
             rs=pst.executeQuery();
@@ -1639,10 +1640,10 @@ public class Dashboard extends javax.swing.JFrame {
             }
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }
     public void fetchprod(){//
-    try {
+    /*try {
         pst = con.prepareStatement("SELECT * FROM product");
         rs = pst.executeQuery();
         ResultSetMetaData rss = rs.getMetaData();
@@ -1669,29 +1670,30 @@ public class Dashboard extends javax.swing.JFrame {
         }
     } catch (SQLException ex) {
         Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-    }
+    }*/
 }
+    
     //ADD CUSTOMER
     private void kButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton7ActionPerformed
-        //String custname=txtCustname.getText();
+        /*String custname=txtCustname.getText();
         String custphone=txtCustphone.getText();
-        //String custemail=txtCustemail.getText();
+        String custemail=txtCustemail.getText();
         String custaddress=txtCustaddress.getText();
         
         try {
             pst=con.prepareStatement("INSERT INTO customer (customerName, phoneNumber, email, address) VALUES(?,?,?,?)");
-            //pst.setString(1, custname);
+            pst.setString(1, custname);
             pst.setString(2, custphone);
-            //pst.setString(3, custemail);
+            pst.setString(3, custemail);
             pst.setString(4, custaddress);
             
             int k=pst.executeUpdate();
             
             if(k==1){
                 JOptionPane.showMessageDialog(this, "CUSTOMER ADDED!");
-                //txtCustname.setText(" ");
+                txtCustname.setText(" ");
                 txtCustphone.setText(" ");
-                //txtCustemail.setText(" ");
+                txtCustemail.setText(" ");
                 txtCustaddress.setText(" ");  
                 fetch();
                 loadCustomer();
@@ -1701,51 +1703,51 @@ public class Dashboard extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        */
     }//GEN-LAST:event_kButton7ActionPerformed
     //SEARCH COMBO BOX CUSTOMER
     private void kButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton1ActionPerformed
-        try {
+       /* try {
             String cid=custID.getSelectedItem().toString();
             pst=con.prepareStatement("SELECT * FROM customer WHERE customerID=?");
             pst.setString(1, cid);
             rs=pst.executeQuery();
             
             if (rs.next()){
-                //txtCustname.setText(rs.getString(2));
+                txtCustname.setText(rs.getString(2));
                 txtCustphone.setText(rs.getString(3));
-                //txtCustemail.setText(rs.getString(4));
+                txtCustemail.setText(rs.getString(4));
                 txtCustaddress.setText(rs.getString(5));
             }else{
                 JOptionPane.showMessageDialog(this, "CUSTOMER DOES NOT EXIST!");
             }
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }//GEN-LAST:event_kButton1ActionPerformed
     //UPDATE CUSTOMER
     private void custUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custUpdateActionPerformed
-        try {
-            //String custname=txtCustname.getText();
+        /*try {
+            String custname=txtCustname.getText();
             String custphone=txtCustphone.getText();
-            //String custemail=txtCustemail.getText();
+            String custemail=txtCustemail.getText();
             String custaddress=txtCustaddress.getText();
             String cid=custID.getSelectedItem().toString();
             
             pst=con.prepareStatement("UPDATE customer SET customerName=?,phoneNumber=?, email=?, address=? WHERE customerID=?");
-            //pst.setString(1, custname);
+            pst.setString(1, custname);
             pst.setString(2, custphone);
-            //pst.setString(3, custemail);
+            pst.setString(3, custemail);
             pst.setString(4, custaddress); 
             pst.setString(5, cid); 
             int k=pst.executeUpdate();
             if(k==1){
                 JOptionPane.showMessageDialog(this, "CUSTOMER UPDATED!");
-               // txtCustname.setText(" ");
+                txtCustname.setText(" ");
                 txtCustphone.setText(" ");
-                //txtCustemail.setText(" ");
+                txtCustemail.setText(" ");
                 txtCustaddress.setText(" ");  
-               // txtCustname.requestFocus();
+                txtCustname.requestFocus();
                 fetch();
                 loadCustomer();
             }else{
@@ -1753,11 +1755,11 @@ public class Dashboard extends javax.swing.JFrame {
             }
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }//GEN-LAST:event_custUpdateActionPerformed
     //DELETE CUSTOMER
     private void custDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custDeleteActionPerformed
-        try {
+        /*try {
             String cid=custID.getSelectedItem().toString();
             pst=con.prepareStatement("DELETE FROM customer WHERE customerID=?");
             pst.setString(1, cid);
@@ -1776,7 +1778,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }//GEN-LAST:event_custDeleteActionPerformed
 
    
@@ -1919,8 +1921,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
@@ -1945,8 +1945,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
@@ -1987,8 +1985,6 @@ public class Dashboard extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton searchProd2;
     private com.k33ptoo.components.KButton searchProd3;
     private javax.swing.JPanel totalex;
-    private javax.swing.JPanel totalex1;
-    private javax.swing.JPanel totalex2;
     private javax.swing.JPanel totalin;
     private javax.swing.JTextArea txtCustaddress;
     private javax.swing.JTextField txtCustphone;
