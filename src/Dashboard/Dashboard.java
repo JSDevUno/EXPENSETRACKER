@@ -113,12 +113,16 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         totalex = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
+        labelexpense = new javax.swing.JLabel();
         savings = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
+        labelsavings = new javax.swing.JLabel();
         totalin = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
+        labelincome = new javax.swing.JLabel();
         recenttrans = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
+        labelspent = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -571,21 +575,33 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("Total Expenses");
 
+        labelexpense.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        labelexpense.setForeground(new java.awt.Color(255, 255, 255));
+        labelexpense.setText("jLabel36");
+        labelexpense.setToolTipText("");
+
         javax.swing.GroupLayout totalexLayout = new javax.swing.GroupLayout(totalex);
         totalex.setLayout(totalexLayout);
         totalexLayout.setHorizontalGroup(
             totalexLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(totalexLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel25)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addGroup(totalexLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(totalexLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel25))
+                    .addGroup(totalexLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(labelexpense, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         totalexLayout.setVerticalGroup(
             totalexLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(totalexLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel25)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(labelexpense)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jPanel3.add(totalex, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 119, -1, -1));
@@ -598,6 +614,11 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("Savings");
 
+        labelsavings.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        labelsavings.setForeground(new java.awt.Color(255, 255, 255));
+        labelsavings.setText("jLabel36");
+        labelsavings.setToolTipText("");
+
         javax.swing.GroupLayout savingsLayout = new javax.swing.GroupLayout(savings);
         savings.setLayout(savingsLayout);
         savingsLayout.setHorizontalGroup(
@@ -605,14 +626,20 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(savingsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel26)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, savingsLayout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addComponent(labelsavings, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
         savingsLayout.setVerticalGroup(
             savingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(savingsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel26)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(labelsavings)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jPanel3.add(savings, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 308, -1, -1));
@@ -624,6 +651,11 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
         jLabel27.setText("Total  Income");
 
+        labelincome.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        labelincome.setForeground(new java.awt.Color(255, 255, 255));
+        labelincome.setText("jLabel36");
+        labelincome.setToolTipText("");
+
         javax.swing.GroupLayout totalinLayout = new javax.swing.GroupLayout(totalin);
         totalin.setLayout(totalinLayout);
         totalinLayout.setHorizontalGroup(
@@ -632,13 +664,19 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel27)
                 .addContainerGap(92, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, totalinLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelincome, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
         totalinLayout.setVerticalGroup(
             totalinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(totalinLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel27)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(labelincome)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jPanel3.add(totalin, new org.netbeans.lib.awtextra.AbsoluteConstraints(496, 119, -1, -1));
@@ -648,23 +686,35 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel28.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel28.setText("Recent Transaction");
+        jLabel28.setText("Recent Spent");
+
+        labelspent.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        labelspent.setForeground(new java.awt.Color(255, 255, 255));
+        labelspent.setText("jLabel36");
+        labelspent.setToolTipText("");
 
         javax.swing.GroupLayout recenttransLayout = new javax.swing.GroupLayout(recenttrans);
         recenttrans.setLayout(recenttransLayout);
         recenttransLayout.setHorizontalGroup(
             recenttransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(recenttransLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel28)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGroup(recenttransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(recenttransLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel28))
+                    .addGroup(recenttransLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(labelspent, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         recenttransLayout.setVerticalGroup(
             recenttransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(recenttransLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel28)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(labelspent)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jPanel3.add(recenttrans, new org.netbeans.lib.awtextra.AbsoluteConstraints(496, 308, -1, -1));
@@ -694,22 +744,14 @@ public class Dashboard extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Object.class
             };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
         });
         expensetable.setFocusable(false);
         expensetable.setOpaque(false);
-        expensetable.setPreferredSize(new java.awt.Dimension(326, 80));
-        expensetable.getTableHeader().setReorderingAllowed(false);
+        expensetable.setVerifyInputWhenFocusTarget(false);
         jScrollPane2.setViewportView(expensetable);
 
         txtdescription.setBackground(new java.awt.Color(255, 255, 255));
@@ -1632,10 +1674,66 @@ public class Dashboard extends javax.swing.JFrame {
 
             rs.close();
             pst.close();
+            fetchExpenses(); 
+            updateTotalExpenseLabel();
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public BigDecimal calculateTotalExpense() {
+        int userId = UserSession.getUserID();
+        BigDecimal totalExpense = BigDecimal.ZERO;
+
+        try {
+            String query = "SELECT SUM(amount) AS total FROM expenses WHERE userid = ?";
+            pst = con.prepareStatement(query);
+            pst.setInt(1, userId);
+
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                totalExpense = rs.getBigDecimal("total");
+            }
+
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return totalExpense != null ? totalExpense : BigDecimal.ZERO;
+    }
+
+    public void updateTotalExpenseLabel() {
+        BigDecimal totalExpense = calculateTotalExpense();
+        labelexpense.setText("PHP "+totalExpense.toString());
+    }
+    public BigDecimal fetchMostRecentSpent() {
+        int userId = UserSession.getUserID();
+        BigDecimal recentSpent = BigDecimal.ZERO;
+
+        try {
+            String query = "SELECT amount FROM expenses WHERE userid = ? ORDER BY date DESC LIMIT 1";
+            pst = con.prepareStatement(query);
+            pst.setInt(1, userId);
+
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                recentSpent = rs.getBigDecimal("amount");
+            }
+
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return recentSpent;
+    }
+    public void updateRecentSpentLabel() {
+        BigDecimal recentSpent = fetchMostRecentSpent();
+        labelspent.setText("PHP " + recentSpent.toString());
+    }
+
     public void fetchExpenses(){
         int userId = UserSession.getUserID(); 
     
@@ -1661,6 +1759,9 @@ public class Dashboard extends javax.swing.JFrame {
 
             rs.close();
             pst.close();
+            updateTotalExpenseLabel();
+            updateTotalSavingsLabel();
+            updateRecentSpentLabel();
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1738,10 +1839,40 @@ public class Dashboard extends javax.swing.JFrame {
 
             rs.close();
             pst.close();
+            updateTotalIncomeLabel();
+            updateTotalSavingsLabel();
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public BigDecimal calculateTotalIncome() {
+        int userId = UserSession.getUserID();
+        BigDecimal totalIncome = BigDecimal.ZERO;
+
+        try {
+            String query = "SELECT SUM(amount) AS total FROM income WHERE userid = ?";
+            pst = con.prepareStatement(query);
+            pst.setInt(1, userId);
+
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                totalIncome = rs.getBigDecimal("total");
+            }
+
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return totalIncome != null ? totalIncome : BigDecimal.ZERO;
+    }
+
+    public void updateTotalIncomeLabel() {
+        BigDecimal totalIncome = calculateTotalIncome();
+        labelincome.setText("PHP "+totalIncome.toString());
+    }
+
     public void loadIncome(){
         int userId = UserSession.getUserID();
 
@@ -1759,10 +1890,22 @@ public class Dashboard extends javax.swing.JFrame {
 
             rs.close();
             pst.close();
+            fetchIncome();
+            updateTotalIncomeLabel();
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public BigDecimal calculateTotalSavings() {
+        BigDecimal totalIncome = calculateTotalIncome();
+        BigDecimal totalExpenses = calculateTotalExpense();
+        return totalIncome.subtract(totalExpenses);
+    }
+    public void updateTotalSavingsLabel() {
+        BigDecimal totalSavings = calculateTotalSavings();
+        labelsavings.setText("PHP " + totalSavings.toString());
+    }
+
     public void fetchIncomesortasc() {
         int userId = UserSession.getUserID();
         try {
@@ -2736,6 +2879,10 @@ public class Dashboard extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton kButton2;
     private com.k33ptoo.components.KButton kButton3;
     private com.k33ptoo.components.KButton kButton7;
+    private javax.swing.JLabel labelexpense;
+    private javax.swing.JLabel labelincome;
+    private javax.swing.JLabel labelsavings;
+    private javax.swing.JLabel labelspent;
     private javax.swing.JPanel menu1;
     private javax.swing.JPanel menu2;
     private javax.swing.JPanel menu3;
