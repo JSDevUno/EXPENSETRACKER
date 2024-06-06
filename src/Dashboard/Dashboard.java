@@ -2296,8 +2296,7 @@ public class Dashboard extends javax.swing.JFrame {
 
             if (k == 1) {
                 JOptionPane.showMessageDialog(this, "EXPENSE ADDED!");
-
-                // Update the budget table
+              
                 pst = con.prepareStatement("SELECT * FROM budget WHERE userid = ? AND category = ?");
                 pst.setInt(1, userID);
                 pst.setString(2, category);
