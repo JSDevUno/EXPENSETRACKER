@@ -1136,7 +1136,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel34.setForeground(new java.awt.Color(51, 51, 51));
         jLabel34.setText("BUDGET");
 
-        sortComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sort by amount asc", "sort by amount dsc", "sort by date asc", "sort by date dsc" }));
+        sortComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sort by budget amount asc", "sort by budget amount dsc", "sort by spent amount asc", "sort by spent amount dsc", "sort by date asc", "sort by date dsc" }));
         sortComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sortComboBox3ActionPerformed(evt);
@@ -1620,7 +1620,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         try {
             pst = con.prepareStatement("SELECT expenseid FROM expenses WHERE userid = ?");
-            pst.setInt(1, userId); // Set the user ID parameter
+            pst.setInt(1, userId); 
 
             ResultSet rs = pst.executeQuery();
 
@@ -1747,7 +1747,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         try {
             pst = con.prepareStatement("SELECT incomeid FROM income WHERE userid = ?");
-            pst.setInt(1, userId); // Set the user ID parameter
+            pst.setInt(1, userId); 
 
             ResultSet rs = pst.executeQuery();
 
@@ -2032,7 +2032,7 @@ public class Dashboard extends javax.swing.JFrame {
 
             ResultSet rs = pst.executeQuery();
 
-            budID.removeAllItems();  // Assuming budID is the name of your combo box
+            budID.removeAllItems();  
 
             while (rs.next()) {
                 budID.addItem(rs.getString("budgetid"));
@@ -2044,7 +2044,36 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void fetchBudgetSort(String column, String order) {
+        int userId = UserSession.getUserID();
+        try {
+            String query = "SELECT * FROM budget WHERE userid = ? ORDER BY " + column + " " + order;
+            pst = con.prepareStatement(query);
+            pst.setInt(1, userId);
 
+            ResultSet rs = pst.executeQuery();
+
+            DefaultTableModel budgetTableModel = (DefaultTableModel) budgetTable.getModel();
+            budgetTableModel.setRowCount(0);
+
+            while (rs.next()) {
+                Object[] rowData = {
+                    rs.getInt("budgetid"),
+                    rs.getString("category"),
+                    rs.getBigDecimal("budgetamount"),
+                    rs.getBigDecimal("spentamount"),
+                    rs.getBigDecimal("remainingamount"),
+                    rs.getDate("date")
+                };
+                budgetTableModel.addRow(rowData);
+            }
+
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     //ADD EXPENSES
     private void kButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton7ActionPerformed
@@ -2263,7 +2292,7 @@ public class Dashboard extends javax.swing.JFrame {
             String amountText = txtamount2.getText();
             java.util.Date utilDate = jDateChooser2.getDate();
             String frequency = (String) frequencycombobox.getSelectedItem();
-            String incomeId = inID.getSelectedItem().toString(); // Assuming you have a component to select the income ID
+            String incomeId = inID.getSelectedItem().toString(); 
 
             java.sql.Date sqlDate = null;
             if (utilDate != null) {
@@ -2315,7 +2344,7 @@ public class Dashboard extends javax.swing.JFrame {
                 txtamount2.setText("");
                 jDateChooser2.setDate(null);
                 frequencycombobox.setSelectedIndex(0);
-                fetchIncome(); // Update the displayed income after deletion
+                fetchIncome(); 
                 loadIncome();
             } else {
                 JOptionPane.showMessageDialog(this, "INCOME FAILED TO DELETE!");
@@ -2483,7 +2512,27 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_sortComboBox1ActionPerformed
 
     private void sortComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortComboBox3ActionPerformed
-        // TODO add your handling code here:
+        String selectedSortOption = (String) sortComboBox3.getSelectedItem();
+        switch (selectedSortOption) {
+            case "sort by budget amount asc":
+                fetchBudgetSort("budgetamount", "ASC");
+                break;
+            case "sort by budget amount dsc":
+                fetchBudgetSort("budgetamount", "DESC");
+                break;
+            case "sort by spent amount asc":
+                fetchBudgetSort("spentamount", "ASC");
+                break;
+            case "sort by spent amount dsc":
+                fetchBudgetSort("spentamount", "DESC");
+                break;
+            case "sort by date asc":
+                fetchBudgetSort("date", "ASC");
+                break;
+            case "sort by date dsc":
+                fetchBudgetSort("date", "DESC");
+                break;
+        }
     }//GEN-LAST:event_sortComboBox3ActionPerformed
 
     private void budupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_budupdateActionPerformed
@@ -2491,7 +2540,7 @@ public class Dashboard extends javax.swing.JFrame {
         String budgetAmountText = txtbudgetamount.getText();
         String spentAmountText = txtspentamount.getText();
         java.util.Date utilDate = jDateChooser3.getDate();
-        String budgetId = budID.getSelectedItem().toString();  // Assuming budID is the identifier component
+        String budgetId = budID.getSelectedItem().toString(); 
 
         java.sql.Date sqlDate = null;
         if (utilDate != null) {
