@@ -2367,7 +2367,28 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_budaddActionPerformed
 
     private void buddeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buddeleteActionPerformed
-        // TODO add your handling code here:
+        try {
+            String budgetId = budID.getSelectedItem().toString();
+
+            pst = con.prepareStatement("DELETE FROM budget WHERE budgetid=?");
+            pst.setString(1, budgetId);
+
+            int k = pst.executeUpdate();
+
+            if (k == 1) {
+                JOptionPane.showMessageDialog(this, "BUDGET DELETED!");
+                categorycombobox2.setSelectedIndex(0);
+                txtbudgetamount.setText("");
+                txtspentamount.setText("");
+                jDateChooser3.setDate(null);
+                fetchBudget(); 
+                loadBudget(); 
+            } else {
+                JOptionPane.showMessageDialog(this, "BUDGET FAILED TO DELETE!");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_buddeleteActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
