@@ -168,7 +168,6 @@ public class Dashboard extends javax.swing.JFrame {
         budID = new javax.swing.JComboBox<>();
         budadd = new com.k33ptoo.components.KButton();
         budupdate = new com.k33ptoo.components.KButton();
-        buddelete = new com.k33ptoo.components.KButton();
         jLabel46 = new javax.swing.JLabel();
         categorycombobox2 = new javax.swing.JComboBox<>();
         jLabel47 = new javax.swing.JLabel();
@@ -180,6 +179,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel16 = new javax.swing.JPanel();
         txtspentamount = new javax.swing.JTextField();
         jLabel48 = new javax.swing.JLabel();
+        buddelete = new com.k33ptoo.components.KButton();
         jPanel12 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
@@ -482,7 +482,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 90, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel32)
                 .addGap(90, 90, 90))
         );
@@ -1146,15 +1146,6 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        buddelete.setText("DELETE");
-        buddelete.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        buddelete.setPreferredSize(new java.awt.Dimension(185, 31));
-        buddelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buddeleteActionPerformed(evt);
-            }
-        });
-
         jLabel46.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         jLabel46.setForeground(new java.awt.Color(51, 51, 51));
         jLabel46.setText("CATEGORY:");
@@ -1208,91 +1199,107 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel48.setForeground(new java.awt.Color(51, 51, 51));
         jLabel48.setText("SPENT AMOUNT:");
 
+        buddelete.setText("DELETE");
+        buddelete.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        buddelete.setPreferredSize(new java.awt.Dimension(185, 31));
+        buddelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buddeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel34)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(211, 211, 211)
                         .addComponent(budID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
-                        .addComponent(sortComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(sortComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(buddelete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(budupdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, Short.MAX_VALUE)
-                                        .addComponent(budadd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel49))
-                            .addComponent(jLabel46)
-                            .addComponent(jLabel47))
-                        .addGap(36, 36, 36)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtbudgetamount, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(categorycombobox2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(8, 8, 8)
+                                    .addComponent(budadd, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(budupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(33, 33, 33)
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addGap(123, 123, 123)
-                                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(8, 8, 8))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel48)
-                                        .addGap(48, 48, 48))))
-                            .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                                        .addGap(42, 42, 42)
+                                        .addComponent(jLabel46))
+                                    .addComponent(jLabel47)))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(buddelete, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(110, 110, 110)
+                                .addComponent(jLabel49)))
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(categorycombobox2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtbudgetamount, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(137, 137, 137)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addGap(40, 40, 40)
+                                        .addComponent(jLabel48))
+                                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(budID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sortComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(budID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(sortComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(budadd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel46)
-                            .addComponent(categorycombobox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel48)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(budupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel47)
+                        .addComponent(budadd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(budupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel46)
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel47))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(categorycombobox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16)
                         .addComponent(txtbudgetamount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel48)
+                        .addGap(4, 4, 4)
+                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(6, 6, 6)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel49)
-                    .addComponent(buddelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(59, Short.MAX_VALUE))
+                    .addComponent(buddelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel49)))))
         );
 
         jTabbedPane1.addTab("tab4", jPanel7);
@@ -2262,8 +2269,22 @@ public class Dashboard extends javax.swing.JFrame {
             sqlDate = new java.sql.Date(utilDate.getTime());
         }
 
-        try {
-            // Insert the expense
+        try {            
+            pst = con.prepareStatement("SELECT budgetamount, spentamount FROM budget WHERE userid = ? AND category = ?");
+            pst.setInt(1, userID);
+            pst.setString(2, category);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                BigDecimal budgetAmount = rs.getBigDecimal("budgetamount");
+                BigDecimal spentAmount = rs.getBigDecimal("spentamount");
+                BigDecimal newSpentAmount = spentAmount.add(expenseAmount);
+
+                if (newSpentAmount.compareTo(budgetAmount) > 0) {
+                    JOptionPane.showMessageDialog(this, "This expense exceeds the budget for the category: " + category);
+                    return;
+                }
+            } 
             pst = con.prepareStatement("INSERT INTO expenses (userid, category, amount, description, date) VALUES (?, ?, ?, ?, ?)");
             pst.setInt(1, userID);
             pst.setString(2, category);
@@ -2282,8 +2303,7 @@ public class Dashboard extends javax.swing.JFrame {
                 pst.setString(2, category);
                 ResultSet rs = pst.executeQuery();
 
-                if (rs.next()) {
-                    // Budget entry exists, update spentamount
+                if (rs.next()) {                    
                     BigDecimal spentAmount = rs.getBigDecimal("spentamount").add(expenseAmount);
 
                     pst = con.prepareStatement("UPDATE budget SET spentamount = ? WHERE userid = ? AND category = ?");
@@ -2291,8 +2311,7 @@ public class Dashboard extends javax.swing.JFrame {
                     pst.setInt(2, userID);
                     pst.setString(3, category);
                     pst.executeUpdate();
-                } else {
-                    // No budget entry exists, insert a new entry with spentamount
+                } else {                    
                     pst = con.prepareStatement("INSERT INTO budget (userid, category, budgetamount, spentamount, date) VALUES (?, ?, 0, ?, ?)");
                     pst.setInt(1, userID);
                     pst.setString(2, category);
@@ -2562,8 +2581,15 @@ public class Dashboard extends javax.swing.JFrame {
             sqlDate = new java.sql.Date(utilDate.getTime());
         }
 
-        try {
-            // Calculate the total budget amount
+        try {           
+            pst = con.prepareStatement("SELECT COUNT(*) as expenseCount FROM expenses WHERE userid = ?");
+            pst.setInt(1, userID);
+            rs = pst.executeQuery();
+
+            if (rs.next() && rs.getInt("expenseCount") == 0) {
+                JOptionPane.showMessageDialog(this, "Please add an expense first!");
+                return;
+            }
             BigDecimal totalBudget = calculateTotalBudget();
             BigDecimal totalIncome = calculateTotalIncome();
 
@@ -2571,15 +2597,13 @@ public class Dashboard extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "The total budget exceeds the total income!");
                 return;
             }
-
-            // Check if the category already exists
+            
             pst = con.prepareStatement("SELECT * FROM budget WHERE userid = ? AND category = ?");
             pst.setInt(1, userID);
             pst.setString(2, category);
             ResultSet rs = pst.executeQuery();
 
-            if (rs.next()) {
-                // Category exists, update the budget amount and date
+            if (rs.next()) {               
                 BigDecimal existingBudgetAmount = rs.getBigDecimal("budgetamount").add(budgetAmount);
 
                 pst = con.prepareStatement("UPDATE budget SET budgetamount = ?, date = ? WHERE userid = ? AND category = ?");
@@ -2588,8 +2612,7 @@ public class Dashboard extends javax.swing.JFrame {
                 pst.setInt(3, userID);
                 pst.setString(4, category);
                 pst.executeUpdate();
-            } else {
-                // Insert a new budget entry
+            } else {               
                 pst = con.prepareStatement("INSERT INTO budget (userid, category, budgetamount, date) VALUES (?, ?, ?, ?)");
                 pst.setInt(1, userID);
                 pst.setString(2, category);
@@ -2637,22 +2660,22 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_buddeleteActionPerformed
-private BigDecimal calculateTotalBudget() {
-    BigDecimal totalBudget = BigDecimal.ZERO;
-    try {
-        pst = con.prepareStatement("SELECT SUM(budgetamount) as total FROM budget WHERE userid = ?");
-        pst.setInt(1, userID);
-        ResultSet rs = pst.executeQuery();
-        if (rs.next()) {
-            totalBudget = rs.getBigDecimal("total");
+    private BigDecimal calculateTotalBudget() {
+        BigDecimal totalBudget = BigDecimal.ZERO;
+        try {
+            pst = con.prepareStatement("SELECT SUM(budgetamount) as total FROM budget WHERE userid = ?");
+            pst.setInt(1, userID);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                totalBudget = rs.getBigDecimal("total");
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
-        rs.close();
-        pst.close();
-    } catch (SQLException ex) {
-        Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        return totalBudget;
     }
-    return totalBudget;
-}
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
             File imageFile = new File(imagePath);
