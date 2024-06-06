@@ -49,6 +49,7 @@ public class Dashboard extends javax.swing.JFrame {
         fetchExpenses();
         loadIncome();
         fetchIncome();
+        fetchBudget();
         displayUserProfile(); 
         setLocationRelativeTo(null);
         DefaultColor = new Color(51,51,51);
@@ -157,20 +158,22 @@ public class Dashboard extends javax.swing.JFrame {
         sortComboBox2 = new javax.swing.JComboBox<>();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        budgetTable = new javax.swing.JTable();
         kButton3 = new com.k33ptoo.components.KButton();
-        prodID1 = new javax.swing.JComboBox<>();
-        searchProd3 = new com.k33ptoo.components.KButton();
+        budID = new javax.swing.JComboBox<>();
         budadd = new com.k33ptoo.components.KButton();
         budupdate = new com.k33ptoo.components.KButton();
         buddelete = new com.k33ptoo.components.KButton();
         jLabel46 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        categorycombobox2 = new javax.swing.JComboBox<>();
         jLabel47 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtbudgetamount = new javax.swing.JTextField();
         jLabel48 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtspentamount = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
+        sortComboBox3 = new javax.swing.JComboBox<>();
+        jDateChooser3 = new com.toedter.calendar.JDateChooser();
+        jLabel49 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
@@ -977,18 +980,6 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel31)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(inID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(70, 70, 70)
-                                .addComponent(sortComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(38, 38, 38))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
                                 .addComponent(indelete, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1006,11 +997,21 @@ public class Dashboard extends javax.swing.JFrame {
                             .addComponent(txtsource)
                             .addComponent(txtamount2)
                             .addComponent(frequencycombobox, 0, 180, Short.MAX_VALUE))
-                        .addGap(84, 84, 84)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel45)
-                            .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel45)))
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addComponent(jLabel31)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(inID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(70, 70, 70)
+                            .addComponent(sortComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(38, 38, 38))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1052,41 +1053,33 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(0, 255, 255));
 
-        jTable4.setBackground(new java.awt.Color(255, 255, 255));
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        budgetTable.setBackground(new java.awt.Color(255, 255, 255));
+        budgetTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Category", "Budget Amount", "Spent Amount", "Remaining Amount"
+                "ID", "Category", "Budget Amount", "Spent Amount", "Remaining Amount", "Date"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane5.setViewportView(jTable4);
+        jScrollPane5.setViewportView(budgetTable);
 
         kButton3.setText("SEARCH ID");
         kButton3.setFont(new java.awt.Font("Tw Cen MT", 1, 12)); // NOI18N
 
-        prodID1.setBackground(new java.awt.Color(255, 255, 255));
-        prodID1.setForeground(new java.awt.Color(0, 0, 0));
-
-        searchProd3.setText("SORT BY AMOUNT");
-        searchProd3.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        searchProd3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchProd3ActionPerformed(evt);
-            }
-        });
+        budID.setBackground(new java.awt.Color(255, 255, 255));
+        budID.setForeground(new java.awt.Color(0, 0, 0));
 
         budadd.setText("ADD");
         budadd.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
@@ -1112,25 +1105,36 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel46.setForeground(new java.awt.Color(51, 51, 51));
         jLabel46.setText("CATEGORY:");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Groceries", "Utilities", "Transportation", "Housing", "Healthcare", "Entertainment", "Education", "Clothing", "Travel", "Personal Care" }));
+        categorycombobox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Groceries", "Utilities", "Transportation", "Housing", "Healthcare", "Entertainment", "Education", "Clothing", "Travel", "Personal Care" }));
 
         jLabel47.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(51, 51, 51));
         jLabel47.setText("BUDGET AMOUNT:");
 
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField3.setForeground(new java.awt.Color(0, 0, 0));
+        txtbudgetamount.setBackground(new java.awt.Color(255, 255, 255));
+        txtbudgetamount.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel48.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         jLabel48.setForeground(new java.awt.Color(51, 51, 51));
         jLabel48.setText("SPENT AMOUNT:");
 
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
+        txtspentamount.setBackground(new java.awt.Color(255, 255, 255));
+        txtspentamount.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel34.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(51, 51, 51));
         jLabel34.setText("BUDGET");
+
+        sortComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sort by amount asc", "sort by amount dsc", "sort by date asc", "sort by date dsc" }));
+        sortComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortComboBox3ActionPerformed(evt);
+            }
+        });
+
+        jLabel49.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        jLabel49.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel49.setText("DATE:");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -1138,17 +1142,16 @@ public class Dashboard extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap(38, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel7Layout.createSequentialGroup()
-                            .addComponent(jLabel34)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(prodID1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(97, 97, 97)
-                            .addComponent(searchProd3, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel34)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(budID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)
+                        .addComponent(sortComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(buddelete, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1162,9 +1165,13 @@ public class Dashboard extends javax.swing.JFrame {
                             .addComponent(jLabel48))
                         .addGap(36, 36, 36)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox3, 0, 180, Short.MAX_VALUE)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4))))
+                            .addComponent(categorycombobox2, 0, 180, Short.MAX_VALUE)
+                            .addComponent(txtbudgetamount)
+                            .addComponent(txtspentamount))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel49))))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -1175,8 +1182,8 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(16, 16, 16)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(prodID1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchProd3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(budID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sortComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1186,18 +1193,21 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(budadd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel46)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(categorycombobox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel49))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(budupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel47)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(budupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel47)
+                        .addComponent(txtbudgetamount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(buddelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel48))
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtspentamount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
 
@@ -1969,6 +1979,39 @@ public class Dashboard extends javax.swing.JFrame {
         }
         
     }
+    public void fetchBudget() {
+        int userId = UserSession.getUserID();
+        try {
+            pst = con.prepareStatement("SELECT * FROM budget WHERE userid = ?");
+            pst.setInt(1, userId);
+
+            ResultSet rs = pst.executeQuery();
+
+            DefaultTableModel budgetTableModel = (DefaultTableModel) budgetTable.getModel();
+            budgetTableModel.setRowCount(0);
+
+            while (rs.next()) {
+                BigDecimal budgetAmount = rs.getBigDecimal("budgetamount");
+                BigDecimal spentAmount = rs.getBigDecimal("spentamount");
+                BigDecimal remainingAmount = budgetAmount.subtract(spentAmount);
+
+                Object[] rowData = {
+                    rs.getInt("budgetid"),
+                    rs.getString("category"),
+                    budgetAmount,
+                    spentAmount,
+                    remainingAmount,
+                    rs.getDate("date")
+                };
+                budgetTableModel.addRow(rowData);
+            }
+
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     //ADD EXPENSES
     private void kButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton7ActionPerformed
@@ -2249,12 +2292,45 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_indeleteActionPerformed
 
-    private void searchProd3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchProd3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchProd3ActionPerformed
-
     private void budaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_budaddActionPerformed
-        // TODO add your handling code here:
+        String category = (String) categorycombobox2.getSelectedItem();
+        String budgetAmountText = txtbudgetamount.getText();
+        String spentAmountText = txtspentamount.getText();
+        java.util.Date utilDate = jDateChooser3.getDate();
+
+        java.sql.Date sqlDate = null;
+        if (utilDate != null) {
+            sqlDate = new java.sql.Date(utilDate.getTime());
+        }
+
+        try {
+            pst = con.prepareStatement("INSERT INTO budget (userid, category, budgetamount, spentamount, date) VALUES (?, ?, ?, ?, ?)");
+
+            pst.setInt(1, userID); 
+            pst.setString(2, category);
+            pst.setBigDecimal(3, new BigDecimal(budgetAmountText));
+            pst.setBigDecimal(4, new BigDecimal(spentAmountText));
+            pst.setDate(5, sqlDate); 
+
+            int k = pst.executeUpdate();
+
+            if (k == 1) {
+                JOptionPane.showMessageDialog(this, "BUDGET ADDED!");
+                categorycombobox2.setSelectedIndex(0);
+                txtbudgetamount.setText("");
+                txtspentamount.setText("");
+                jDateChooser3.setDate(null);
+                fetchBudget(); 
+                //loadBudget();  // Assuming you have a method to load budget data into the UI
+            } else {
+                JOptionPane.showMessageDialog(this, "BUDGET FAILED TO SAVE!");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Please enter valid amounts.");
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_budaddActionPerformed
 
     private void buddeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buddeleteActionPerformed
@@ -2351,6 +2427,10 @@ public class Dashboard extends javax.swing.JFrame {
             fetchExpensesortdatedsc();
         }
     }//GEN-LAST:event_sortComboBox1ActionPerformed
+
+    private void sortComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortComboBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sortComboBox3ActionPerformed
     
     
     public static void main(String args[]) {
@@ -2388,10 +2468,13 @@ public class Dashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField amounttextfield1;
     private javax.swing.border.BevelBorder bevelBorder1;
+    private javax.swing.JComboBox<String> budID;
     private com.k33ptoo.components.KButton budadd;
     private com.k33ptoo.components.KButton buddelete;
+    private javax.swing.JTable budgetTable;
     private com.k33ptoo.components.KButton budupdate;
     private javax.swing.JComboBox<String> categorycombobox;
+    private javax.swing.JComboBox<String> categorycombobox2;
     private com.k33ptoo.components.KButton exDelete;
     private javax.swing.JComboBox<String> exID;
     private com.k33ptoo.components.KButton exUpdate;
@@ -2405,9 +2488,9 @@ public class Dashboard extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton inupdate;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2449,6 +2532,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2478,9 +2562,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private com.k33ptoo.components.KButton kButton1;
     private com.k33ptoo.components.KButton kButton2;
     private com.k33ptoo.components.KButton kButton3;
@@ -2489,17 +2570,18 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel menu2;
     private javax.swing.JPanel menu3;
     private javax.swing.JPanel menu8;
-    private javax.swing.JComboBox<String> prodID1;
     private javax.swing.JLabel profile;
     private javax.swing.JPanel recenttrans;
     private javax.swing.JPanel savings;
-    private com.k33ptoo.components.KButton searchProd3;
     private javax.swing.JComboBox<String> sortComboBox1;
     private javax.swing.JComboBox<String> sortComboBox2;
+    private javax.swing.JComboBox<String> sortComboBox3;
     private javax.swing.JPanel totalex;
     private javax.swing.JPanel totalin;
     private javax.swing.JTextField txtamount2;
+    private javax.swing.JTextField txtbudgetamount;
     private javax.swing.JTextArea txtdescription;
     private javax.swing.JTextField txtsource;
+    private javax.swing.JTextField txtspentamount;
     // End of variables declaration//GEN-END:variables
 }
