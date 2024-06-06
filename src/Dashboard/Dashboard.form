@@ -1735,28 +1735,42 @@
                               <Component id="jScrollPane5" alignment="1" min="-2" pref="754" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="buddelete" min="-2" pref="72" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="budupdate" alignment="0" pref="72" max="32767" attributes="0"/>
-                                          <Component id="budadd" alignment="0" pref="72" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="buddelete" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="budupdate" alignment="0" pref="72" max="32767" attributes="0"/>
+                                                  <Component id="budadd" alignment="0" pref="72" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="jLabel49" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jLabel46" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel47" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="categorycombobox2" pref="180" max="32767" attributes="0"/>
-                                      <Component id="txtbudgetamount" max="32767" attributes="0"/>
-                                      <Component id="txtspentamount" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="txtbudgetamount" min="-2" pref="180" max="-2" attributes="0"/>
+                                              <Component id="categorycombobox2" min="-2" pref="180" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                                                  <Component id="jPanel16" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
                                       <Component id="jDateChooser3" min="-2" pref="180" max="-2" attributes="0"/>
-                                      <Component id="jLabel49" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -1783,12 +1797,19 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jScrollPane5" min="-2" pref="326" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="budadd" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                              <Component id="jLabel46" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="categorycombobox2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel49" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="budadd" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                      <Component id="jLabel46" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="categorycombobox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1797,17 +1818,15 @@
                                   <Component id="jLabel47" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtbudgetamount" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jDateChooser3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jPanel16" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="buddelete" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="jLabel48" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="txtspentamount" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jDateChooser3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel49" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="buddelete" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="61" max="32767" attributes="0"/>
+                          <EmptySpace pref="59" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1992,27 +2011,6 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel48">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tw Cen MT" size="14" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="33" green="33" red="33" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="SPENT AMOUNT:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtspentamount">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="0" green="0" red="0" type="rgb"/>
-                    </Property>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JLabel" name="jLabel34">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -2055,6 +2053,53 @@
                       <Color blue="33" green="33" red="33" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="DATE:"/>
+                  </Properties>
+                </Component>
+                <Container class="javax.swing.JPanel" name="jPanel16">
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtspentamount" pref="168" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtspentamount" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextField" name="txtspentamount">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="0" type="rgb"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JLabel" name="jLabel48">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tw Cen MT" size="14" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="33" green="33" red="33" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="SPENT AMOUNT:"/>
                   </Properties>
                 </Component>
               </SubComponents>

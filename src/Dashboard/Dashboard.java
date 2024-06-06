@@ -173,12 +173,13 @@ public class Dashboard extends javax.swing.JFrame {
         categorycombobox2 = new javax.swing.JComboBox<>();
         jLabel47 = new javax.swing.JLabel();
         txtbudgetamount = new javax.swing.JTextField();
-        jLabel48 = new javax.swing.JLabel();
-        txtspentamount = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         sortComboBox3 = new javax.swing.JComboBox<>();
         jDateChooser3 = new com.toedter.calendar.JDateChooser();
         jLabel49 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        txtspentamount = new javax.swing.JTextField();
+        jLabel48 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
@@ -1167,13 +1168,6 @@ public class Dashboard extends javax.swing.JFrame {
         txtbudgetamount.setBackground(new java.awt.Color(255, 255, 255));
         txtbudgetamount.setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel48.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        jLabel48.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel48.setText("SPENT AMOUNT:");
-
-        txtspentamount.setBackground(new java.awt.Color(255, 255, 255));
-        txtspentamount.setForeground(new java.awt.Color(0, 0, 0));
-
         jLabel34.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(51, 51, 51));
         jLabel34.setText("BUDGET");
@@ -1188,6 +1182,31 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel49.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         jLabel49.setForeground(new java.awt.Color(51, 51, 51));
         jLabel49.setText("DATE:");
+
+        txtspentamount.setEditable(false);
+        txtspentamount.setBackground(new java.awt.Color(255, 255, 255));
+        txtspentamount.setForeground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtspentamount, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtspentamount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel48.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel48.setText("SPENT AMOUNT:");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -1207,24 +1226,33 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(buddelete, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(budupdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, Short.MAX_VALUE)
-                                .addComponent(budadd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)))
-                        .addGap(34, 34, 34)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(buddelete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(budupdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, Short.MAX_VALUE)
+                                        .addComponent(budadd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel49))
                             .addComponent(jLabel46)
-                            .addComponent(jLabel47)
-                            .addComponent(jLabel48))
+                            .addComponent(jLabel47))
                         .addGap(36, 36, 36)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(categorycombobox2, 0, 180, Short.MAX_VALUE)
-                            .addComponent(txtbudgetamount)
-                            .addComponent(txtspentamount))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel49))))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtbudgetamount, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(categorycombobox2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(8, 8, 8)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addGap(123, 123, 123)
+                                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(8, 8, 8))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel48)
+                                        .addGap(48, 48, 48))))
+                            .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -1242,26 +1270,29 @@ public class Dashboard extends javax.swing.JFrame {
                         .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(budadd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel46)
-                    .addComponent(categorycombobox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel49))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(budadd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel46)
+                            .addComponent(categorycombobox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel48)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(budupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel47)
                         .addComponent(txtbudgetamount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buddelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel48))
-                    .addComponent(txtspentamount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(61, Short.MAX_VALUE))
+                    .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel49)
+                    .addComponent(buddelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab4", jPanel7);
@@ -2220,9 +2251,9 @@ public class Dashboard extends javax.swing.JFrame {
 
     //ADD EXPENSES
     private void kButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton7ActionPerformed
-       
-        String category = (String) categorycombobox.getSelectedItem();
+       String category = (String) categorycombobox.getSelectedItem();
         String amountText = amounttextfield1.getText();
+        BigDecimal expenseAmount = new BigDecimal(amountText);
         java.util.Date utilDate = jDateChooser1.getDate();
         String description = txtdescription.getText();
 
@@ -2232,24 +2263,47 @@ public class Dashboard extends javax.swing.JFrame {
         }
 
         try {
+            // Insert the expense
             pst = con.prepareStatement("INSERT INTO expenses (userid, category, amount, description, date) VALUES (?, ?, ?, ?, ?)");
-
-            pst.setInt(1, userID); 
+            pst.setInt(1, userID);
             pst.setString(2, category);
-            pst.setBigDecimal(3, new BigDecimal(amountText));
+            pst.setBigDecimal(3, expenseAmount);
             pst.setString(4, description);
-            pst.setDate(5, sqlDate); 
-            
+            pst.setDate(5, sqlDate);
+
             int k = pst.executeUpdate();
-            
+
             if (k == 1) {
                 JOptionPane.showMessageDialog(this, "EXPENSE ADDED!");
-                categorycombobox.setSelectedIndex(0);
-                amounttextfield1.setText("");
-                txtdescription.setText("");  
-                jDateChooser1.setDate(null);
+
+                // Update the budget table
+                pst = con.prepareStatement("SELECT * FROM budget WHERE userid = ? AND category = ?");
+                pst.setInt(1, userID);
+                pst.setString(2, category);
+                ResultSet rs = pst.executeQuery();
+
+                if (rs.next()) {
+                    // Budget entry exists, update spentamount
+                    BigDecimal spentAmount = rs.getBigDecimal("spentamount").add(expenseAmount);
+
+                    pst = con.prepareStatement("UPDATE budget SET spentamount = ? WHERE userid = ? AND category = ?");
+                    pst.setBigDecimal(1, spentAmount);
+                    pst.setInt(2, userID);
+                    pst.setString(3, category);
+                    pst.executeUpdate();
+                } else {
+                    // No budget entry exists, insert a new entry with spentamount
+                    pst = con.prepareStatement("INSERT INTO budget (userid, category, budgetamount, spentamount, date) VALUES (?, ?, 0, ?, ?)");
+                    pst.setInt(1, userID);
+                    pst.setString(2, category);
+                    pst.setBigDecimal(3, expenseAmount);
+                    pst.setDate(4, sqlDate);
+                    pst.executeUpdate();
+                }
+
                 fetchExpenses();
                 loadExpenses();
+                fetchBudget();
             } else {
                 JOptionPane.showMessageDialog(this, "EXPENSE FAILED TO SAVE!");
             }
@@ -2500,7 +2554,7 @@ public class Dashboard extends javax.swing.JFrame {
     private void budaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_budaddActionPerformed
         String category = (String) categorycombobox2.getSelectedItem();
         String budgetAmountText = txtbudgetamount.getText();
-        String spentAmountText = txtspentamount.getText();
+        BigDecimal budgetAmount = new BigDecimal(budgetAmountText);
         java.util.Date utilDate = jDateChooser3.getDate();
 
         java.sql.Date sqlDate = null;
@@ -2509,35 +2563,56 @@ public class Dashboard extends javax.swing.JFrame {
         }
 
         try {
-            pst = con.prepareStatement("INSERT INTO budget (userid, category, budgetamount, spentamount, date) VALUES (?, ?, ?, ?, ?)");
+            // Calculate the total budget amount
+            BigDecimal totalBudget = calculateTotalBudget();
+            BigDecimal totalIncome = calculateTotalIncome();
 
-            pst.setInt(1, userID); 
-            pst.setString(2, category);
-            pst.setBigDecimal(3, new BigDecimal(budgetAmountText));
-            pst.setBigDecimal(4, new BigDecimal(spentAmountText));
-            pst.setDate(5, sqlDate); 
-
-            int k = pst.executeUpdate();
-
-            if (k == 1) {
-                JOptionPane.showMessageDialog(this, "BUDGET ADDED!");
-                categorycombobox2.setSelectedIndex(0);
-                txtbudgetamount.setText("");
-                txtspentamount.setText("");
-                jDateChooser3.setDate(null);
-                fetchBudget(); 
-                loadBudget();
-            } else {
-                JOptionPane.showMessageDialog(this, "BUDGET FAILED TO SAVE!");
+            if (totalBudget.add(budgetAmount).compareTo(totalIncome) > 0) {
+                JOptionPane.showMessageDialog(this, "The total budget exceeds the total income!");
+                return;
             }
+
+            // Check if the category already exists
+            pst = con.prepareStatement("SELECT * FROM budget WHERE userid = ? AND category = ?");
+            pst.setInt(1, userID);
+            pst.setString(2, category);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                // Category exists, update the budget amount and date
+                BigDecimal existingBudgetAmount = rs.getBigDecimal("budgetamount").add(budgetAmount);
+
+                pst = con.prepareStatement("UPDATE budget SET budgetamount = ?, date = ? WHERE userid = ? AND category = ?");
+                pst.setBigDecimal(1, existingBudgetAmount);
+                pst.setDate(2, sqlDate);
+                pst.setInt(3, userID);
+                pst.setString(4, category);
+                pst.executeUpdate();
+            } else {
+                // Insert a new budget entry
+                pst = con.prepareStatement("INSERT INTO budget (userid, category, budgetamount, date) VALUES (?, ?, ?, ?)");
+                pst.setInt(1, userID);
+                pst.setString(2, category);
+                pst.setBigDecimal(3, budgetAmount);
+                pst.setDate(4, sqlDate);
+                pst.executeUpdate();
+            }
+
+            JOptionPane.showMessageDialog(this, "BUDGET ADDED!");
+            categorycombobox2.setSelectedIndex(0);
+            txtbudgetamount.setText("");
+            jDateChooser3.setDate(null);
+            fetchBudget();
+            loadBudget();
+
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Please enter valid amounts.");
+            JOptionPane.showMessageDialog(this, "Please enter a valid amount.");
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_budaddActionPerformed
-
+    
     private void buddeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buddeleteActionPerformed
         try {
             String budgetId = budID.getSelectedItem().toString();
@@ -2562,7 +2637,22 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_buddeleteActionPerformed
-
+private BigDecimal calculateTotalBudget() {
+    BigDecimal totalBudget = BigDecimal.ZERO;
+    try {
+        pst = con.prepareStatement("SELECT SUM(budgetamount) as total FROM budget WHERE userid = ?");
+        pst.setInt(1, userID);
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+            totalBudget = rs.getBigDecimal("total");
+        }
+        rs.close();
+        pst.close();
+    } catch (SQLException ex) {
+        Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return totalBudget;
+}
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
             File imageFile = new File(imagePath);
@@ -2858,6 +2948,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
