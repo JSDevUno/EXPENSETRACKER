@@ -1294,7 +1294,7 @@
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="prodID" min="-2" pref="150" max="-2" attributes="0"/>
+                                          <Component id="inID" min="-2" pref="150" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="kButton2" min="-2" pref="70" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
@@ -1325,9 +1325,9 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jTextField1" max="32767" attributes="0"/>
-                                      <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jComboBox2" alignment="0" pref="180" max="32767" attributes="0"/>
+                                      <Component id="txtsource" max="32767" attributes="0"/>
+                                      <Component id="txtamount2" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="frequencycombobox" alignment="0" pref="180" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -1348,7 +1348,7 @@
                                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="kButton2" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                      <Component id="prodID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="inID" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="searchProd1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -1363,7 +1363,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="inadd" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="jLabel43" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtsource" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel45" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1372,14 +1372,14 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="inupdate" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                   <Component id="jLabel42" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtamount2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="indelete" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="frequencycombobox" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="61" max="32767" attributes="0"/>
                       </Group>
@@ -1394,7 +1394,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="jTable3">
+                    <Component class="javax.swing.JTable" name="incometable">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1403,9 +1403,9 @@
                           <Table columnCount="5" rowCount="4">
                             <Column editable="true" title="ID" type="java.lang.Integer"/>
                             <Column editable="true" title="Source" type="java.lang.String"/>
-                            <Column editable="true" title="Amount" type="java.lang.Integer"/>
-                            <Column editable="true" title="Frequency" type="java.lang.Double"/>
-                            <Column editable="true" title="Date" type="java.lang.String"/>
+                            <Column editable="true" title="Amount" type="java.lang.Double"/>
+                            <Column editable="true" title="Frequency" type="java.lang.String"/>
+                            <Column editable="true" title="Date" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1480,7 +1480,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="indeleteActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField1">
+                <Component class="javax.swing.JTextField" name="txtsource">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1523,7 +1523,7 @@
                     <Property name="text" type="java.lang.String" value="AMOUNT:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField2">
+                <Component class="javax.swing.JTextField" name="txtamount2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1533,13 +1533,14 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox2">
+                <Component class="javax.swing.JComboBox" name="frequencycombobox">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
+                      <StringArray count="4">
                         <StringItem index="0" value="Monthly"/>
                         <StringItem index="1" value="Bi-Weekly"/>
                         <StringItem index="2" value="Weekly"/>
+                        <StringItem index="3" value="Daily"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -1578,8 +1579,11 @@
                       <Font name="Tw Cen MT" size="12" style="1"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kButton2ActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="prodID">
+                <Component class="javax.swing.JComboBox" name="inID">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>

@@ -92,7 +92,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setText("Username:");
+        jLabel1.setText("Email:");
 
         TextEmail.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         TextEmail.setForeground(new java.awt.Color(0, 0, 0));

@@ -46,10 +46,10 @@ public class Dashboard extends javax.swing.JFrame {
         userID = UserSession.getUserID();
         con = Db.myconnection();
         loadExpenses();
-        //loadProduct();
         fetchExpenses();
-        displayUserProfile();
-        //fetchprod(); 
+        loadIncome();
+        fetchIncome();
+        displayUserProfile(); 
         setLocationRelativeTo(null);
         DefaultColor = new Color(51,51,51);
         ClickedColor = new Color(0,255,255);
@@ -59,7 +59,7 @@ public class Dashboard extends javax.swing.JFrame {
     class ImageIconCellRenderer implements TableCellRenderer{
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-            jTable3.setRowHeight(60);
+            incometable.setRowHeight(60);
         if (value instanceof ImageIcon) {
             ImageIcon imageIcon = (ImageIcon) value;
             Image image = imageIcon.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
@@ -139,21 +139,21 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        incometable = new javax.swing.JTable();
         inadd = new com.k33ptoo.components.KButton();
         inupdate = new com.k33ptoo.components.KButton();
         indelete = new com.k33ptoo.components.KButton();
-        jTextField1 = new javax.swing.JTextField();
+        txtsource = new javax.swing.JTextField();
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        txtamount2 = new javax.swing.JTextField();
+        frequencycombobox = new javax.swing.JComboBox<>();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jLabel45 = new javax.swing.JLabel();
         searchProd1 = new com.k33ptoo.components.KButton();
         kButton2 = new com.k33ptoo.components.KButton();
-        prodID = new javax.swing.JComboBox<>();
+        inID = new javax.swing.JComboBox<>();
         jLabel31 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -873,8 +873,8 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(0, 255, 255));
 
-        jTable3.setBackground(new java.awt.Color(255, 255, 255));
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        incometable.setBackground(new java.awt.Color(255, 255, 255));
+        incometable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -886,14 +886,14 @@ public class Dashboard extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(incometable);
 
         inadd.setText("ADD");
         inadd.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
@@ -920,8 +920,8 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
+        txtsource.setBackground(new java.awt.Color(255, 255, 255));
+        txtsource.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel43.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         jLabel43.setForeground(new java.awt.Color(51, 51, 51));
@@ -935,10 +935,10 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel42.setForeground(new java.awt.Color(51, 51, 51));
         jLabel42.setText("AMOUNT:");
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
+        txtamount2.setBackground(new java.awt.Color(255, 255, 255));
+        txtamount2.setForeground(new java.awt.Color(0, 0, 0));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monthly", "Bi-Weekly", "Weekly" }));
+        frequencycombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monthly", "Bi-Weekly", "Weekly", "Daily" }));
 
         jLabel45.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(51, 51, 51));
@@ -954,9 +954,14 @@ public class Dashboard extends javax.swing.JFrame {
 
         kButton2.setText("SEARCH ID");
         kButton2.setFont(new java.awt.Font("Tw Cen MT", 1, 12)); // NOI18N
+        kButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kButton2ActionPerformed(evt);
+            }
+        });
 
-        prodID.setBackground(new java.awt.Color(255, 255, 255));
-        prodID.setForeground(new java.awt.Color(0, 0, 0));
+        inID.setBackground(new java.awt.Color(255, 255, 255));
+        inID.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel31.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(51, 51, 51));
@@ -974,7 +979,7 @@ public class Dashboard extends javax.swing.JFrame {
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel31)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(prodID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(inID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(97, 97, 97)
@@ -997,9 +1002,9 @@ public class Dashboard extends javax.swing.JFrame {
                                     .addComponent(jLabel42))))
                         .addGap(36, 36, 36)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jComboBox2, 0, 180, Short.MAX_VALUE))
+                            .addComponent(txtsource)
+                            .addComponent(txtamount2)
+                            .addComponent(frequencycombobox, 0, 180, Short.MAX_VALUE))
                         .addGap(84, 84, 84)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel45)
@@ -1014,7 +1019,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(16, 16, 16)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(prodID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(searchProd1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addContainerGap()
@@ -1025,7 +1030,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inadd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel43)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtsource, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel45))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1033,12 +1038,12 @@ public class Dashboard extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(inupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel42)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtamount2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(indelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel44)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(frequencycombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
 
@@ -1644,7 +1649,7 @@ public class Dashboard extends javax.swing.JFrame {
             pst = con.prepareStatement("SELECT image FROM users WHERE userid = ?");
             pst.setInt(1, userId);
             ResultSet rs = pst.executeQuery();
-
+            
             if (rs.next()) {
                 byte[] imageData = rs.getBytes("image");
                 if (imageData != null) {
@@ -1686,6 +1691,57 @@ public class Dashboard extends javax.swing.JFrame {
         ImageIcon userImageIcon = fetchUserImage(desiredWidth, desiredHeight);
         profile.setIcon(userImageIcon);
     }
+    public void fetchIncome(){
+        int userId = UserSession.getUserID(); 
+
+        try {           
+            pst = con.prepareStatement("SELECT * FROM income WHERE userid = ?");
+            pst.setInt(1, userId); 
+
+            ResultSet rs = pst.executeQuery();
+
+            DefaultTableModel incomeTableModel = (DefaultTableModel) incometable.getModel();
+            incomeTableModel.setRowCount(0); 
+
+            while (rs.next()) {
+                Object[] rowData = {
+                    rs.getInt("incomeid"),
+                    rs.getString("source"),
+                    rs.getBigDecimal("amount"),
+                    rs.getString("frequency"),
+                    rs.getDate("date")
+                };
+                incomeTableModel.addRow(rowData); 
+            }
+
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void loadIncome(){
+        int userId = UserSession.getUserID();
+
+        try {
+            pst = con.prepareStatement("SELECT incomeid FROM income WHERE userid = ?");
+            pst.setInt(1, userId); // Set the user ID parameter
+
+            ResultSet rs = pst.executeQuery();
+
+            inID.removeAllItems();
+
+            while (rs.next()) {
+                inID.addItem(rs.getString("incomeid"));
+            }
+
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     //ADD EXPENSES
     private void kButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton7ActionPerformed
        
@@ -1834,7 +1890,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JFileChooser ch = new JFileChooser("C:\\Users\\Windows 10\\Pictures\\BlueStacks"); //PARANG FILE STREAM LANG TO
+        JFileChooser ch = new JFileChooser("C:\\Users\\Windows 10\\Pictures\\BlueStacks"); 
         FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGE", "png", "jpg" , "jpeg");
         ch.addChoosableFileFilter(fnef);
         int result = ch.showOpenDialog(null);
@@ -1856,15 +1912,113 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void inaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inaddActionPerformed
-        // TODO add your handling code here:
+
+        String source = txtsource.getText();
+        String amountText = txtamount2.getText();
+        String frequency = (String) frequencycombobox.getSelectedItem();
+        java.util.Date utilDate = jDateChooser2.getDate();
+        
+        java.sql.Date sqlDate = null;
+        if (utilDate != null) {
+            sqlDate = new java.sql.Date(utilDate.getTime());
+        }
+
+        try {
+            pst = con.prepareStatement("INSERT INTO income (userid, source, amount, frequency, date) VALUES (?, ?, ?, ?, ?)");
+
+            pst.setInt(1, userID); 
+            pst.setString(2, source);
+            pst.setBigDecimal(3, new BigDecimal(amountText));
+            pst.setString(4, frequency);
+            pst.setDate(5, sqlDate); 
+
+            int k = pst.executeUpdate();
+
+            if (k == 1) {
+                JOptionPane.showMessageDialog(this, "INCOME ADDED!");
+                txtsource.setText("");
+                txtamount2.setText("");
+                frequencycombobox.setSelectedIndex(0);
+                jDateChooser2.setDate(null);
+                fetchIncome(); 
+                loadIncome();  
+            } else {
+                JOptionPane.showMessageDialog(this, "INCOME FAILED TO SAVE!");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid amount.");
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_inaddActionPerformed
 
     private void inupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inupdateActionPerformed
-        // TODO add your handling code here:
+        try {
+            String source = txtsource.getText();
+            String amountText = txtamount2.getText();
+            java.util.Date utilDate = jDateChooser2.getDate();
+            String frequency = (String) frequencycombobox.getSelectedItem();
+            String incomeId = inID.getSelectedItem().toString(); // Assuming you have a component to select the income ID
+
+            java.sql.Date sqlDate = null;
+            if (utilDate != null) {
+                sqlDate = new java.sql.Date(utilDate.getTime());
+            }
+
+            pst = con.prepareStatement("UPDATE income SET source=?, amount=?, frequency=?, date=? WHERE incomeid=?");
+
+            pst.setString(1, source);
+            pst.setBigDecimal(2, new BigDecimal(amountText));
+            pst.setString(3, frequency);
+            pst.setDate(4, sqlDate);
+            pst.setString(5, incomeId);
+
+            int k = pst.executeUpdate();
+
+            if (k == 1) {
+                JOptionPane.showMessageDialog(this, "INCOME UPDATED!");
+
+                txtsource.setText("");
+                txtamount2.setText("");
+                jDateChooser2.setDate(null);
+                frequencycombobox.setSelectedIndex(0);
+                fetchIncome();
+                loadIncome();
+            } else {
+                JOptionPane.showMessageDialog(this, "INCOME FAILED TO UPDATE!");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid amount.");
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_inupdateActionPerformed
 
     private void indeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indeleteActionPerformed
-        // TODO add your handling code here:
+        try {
+            String incomeId = inID.getSelectedItem().toString();
+
+            pst = con.prepareStatement("DELETE FROM income WHERE incomeid=?");
+            pst.setString(1, incomeId);
+
+            int k = pst.executeUpdate();
+
+            if (k == 1) {
+                JOptionPane.showMessageDialog(this, "INCOME DELETED!");
+                txtsource.setText("");
+                txtamount2.setText("");
+                jDateChooser2.setDate(null);
+                frequencycombobox.setSelectedIndex(0);
+                fetchIncome(); // Update the displayed income after deletion
+                loadIncome();
+            } else {
+                JOptionPane.showMessageDialog(this, "INCOME FAILED TO DELETE!");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_indeleteActionPerformed
 
     private void searchProd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchProd1ActionPerformed
@@ -1922,6 +2076,31 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void kButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton2ActionPerformed
+        try {
+            String incomeId = inID.getSelectedItem().toString(); 
+
+            pst = con.prepareStatement("SELECT * FROM income WHERE incomeid=?");
+            pst.setString(1, incomeId);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                txtsource.setText(rs.getString("source"));
+                txtamount2.setText(rs.getBigDecimal("amount").toString());
+                frequencycombobox.setSelectedItem(rs.getString("frequency"));
+                jDateChooser2.setDate(rs.getDate("date"));
+            } else {
+                JOptionPane.showMessageDialog(this, "Income with ID " + incomeId + " not found!");
+                txtsource.setText("");
+                txtamount2.setText("");
+                jDateChooser2.setDate(null);
+                frequencycombobox.setSelectedIndex(0);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_kButton2ActionPerformed
     
     
     public static void main(String args[]) {
@@ -1967,13 +2146,15 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> exID;
     private com.k33ptoo.components.KButton exUpdate;
     private javax.swing.JTable expensetable;
+    private javax.swing.JComboBox<String> frequencycombobox;
     private javax.swing.JPanel home;
+    private javax.swing.JComboBox<String> inID;
     private com.k33ptoo.components.KButton inadd;
+    private javax.swing.JTable incometable;
     private com.k33ptoo.components.KButton indelete;
     private com.k33ptoo.components.KButton inupdate;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
@@ -2047,10 +2228,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private com.k33ptoo.components.KButton kButton1;
@@ -2061,7 +2239,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel menu2;
     private javax.swing.JPanel menu3;
     private javax.swing.JPanel menu8;
-    private javax.swing.JComboBox<String> prodID;
     private javax.swing.JComboBox<String> prodID1;
     private javax.swing.JLabel profile;
     private javax.swing.JPanel recenttrans;
@@ -2071,6 +2248,8 @@ public class Dashboard extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton searchProd3;
     private javax.swing.JPanel totalex;
     private javax.swing.JPanel totalin;
+    private javax.swing.JTextField txtamount2;
     private javax.swing.JTextArea txtdescription;
+    private javax.swing.JTextField txtsource;
     // End of variables declaration//GEN-END:variables
 }
