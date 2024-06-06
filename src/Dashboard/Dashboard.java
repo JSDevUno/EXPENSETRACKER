@@ -1885,14 +1885,11 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
-            // Get the image file
             File imageFile = new File(imagePath);
             byte[] imageData = Files.readAllBytes(imageFile.toPath());
 
-            // Retrieve the logged-in user's ID
-            int userId = UserSession.getUserID(); // Assuming UserSession.getUserID() returns the logged-in user's ID
+            int userId = UserSession.getUserID(); 
 
-            // Check if a record with the provided user ID already exists
             pst = con.prepareStatement("SELECT * FROM users WHERE userid = ?");
             pst.setInt(1, userId);
             ResultSet rs = pst.executeQuery();
@@ -1910,7 +1907,6 @@ public class Dashboard extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "FAILED TO UPDATE IMAGE!");
                 }
             } else {
-                // If no record exists, insert a new record with the image
                 pst = con.prepareStatement("INSERT INTO users (userid, image) VALUES (?, ?)");
                 pst.setInt(1, userId);
                 pst.setBytes(2, imageData);
