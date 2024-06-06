@@ -135,7 +135,7 @@ public class Dashboard extends javax.swing.JFrame {
         exUpdate = new com.k33ptoo.components.KButton();
         exID = new javax.swing.JComboBox<>();
         kButton1 = new com.k33ptoo.components.KButton();
-        searchProd2 = new com.k33ptoo.components.KButton();
+        sortexpense = new com.k33ptoo.components.KButton();
         jLabel33 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -151,7 +151,7 @@ public class Dashboard extends javax.swing.JFrame {
         frequencycombobox = new javax.swing.JComboBox<>();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jLabel45 = new javax.swing.JLabel();
-        searchProd1 = new com.k33ptoo.components.KButton();
+        sortincome = new com.k33ptoo.components.KButton();
         kButton2 = new com.k33ptoo.components.KButton();
         inID = new javax.swing.JComboBox<>();
         jLabel31 = new javax.swing.JLabel();
@@ -776,8 +776,13 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        searchProd2.setText("SORT BY AMOUNT");
-        searchProd2.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        sortexpense.setText("SORT BY AMOUNT");
+        sortexpense.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        sortexpense.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortexpenseActionPerformed(evt);
+            }
+        });
 
         jLabel33.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(51, 51, 51));
@@ -817,7 +822,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(96, 96, 96)
-                        .addComponent(searchProd2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(sortexpense, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -831,7 +836,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(16, 16, 16)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchProd2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sortexpense, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(exID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
@@ -944,11 +949,11 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel45.setForeground(new java.awt.Color(51, 51, 51));
         jLabel45.setText("DATE:");
 
-        searchProd1.setText("SORT BY AMOUNT");
-        searchProd1.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        searchProd1.addActionListener(new java.awt.event.ActionListener() {
+        sortincome.setText("SORT BY AMOUNT");
+        sortincome.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        sortincome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchProd1ActionPerformed(evt);
+                sortincomeActionPerformed(evt);
             }
         });
 
@@ -983,7 +988,7 @@ public class Dashboard extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(97, 97, 97)
-                                .addComponent(searchProd1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(sortincome, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(38, 38, 38))
                     .addGroup(jPanel6Layout.createSequentialGroup()
@@ -1020,7 +1025,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(inID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchProd1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(sortincome, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1741,6 +1746,63 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void fetchIncomesort() {
+        int userId = UserSession.getUserID();
+        try {
+            pst = con.prepareStatement("SELECT * FROM income WHERE userid = ? ORDER BY amount DESC");
+            pst.setInt(1, userId);
+
+            ResultSet rs = pst.executeQuery();
+
+            DefaultTableModel incomeTableModel = (DefaultTableModel) incometable.getModel();
+            incomeTableModel.setRowCount(0);
+
+            while (rs.next()) {
+                Object[] rowData = {
+                    rs.getInt("incomeid"),
+                    rs.getString("source"),
+                    rs.getBigDecimal("amount"),
+                    rs.getString("frequency"),
+                    rs.getDate("date")
+                };
+                incomeTableModel.addRow(rowData);
+            }
+
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void fetchsortexpense(){
+        int userId = UserSession.getUserID();
+        try {
+            pst = con.prepareStatement("SELECT * FROM expenses WHERE userid = ? ORDER BY amount DESC");
+            pst.setInt(1, userId);
+
+            ResultSet rs = pst.executeQuery();
+
+            DefaultTableModel expenseTableModel = (DefaultTableModel) expensetable.getModel();
+            expenseTableModel.setRowCount(0);
+
+            while (rs.next()) {
+                Object[] rowData = {
+                    rs.getInt("expenseid"),
+                    rs.getString("category"),
+                    rs.getBigDecimal("amount"),
+                    rs.getString("description"),
+                    rs.getDate("date")
+                };
+                expenseTableModel.addRow(rowData);
+            }
+
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
 
     //ADD EXPENSES
     private void kButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton7ActionPerformed
@@ -2021,9 +2083,9 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_indeleteActionPerformed
 
-    private void searchProd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchProd1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchProd1ActionPerformed
+    private void sortincomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortincomeActionPerformed
+        fetchIncomesort();
+    }//GEN-LAST:event_sortincomeActionPerformed
 
     private void searchProd3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchProd3ActionPerformed
         // TODO add your handling code here:
@@ -2101,6 +2163,10 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_kButton2ActionPerformed
+
+    private void sortexpenseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortexpenseActionPerformed
+        fetchsortexpense();
+    }//GEN-LAST:event_sortexpenseActionPerformed
     
     
     public static void main(String args[]) {
@@ -2243,9 +2309,9 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel profile;
     private javax.swing.JPanel recenttrans;
     private javax.swing.JPanel savings;
-    private com.k33ptoo.components.KButton searchProd1;
-    private com.k33ptoo.components.KButton searchProd2;
     private com.k33ptoo.components.KButton searchProd3;
+    private com.k33ptoo.components.KButton sortexpense;
+    private com.k33ptoo.components.KButton sortincome;
     private javax.swing.JPanel totalex;
     private javax.swing.JPanel totalin;
     private javax.swing.JTextField txtamount2;
