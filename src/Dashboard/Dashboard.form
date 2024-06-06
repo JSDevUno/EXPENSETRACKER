@@ -229,7 +229,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel14">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Dashboard/icons8_reception_28px.png"/>
+                      <Image iconType="3" name="/Dashboard/icons8_low_price_28px.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -292,7 +292,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel16">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Dashboard/icons8_product_28px.png"/>
+                      <Image iconType="3" name="/Dashboard/icons8_paycheque_28px.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -352,7 +352,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel17">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Dashboard/icons8_add_shopping_cart_28px.png"/>
+                      <Image iconType="3" name="/Dashboard/icons8_budget_28px.png"/>
                     </Property>
                   </Properties>
                 </Component>

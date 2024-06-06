@@ -228,7 +228,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("EXPENSES");
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_reception_28px.png"))); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_low_price_28px.png"))); // NOI18N
 
         javax.swing.GroupLayout menu1Layout = new javax.swing.GroupLayout(menu1);
         menu1.setLayout(menu1Layout);
@@ -267,7 +267,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("INCOME");
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_product_28px.png"))); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_paycheque_28px.png"))); // NOI18N
 
         javax.swing.GroupLayout menu2Layout = new javax.swing.GroupLayout(menu2);
         menu2.setLayout(menu2Layout);
@@ -305,7 +305,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("BUDGET");
 
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_add_shopping_cart_28px.png"))); // NOI18N
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_budget_28px.png"))); // NOI18N
 
         javax.swing.GroupLayout menu3Layout = new javax.swing.GroupLayout(menu3);
         menu3.setLayout(menu3Layout);
