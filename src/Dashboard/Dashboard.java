@@ -1753,7 +1753,7 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_kButton1ActionPerformed
-    //UPDATE CUSTOMER
+    //UPDATE EXPENSES
     private void exUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exUpdateActionPerformed
         try {
             String category = (String) categorycombobox.getSelectedItem();
