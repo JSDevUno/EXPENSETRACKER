@@ -151,10 +151,10 @@ public class Dashboard extends javax.swing.JFrame {
         frequencycombobox = new javax.swing.JComboBox<>();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jLabel45 = new javax.swing.JLabel();
-        sortincome = new com.k33ptoo.components.KButton();
         kButton2 = new com.k33ptoo.components.KButton();
         inID = new javax.swing.JComboBox<>();
         jLabel31 = new javax.swing.JLabel();
+        sortComboBox2 = new javax.swing.JComboBox<>();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
@@ -815,7 +815,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel41)))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel33)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(exID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -823,9 +823,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(96, 96, 96)
                         .addComponent(sortexpense, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38))
         );
         jPanel5Layout.setVerticalGroup(
@@ -836,8 +834,8 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(16, 16, 16)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sortexpense, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(exID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(exID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sortexpense, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -871,7 +869,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)))
-                .addGap(3500, 3500, 3500))
+                .addGap(3504, 3504, 3504))
         );
 
         jTabbedPane1.addTab("tab2", jPanel5);
@@ -949,14 +947,6 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel45.setForeground(new java.awt.Color(51, 51, 51));
         jLabel45.setText("DATE:");
 
-        sortincome.setText("SORT BY AMOUNT");
-        sortincome.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        sortincome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sortincomeActionPerformed(evt);
-            }
-        });
-
         kButton2.setText("SEARCH ID");
         kButton2.setFont(new java.awt.Font("Tw Cen MT", 1, 12)); // NOI18N
         kButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -971,6 +961,13 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel31.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(51, 51, 51));
         jLabel31.setText("INCOME");
+
+        sortComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sort by amount asc", "sort by amount dsc", "sort by date asc", "sort by date dsc" }));
+        sortComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortComboBox2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -987,8 +984,8 @@ public class Dashboard extends javax.swing.JFrame {
                                 .addComponent(inID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(97, 97, 97)
-                                .addComponent(sortincome, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(70, 70, 70)
+                                .addComponent(sortComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(38, 38, 38))
                     .addGroup(jPanel6Layout.createSequentialGroup()
@@ -1025,7 +1022,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(inID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sortincome, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(sortComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1746,10 +1743,94 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void fetchIncomesort() {
+    public void fetchIncomesortasc() {
+        int userId = UserSession.getUserID();
+        try {
+            pst = con.prepareStatement("SELECT * FROM income WHERE userid = ? ORDER BY amount ASC");
+            pst.setInt(1, userId);
+
+            ResultSet rs = pst.executeQuery();
+
+            DefaultTableModel incomeTableModel = (DefaultTableModel) incometable.getModel();
+            incomeTableModel.setRowCount(0);
+
+            while (rs.next()) {
+                Object[] rowData = {
+                    rs.getInt("incomeid"),
+                    rs.getString("source"),
+                    rs.getBigDecimal("amount"),
+                    rs.getString("frequency"),
+                    rs.getDate("date")
+                };
+                incomeTableModel.addRow(rowData);
+            }
+
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void fetchIncomesortdsc() {
         int userId = UserSession.getUserID();
         try {
             pst = con.prepareStatement("SELECT * FROM income WHERE userid = ? ORDER BY amount DESC");
+            pst.setInt(1, userId);
+
+            ResultSet rs = pst.executeQuery();
+
+            DefaultTableModel incomeTableModel = (DefaultTableModel) incometable.getModel();
+            incomeTableModel.setRowCount(0);
+
+            while (rs.next()) {
+                Object[] rowData = {
+                    rs.getInt("incomeid"),
+                    rs.getString("source"),
+                    rs.getBigDecimal("amount"),
+                    rs.getString("frequency"),
+                    rs.getDate("date")
+                };
+                incomeTableModel.addRow(rowData);
+            }
+
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void fetchIncomesortdateasc() {
+        int userId = UserSession.getUserID();
+        try {
+            pst = con.prepareStatement("SELECT * FROM income WHERE userid = ? ORDER BY date ASC");
+            pst.setInt(1, userId);
+
+            ResultSet rs = pst.executeQuery();
+
+            DefaultTableModel incomeTableModel = (DefaultTableModel) incometable.getModel();
+            incomeTableModel.setRowCount(0);
+
+            while (rs.next()) {
+                Object[] rowData = {
+                    rs.getInt("incomeid"),
+                    rs.getString("source"),
+                    rs.getBigDecimal("amount"),
+                    rs.getString("frequency"),
+                    rs.getDate("date")
+                };
+                incomeTableModel.addRow(rowData);
+            }
+
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void fetchIncomesortdatedsc() {
+        int userId = UserSession.getUserID();
+        try {
+            pst = con.prepareStatement("SELECT * FROM income WHERE userid = ? ORDER BY date DESC");
             pst.setInt(1, userId);
 
             ResultSet rs = pst.executeQuery();
@@ -2083,10 +2164,6 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_indeleteActionPerformed
 
-    private void sortincomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortincomeActionPerformed
-        fetchIncomesort();
-    }//GEN-LAST:event_sortincomeActionPerformed
-
     private void searchProd3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchProd3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchProd3ActionPerformed
@@ -2167,6 +2244,19 @@ public class Dashboard extends javax.swing.JFrame {
     private void sortexpenseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortexpenseActionPerformed
         fetchsortexpense();
     }//GEN-LAST:event_sortexpenseActionPerformed
+
+    private void sortComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortComboBox2ActionPerformed
+        String selectedSortOption = (String) sortComboBox2.getSelectedItem();
+        if (selectedSortOption.equals("sort by amount asc")) {
+            fetchIncomesortasc();
+        } else if (selectedSortOption.equals("sort by amount dsc")) {
+            fetchIncomesortdsc();
+        } else if (selectedSortOption.equals("sort by date asc")){
+            fetchIncomesortdateasc();
+        }else if (selectedSortOption.equals("sort by date dsc")){
+            fetchIncomesortdatedsc();
+        }
+    }//GEN-LAST:event_sortComboBox2ActionPerformed
     
     
     public static void main(String args[]) {
@@ -2310,8 +2400,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel recenttrans;
     private javax.swing.JPanel savings;
     private com.k33ptoo.components.KButton searchProd3;
+    private javax.swing.JComboBox<String> sortComboBox2;
     private com.k33ptoo.components.KButton sortexpense;
-    private com.k33ptoo.components.KButton sortincome;
     private javax.swing.JPanel totalex;
     private javax.swing.JPanel totalin;
     private javax.swing.JTextField txtamount2;
