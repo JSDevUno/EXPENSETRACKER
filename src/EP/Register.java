@@ -45,17 +45,15 @@ public class Register extends javax.swing.JFrame {
         TextFirstname = new javax.swing.JTextField();
         TextMiddlename = new javax.swing.JTextField();
         TextLastname = new javax.swing.JTextField();
-        TextUsername = new javax.swing.JTextField();
         TextPassword = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         kButton1 = new com.k33ptoo.components.KButton();
         kButton2 = new com.k33ptoo.components.KButton();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        TextEmail = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -122,8 +120,6 @@ public class Register extends javax.swing.JFrame {
 
         TextLastname.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
 
-        TextUsername.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
-
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("FIRSTNAME:");
@@ -135,10 +131,6 @@ public class Register extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("LASTNAME:");
-
-        jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("USERNAME:");
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -188,26 +180,21 @@ public class Register extends javax.swing.JFrame {
                             .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(TextFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(TextEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(TextLastname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(kGradientPanel1Layout.createSequentialGroup()
                             .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel6)
-                                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)))
+                                .addComponent(jLabel4))
                             .addGap(30, 30, 30)
                             .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                        .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(151, 151, 151))
+                                    .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(kGradientPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel7)
                                         .addGap(62, 62, 62)
                                         .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(TextPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(TextUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(TextPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(97, 97, 97))
         );
         kGradientPanel1Layout.setVerticalGroup(
@@ -228,13 +215,9 @@ public class Register extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addGap(51, 51, 51)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addGap(51, 51, 51)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(51, 51, 51)
+                .addGap(123, 123, 123)
                 .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TextPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
@@ -265,19 +248,19 @@ public class Register extends javax.swing.JFrame {
         String Fname = TextFirstname.getText();
         String Mname = TextMiddlename.getText();
         String Lname = TextLastname.getText();
-        String Uname = TextUsername.getText();
+        String Email = TextEmail.getText();
         String Pword = new String(TextPassword.getText());
         
-        if (Fname.isEmpty()|| Mname.isEmpty()|| Lname.isEmpty()|| Uname.isEmpty()|| Pword.isEmpty()){
+        if (Fname.isEmpty()|| Mname.isEmpty()|| Lname.isEmpty()||Email.isEmpty()|| Pword.isEmpty()){
             JOptionPane.showMessageDialog(this, "All fields must be filled");
         }
         
         try {
-            pst=con.prepareStatement("INSERT INTO usertable (FirstName, MiddleName, LastName, UserName, Password) VALUES(?,?,?,?,?)");
+            pst=con.prepareStatement("INSERT INTO users (firstname, middlename, lastname,email, password) VALUES(?,?,?,?,?)");
             pst.setString(1, Fname);
             pst.setString(2, Mname);
             pst.setString(3, Lname);
-            pst.setString(4, Uname);
+            pst.setString(4, Email);
             pst.setString(5, Pword);
             
             int k=pst.executeUpdate();
@@ -286,7 +269,7 @@ public class Register extends javax.swing.JFrame {
                 TextFirstname.setText(" ");
                 TextMiddlename.setText(" ");
                 TextLastname.setText(" ");
-                TextUsername.setText(" ");
+                TextEmail.setText(" ");
                 TextPassword.setText(" ");
                 
                 JOptionPane.showMessageDialog(this, "SUCCESFULLY REGISTERED");
@@ -348,22 +331,20 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TextEmail;
     private javax.swing.JTextField TextFirstname;
     private javax.swing.JTextField TextLastname;
     private javax.swing.JTextField TextMiddlename;
     private javax.swing.JPasswordField TextPassword;
-    private javax.swing.JTextField TextUsername;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
     private com.k33ptoo.components.KButton kButton1;
     private com.k33ptoo.components.KButton kButton2;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;

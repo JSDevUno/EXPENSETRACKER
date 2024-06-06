@@ -27,7 +27,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         con = Db.myconnection();
         setLocationRelativeTo(null);
-        TextUsername.setBackground(new java.awt.Color(0,0,0,1));
+        TextEmail.setBackground(new java.awt.Color(0,0,0,1));
         TextPassword.setBackground(new java.awt.Color(0,0,0,1));
     }
 
@@ -48,7 +48,7 @@ public class Login extends javax.swing.JFrame {
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        TextUsername = new javax.swing.JTextField();
+        TextEmail = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         TextPassword = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
@@ -94,10 +94,10 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Username:");
 
-        TextUsername.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        TextUsername.setForeground(new java.awt.Color(0, 0, 0));
-        TextUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
-        TextUsername.setOpaque(false);
+        TextEmail.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        TextEmail.setForeground(new java.awt.Color(0, 0, 0));
+        TextEmail.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
+        TextEmail.setOpaque(false);
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
@@ -150,7 +150,7 @@ public class Login extends javax.swing.JFrame {
                         .addGap(115, 115, 115)
                         .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(TextUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(TextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(64, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -172,7 +172,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TextUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -267,22 +267,22 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String username = TextUsername.getText();
+        String email = TextEmail.getText();
         String password = new String(TextPassword.getPassword());
 
-        if (username.isEmpty() || password.isEmpty()) {
+        if (email.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Username and password must not be empty");
             return;
         }
 
         try {
-            pst = con.prepareStatement("SELECT * FROM usertable WHERE UserName = ? AND Password = ?");
-            pst.setString(1, username);
+            pst = con.prepareStatement("SELECT * FROM users WHERE email = ? AND password = ?");
+            pst.setString(1, email);
             pst.setString(2, password);
             rs = pst.executeQuery();
 
             if (rs.next()) {
-                Integer userID = rs.getInt("User_ID");//
+                Integer userID = rs.getInt("userid");//
                 UserSession.setUserID(userID);
 
                 dispose();
@@ -352,8 +352,8 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TextEmail;
     private javax.swing.JPasswordField TextPassword;
-    private javax.swing.JTextField TextUsername;
     public javax.swing.JButton btnReg;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
