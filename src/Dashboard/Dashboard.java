@@ -1588,7 +1588,7 @@ public class Dashboard extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabel6MouseClicked
 
-    public void loadExpenses(){//
+    public void loadExpenses(){
         int userId = UserSession.getUserID();
 
         try {
@@ -1609,17 +1609,17 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void fetchExpenses(){//
+    public void fetchExpenses(){
         int userId = UserSession.getUserID(); 
     
         try {           
             pst = con.prepareStatement("SELECT * FROM expenses WHERE userid = ?");
-            pst.setInt(1, userId); // Set the user ID parameter
+            pst.setInt(1, userId); 
             
             ResultSet rs = pst.executeQuery();
 
             DefaultTableModel expenseTableModel = (DefaultTableModel) expensetable.getModel();
-            expenseTableModel.setRowCount(0); // Clear existing rows
+            expenseTableModel.setRowCount(0); 
 
             while (rs.next()) {
                 Object[] rowData = {
@@ -1731,7 +1731,7 @@ public class Dashboard extends javax.swing.JFrame {
     //SEARCH COMBO BOX EXPENSES
     private void kButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton1ActionPerformed
         try {
-            String cid = exID.getSelectedItem().toString(); // Get selected customer ID
+            String cid = exID.getSelectedItem().toString(); 
 
             pst = con.prepareStatement("SELECT * FROM expenses WHERE expenseid=?");
             pst.setString(1, cid);
@@ -1760,7 +1760,7 @@ public class Dashboard extends javax.swing.JFrame {
             String amountText = amounttextfield1.getText();
             java.util.Date utilDate = jDateChooser1.getDate();
             String description = txtdescription.getText();
-            String expenseId = exID.getSelectedItem().toString(); // Assuming exID is the combo box for selecting expense ID
+            String expenseId = exID.getSelectedItem().toString(); 
 
             java.sql.Date sqlDate = null;
             if (utilDate != null) {
