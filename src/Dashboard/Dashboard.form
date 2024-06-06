@@ -1803,6 +1803,9 @@
                       <Font name="Tw Cen MT" size="12" style="1"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kButton3ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="budID">
                   <Properties>
@@ -1838,6 +1841,9 @@
                       <Font name="Tw Cen MT" size="14" style="1"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="budupdateActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="com.k33ptoo.components.KButton" name="buddelete">
                   <Properties>

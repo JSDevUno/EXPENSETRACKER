@@ -50,6 +50,7 @@ public class Dashboard extends javax.swing.JFrame {
         loadIncome();
         fetchIncome();
         fetchBudget();
+        loadBudget();
         displayUserProfile(); 
         setLocationRelativeTo(null);
         DefaultColor = new Color(51,51,51);
@@ -1077,6 +1078,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         kButton3.setText("SEARCH ID");
         kButton3.setFont(new java.awt.Font("Tw Cen MT", 1, 12)); // NOI18N
+        kButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kButton3ActionPerformed(evt);
+            }
+        });
 
         budID.setBackground(new java.awt.Color(255, 255, 255));
         budID.setForeground(new java.awt.Color(0, 0, 0));
@@ -1091,6 +1097,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         budupdate.setText("UPDATE");
         budupdate.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        budupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                budupdateActionPerformed(evt);
+            }
+        });
 
         buddelete.setText("DELETE");
         buddelete.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
@@ -2012,6 +2023,28 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void loadBudget() {
+        int userId = UserSession.getUserID();
+
+        try {
+            pst = con.prepareStatement("SELECT budgetid FROM budget WHERE userid = ?");
+            pst.setInt(1, userId);
+
+            ResultSet rs = pst.executeQuery();
+
+            budID.removeAllItems();  // Assuming budID is the name of your combo box
+
+            while (rs.next()) {
+                budID.addItem(rs.getString("budgetid"));
+            }
+
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 
     //ADD EXPENSES
     private void kButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton7ActionPerformed
@@ -2321,7 +2354,7 @@ public class Dashboard extends javax.swing.JFrame {
                 txtspentamount.setText("");
                 jDateChooser3.setDate(null);
                 fetchBudget(); 
-                //loadBudget();  // Assuming you have a method to load budget data into the UI
+                loadBudget();
             } else {
                 JOptionPane.showMessageDialog(this, "BUDGET FAILED TO SAVE!");
             }
@@ -2431,6 +2464,73 @@ public class Dashboard extends javax.swing.JFrame {
     private void sortComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortComboBox3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sortComboBox3ActionPerformed
+
+    private void budupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_budupdateActionPerformed
+        String category = (String) categorycombobox2.getSelectedItem();
+        String budgetAmountText = txtbudgetamount.getText();
+        String spentAmountText = txtspentamount.getText();
+        java.util.Date utilDate = jDateChooser3.getDate();
+        String budgetId = budID.getSelectedItem().toString();  // Assuming budID is the identifier component
+
+        java.sql.Date sqlDate = null;
+        if (utilDate != null) {
+            sqlDate = new java.sql.Date(utilDate.getTime());
+        }
+
+        try {
+            pst = con.prepareStatement("UPDATE budget SET category=?, budgetamount=?, spentamount=?, date=? WHERE budgetid=?");
+
+            pst.setString(1, category);
+            pst.setBigDecimal(2, new BigDecimal(budgetAmountText));
+            pst.setBigDecimal(3, new BigDecimal(spentAmountText));
+            pst.setDate(4, sqlDate);
+            pst.setString(5, budgetId);
+
+            int k = pst.executeUpdate();
+
+            if (k == 1) {
+                JOptionPane.showMessageDialog(this, "BUDGET UPDATED!");
+                categorycombobox2.setSelectedIndex(0);
+                txtbudgetamount.setText("");
+                txtspentamount.setText("");
+                jDateChooser3.setDate(null);
+                fetchBudget();  
+                loadBudget();
+            } else {
+                JOptionPane.showMessageDialog(this, "BUDGET FAILED TO UPDATE!");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Please enter valid amounts.");
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_budupdateActionPerformed
+
+    private void kButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton3ActionPerformed
+        try {
+            String budgetId = budID.getSelectedItem().toString();
+
+            pst = con.prepareStatement("SELECT * FROM budget WHERE budgetid=?");
+            pst.setString(1, budgetId);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                categorycombobox2.setSelectedItem(rs.getString("category"));
+                txtbudgetamount.setText(rs.getBigDecimal("budgetamount").toString());
+                txtspentamount.setText(rs.getBigDecimal("spentamount").toString());
+                jDateChooser3.setDate(rs.getDate("date"));
+            } else {
+                JOptionPane.showMessageDialog(this, "Budget with ID " + budgetId + " not found!");
+                categorycombobox2.setSelectedIndex(0);
+                txtbudgetamount.setText("");
+                txtspentamount.setText("");
+                jDateChooser3.setDate(null);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_kButton3ActionPerformed
     
     
     public static void main(String args[]) {
