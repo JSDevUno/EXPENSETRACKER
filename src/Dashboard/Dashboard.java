@@ -1105,7 +1105,7 @@ public class Dashboard extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Category", "Budget Amount", "Spent Amount", "Remaining Amount", "Date"
+                "ID", "Categ.(no duplicate)", "Budget Amount", "Spent Amount", "Remaining Amount", "Date"
             }
         ) {
             Class[] types = new Class [] {
