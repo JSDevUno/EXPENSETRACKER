@@ -135,8 +135,8 @@ public class Dashboard extends javax.swing.JFrame {
         exUpdate = new com.k33ptoo.components.KButton();
         exID = new javax.swing.JComboBox<>();
         kButton1 = new com.k33ptoo.components.KButton();
-        sortexpense = new com.k33ptoo.components.KButton();
         jLabel33 = new javax.swing.JLabel();
+        sortComboBox1 = new javax.swing.JComboBox<>();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         incometable = new javax.swing.JTable();
@@ -776,17 +776,16 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        sortexpense.setText("SORT BY AMOUNT");
-        sortexpense.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        sortexpense.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sortexpenseActionPerformed(evt);
-            }
-        });
-
         jLabel33.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(51, 51, 51));
         jLabel33.setText("EXPENSES");
+
+        sortComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sort by amount asc", "sort by amount dsc", "sort by date asc", "sort by date dsc" }));
+        sortComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortComboBox1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -821,8 +820,8 @@ public class Dashboard extends javax.swing.JFrame {
                         .addComponent(exID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(96, 96, 96)
-                        .addComponent(sortexpense, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(70, 70, 70)
+                        .addComponent(sortComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38))
         );
@@ -835,7 +834,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(exID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sortexpense, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(sortComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -1855,10 +1854,96 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void fetchsortexpense(){
+    public void fetchExpensesortasc(){
+        int userId = UserSession.getUserID();
+        try {
+            pst = con.prepareStatement("SELECT * FROM expenses WHERE userid = ? ORDER BY amount ASC");
+            pst.setInt(1, userId);
+
+            ResultSet rs = pst.executeQuery();
+
+            DefaultTableModel expenseTableModel = (DefaultTableModel) expensetable.getModel();
+            expenseTableModel.setRowCount(0);
+
+            while (rs.next()) {
+                Object[] rowData = {
+                    rs.getInt("expenseid"),
+                    rs.getString("category"),
+                    rs.getBigDecimal("amount"),
+                    rs.getString("description"),
+                    rs.getDate("date")
+                };
+                expenseTableModel.addRow(rowData);
+            }
+
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    public void fetchExpensesortdsc(){
         int userId = UserSession.getUserID();
         try {
             pst = con.prepareStatement("SELECT * FROM expenses WHERE userid = ? ORDER BY amount DESC");
+            pst.setInt(1, userId);
+
+            ResultSet rs = pst.executeQuery();
+
+            DefaultTableModel expenseTableModel = (DefaultTableModel) expensetable.getModel();
+            expenseTableModel.setRowCount(0);
+
+            while (rs.next()) {
+                Object[] rowData = {
+                    rs.getInt("expenseid"),
+                    rs.getString("category"),
+                    rs.getBigDecimal("amount"),
+                    rs.getString("description"),
+                    rs.getDate("date")
+                };
+                expenseTableModel.addRow(rowData);
+            }
+
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    public void fetchExpensesortdateasc(){
+        int userId = UserSession.getUserID();
+        try {
+            pst = con.prepareStatement("SELECT * FROM expenses WHERE userid = ? ORDER BY date ASC");
+            pst.setInt(1, userId);
+
+            ResultSet rs = pst.executeQuery();
+
+            DefaultTableModel expenseTableModel = (DefaultTableModel) expensetable.getModel();
+            expenseTableModel.setRowCount(0);
+
+            while (rs.next()) {
+                Object[] rowData = {
+                    rs.getInt("expenseid"),
+                    rs.getString("category"),
+                    rs.getBigDecimal("amount"),
+                    rs.getString("description"),
+                    rs.getDate("date")
+                };
+                expenseTableModel.addRow(rowData);
+            }
+
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+    }
+    public void fetchExpensesortdatedsc(){
+        int userId = UserSession.getUserID();
+        try {
+            pst = con.prepareStatement("SELECT * FROM expenses WHERE userid = ? ORDER BY date DESC");
             pst.setInt(1, userId);
 
             ResultSet rs = pst.executeQuery();
@@ -2241,10 +2326,6 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_kButton2ActionPerformed
 
-    private void sortexpenseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortexpenseActionPerformed
-        fetchsortexpense();
-    }//GEN-LAST:event_sortexpenseActionPerformed
-
     private void sortComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortComboBox2ActionPerformed
         String selectedSortOption = (String) sortComboBox2.getSelectedItem();
         if (selectedSortOption.equals("sort by amount asc")) {
@@ -2257,6 +2338,19 @@ public class Dashboard extends javax.swing.JFrame {
             fetchIncomesortdatedsc();
         }
     }//GEN-LAST:event_sortComboBox2ActionPerformed
+
+    private void sortComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortComboBox1ActionPerformed
+        String selectedSortOption = (String) sortComboBox1.getSelectedItem();
+        if (selectedSortOption.equals("sort by amount asc")) {
+            fetchExpensesortasc();
+        } else if (selectedSortOption.equals("sort by amount dsc")) {
+            fetchExpensesortdsc();
+        } else if (selectedSortOption.equals("sort by date asc")){
+            fetchExpensesortdateasc();
+        }else if (selectedSortOption.equals("sort by date dsc")){
+            fetchExpensesortdatedsc();
+        }
+    }//GEN-LAST:event_sortComboBox1ActionPerformed
     
     
     public static void main(String args[]) {
@@ -2400,8 +2494,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel recenttrans;
     private javax.swing.JPanel savings;
     private com.k33ptoo.components.KButton searchProd3;
+    private javax.swing.JComboBox<String> sortComboBox1;
     private javax.swing.JComboBox<String> sortComboBox2;
-    private com.k33ptoo.components.KButton sortexpense;
     private javax.swing.JPanel totalex;
     private javax.swing.JPanel totalin;
     private javax.swing.JTextField txtamount2;
