@@ -23,6 +23,9 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.nio.file.Files;
+import java.text.SimpleDateFormat;
 import java.util.Vector;
 import javax.imageio.ImageIO;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -42,9 +45,10 @@ public class Dashboard extends javax.swing.JFrame {
         initComponents();
         userID = UserSession.getUserID();
         con = Db.myconnection();
-        //loadCustomer();
+        loadExpenses();
         //loadProduct();
-        //fetch();
+        fetchExpenses();
+        displayUserProfile();
         //fetchprod(); 
         setLocationRelativeTo(null);
         DefaultColor = new Color(51,51,51);
@@ -94,6 +98,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
+        profile = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
@@ -115,20 +120,20 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        expensetable = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
-        txtCustaddress = new javax.swing.JTextArea();
-        txtCustphone = new javax.swing.JTextField();
+        txtdescription = new javax.swing.JTextArea();
+        amounttextfield1 = new javax.swing.JTextField();
         jLabel41 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        categorycombobox = new javax.swing.JComboBox<>();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        custDelete = new com.k33ptoo.components.KButton();
+        exDelete = new com.k33ptoo.components.KButton();
         kButton7 = new com.k33ptoo.components.KButton();
-        custUpdate = new com.k33ptoo.components.KButton();
-        custID = new javax.swing.JComboBox<>();
+        exUpdate = new com.k33ptoo.components.KButton();
+        exID = new javax.swing.JComboBox<>();
         kButton1 = new com.k33ptoo.components.KButton();
         searchProd2 = new com.k33ptoo.components.KButton();
         jLabel33 = new javax.swing.JLabel();
@@ -406,11 +411,11 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
+            .addComponent(profile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
+            .addComponent(profile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
         );
 
         jButton1.setBackground(new java.awt.Color(0, 102, 102));
@@ -427,6 +432,11 @@ public class Dashboard extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Tw Cen MT", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("INSERT");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel32.setBackground(new java.awt.Color(0, 255, 255));
         jLabel32.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -665,8 +675,8 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(0, 255, 255));
 
-        jTable2.setBackground(new java.awt.Color(255, 255, 255));
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        expensetable.setBackground(new java.awt.Color(255, 255, 255));
+        expensetable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -692,21 +702,21 @@ public class Dashboard extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable2.setFocusable(false);
-        jTable2.setOpaque(false);
-        jTable2.setPreferredSize(new java.awt.Dimension(326, 80));
-        jTable2.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(jTable2);
+        expensetable.setFocusable(false);
+        expensetable.setOpaque(false);
+        expensetable.setPreferredSize(new java.awt.Dimension(326, 80));
+        expensetable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(expensetable);
 
-        txtCustaddress.setBackground(new java.awt.Color(255, 255, 255));
-        txtCustaddress.setColumns(20);
-        txtCustaddress.setForeground(new java.awt.Color(0, 0, 0));
-        txtCustaddress.setLineWrap(true);
-        txtCustaddress.setRows(5);
-        jScrollPane4.setViewportView(txtCustaddress);
+        txtdescription.setBackground(new java.awt.Color(255, 255, 255));
+        txtdescription.setColumns(20);
+        txtdescription.setForeground(new java.awt.Color(0, 0, 0));
+        txtdescription.setLineWrap(true);
+        txtdescription.setRows(5);
+        jScrollPane4.setViewportView(txtdescription);
 
-        txtCustphone.setBackground(new java.awt.Color(255, 255, 255));
-        txtCustphone.setForeground(new java.awt.Color(0, 0, 0));
+        amounttextfield1.setBackground(new java.awt.Color(255, 255, 255));
+        amounttextfield1.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel41.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(51, 51, 51));
@@ -725,14 +735,16 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel38.setForeground(new java.awt.Color(51, 51, 51));
         jLabel38.setText("CATEGORY:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Groceries", "Utilities", "Transportation", "Housing", "Healthcare", "Entertainment", "Education", "Clothing", "Travel", "Personal Care" }));
+        categorycombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Groceries", "Utilities", "Transportation", "Housing", "Healthcare", "Entertainment", "Education", "Clothing", "Travel", "Personal Care" }));
 
-        custDelete.setText("DELETE");
-        custDelete.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        custDelete.setPreferredSize(new java.awt.Dimension(185, 31));
-        custDelete.addActionListener(new java.awt.event.ActionListener() {
+        jDateChooser1.setDateFormatString("yyyy-MM-dd");
+
+        exDelete.setText("DELETE");
+        exDelete.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        exDelete.setPreferredSize(new java.awt.Dimension(185, 31));
+        exDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                custDeleteActionPerformed(evt);
+                exDeleteActionPerformed(evt);
             }
         });
 
@@ -744,17 +756,17 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        custUpdate.setText("UPDATE");
-        custUpdate.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        custUpdate.addActionListener(new java.awt.event.ActionListener() {
+        exUpdate.setText("UPDATE");
+        exUpdate.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        exUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                custUpdateActionPerformed(evt);
+                exUpdateActionPerformed(evt);
             }
         });
 
-        custID.setBackground(new java.awt.Color(255, 255, 255));
-        custID.setForeground(new java.awt.Color(0, 0, 0));
-        custID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        exID.setBackground(new java.awt.Color(255, 255, 255));
+        exID.setForeground(new java.awt.Color(0, 0, 0));
+        exID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         kButton1.setText("SEARCH ID");
         kButton1.setFont(new java.awt.Font("Tw Cen MT", 1, 12)); // NOI18N
@@ -781,8 +793,8 @@ public class Dashboard extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(kButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(custDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(custUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(exDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(exUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel40, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -791,9 +803,9 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtCustphone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(amounttextfield1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(categorycombobox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(84, 84, 84)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -801,7 +813,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel33)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(custID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(exID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(96, 96, 96)
@@ -820,7 +832,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(searchProd2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(custID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(exID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -832,18 +844,18 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel38)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(categorycombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(kButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCustphone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(amounttextfield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel39)
-                            .addComponent(custUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(exUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(custDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(exDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel40)))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1576,210 +1588,241 @@ public class Dashboard extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabel6MouseClicked
 
-    public void loadCustomer(){//
-        /*try {
-            pst=con.prepareStatement("SELECT customerID FROM customer");
-            rs=pst.executeQuery();
-            custID.removeAllItems();
-            while(rs.next()){
-                custID.addItem(rs.getString(1));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    public void loadProduct(){//
+    public void loadExpenses(){//
+        int userId = UserSession.getUserID();
+
         try {
-            pst=con.prepareStatement("SELECT productID FROM product");
-            rs=pst.executeQuery();
-            prodID.removeAllItems();
-            while(rs.next()){
-                prodID.addItem(rs.getString(1));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-    }
-    public void fetch(){//
-        /*try {
-            int query;
-            pst=con.prepareStatement("SELECT * FROM customer");
-            rs=pst.executeQuery();
-            ResultSetMetaData rss = rs.getMetaData();
-            query = rss.getColumnCount();
-            DefaultTableModel dtm = (DefaultTableModel)jTable2.getModel();
-            dtm.setRowCount(0);
-            while(rs.next()){
-                Vector v2 = new Vector();
-                for (int i = 1; i < query; i++) {
-                    v2.add(rs.getString("customerID"));
-                    v2.add(rs.getString("customerName"));
-                    v2.add(rs.getString("phoneNumber"));
-                    v2.add(rs.getString("email"));
-                    v2.add(rs.getString("address"));
-                }
-                dtm.addRow(v2);
-            }
-            
-            pst = con.prepareStatement("SELECT * FROM customer ORDER BY customerID DESC");
-            rs = pst.executeQuery();
-            ResultSetMetaData rssDesc = rs.getMetaData();
-            int queryDesc = rssDesc.getColumnCount();
-            //DefaultTableModel dtm3 = (DefaultTableModel) jTable1.getModel();
-            //dtm3.setRowCount(0);
+            pst = con.prepareStatement("SELECT expenseid FROM expenses WHERE userid = ?");
+            pst.setInt(1, userId); // Set the user ID parameter
+
+            ResultSet rs = pst.executeQuery();
+
+            exID.removeAllItems();
+
             while (rs.next()) {
-                Vector v3 = new Vector();
-                for (int i = 1; i <= queryDesc; i++) {
-                    v3.add(rs.getString("customerID"));
-                    v3.add(rs.getString("customerName"));
-                    v3.add(rs.getString("phoneNumber"));
-                    v3.add(rs.getString("email"));
-                    v3.add(rs.getString("address"));
-                }
-                //dtm3.addRow(v3);
+                exID.addItem(rs.getString("expenseid"));
             }
+
+            rs.close();
+            pst.close();
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
     }
-    public void fetchprod(){//
-    /*try {
-        pst = con.prepareStatement("SELECT * FROM product");
-        rs = pst.executeQuery();
-        ResultSetMetaData rss = rs.getMetaData();
-        int query = rss.getColumnCount();
-        DefaultTableModel dtm = (DefaultTableModel)jTable3.getModel();
-        dtm.setRowCount(0);
-        
-        while(rs.next()){
-            Vector<Object> v2 = new Vector<>();
-            for (int i = 1; i <= query; i++) {
-                if (i == query) { 
-                    byte[] imageData = rs.getBytes("image");
-                    if (imageData != null) {
-                        ImageIcon imageIcon = new ImageIcon(imageData);
-                        v2.add(imageIcon);
-                    } else {
-                        v2.add(null);
-                    }
-                } else {
-                    v2.add(rs.getObject(i));
+    public void fetchExpenses(){//
+        int userId = UserSession.getUserID(); 
+    
+        try {           
+            pst = con.prepareStatement("SELECT * FROM expenses WHERE userid = ?");
+            pst.setInt(1, userId); // Set the user ID parameter
+            
+            ResultSet rs = pst.executeQuery();
+
+            DefaultTableModel expenseTableModel = (DefaultTableModel) expensetable.getModel();
+            expenseTableModel.setRowCount(0); // Clear existing rows
+
+            while (rs.next()) {
+                Object[] rowData = {
+                    rs.getInt("expenseid"),
+                    rs.getString("category"),
+                    rs.getBigDecimal("amount"),
+                    rs.getString("description"),
+                    rs.getDate("date")
+                };
+                expenseTableModel.addRow(rowData); 
+            }
+
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public ImageIcon fetchUserImage(int desiredWidth, int desiredHeight) {
+        try {
+            int userId = UserSession.getUserID();
+            pst = con.prepareStatement("SELECT image FROM users WHERE userid = ?");
+            pst.setInt(1, userId);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                byte[] imageData = rs.getBytes("image");
+                if (imageData != null) {
+                    ImageIcon imageIcon = new ImageIcon(imageData);
+                    Image image = imageIcon.getImage();
+                    Image resizedImage = image.getScaledInstance(desiredWidth, desiredHeight, Image.SCALE_SMOOTH);
+                    return new ImageIcon(resizedImage);
                 }
             }
-            dtm.addRow(v2);
+            return getDefaultImageIcon(desiredWidth, desiredHeight);
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+            return getDefaultImageIcon(desiredWidth, desiredHeight);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-    } catch (SQLException ex) {
-        Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-    }*/
-}
-    
-    //ADD CUSTOMER
+    }
+
+    private ImageIcon getDefaultImageIcon(int width, int height) {
+        String desktopPath = System.getProperty("user.home") + "/Desktop/profile.png";
+        ImageIcon defaultIcon = new ImageIcon(desktopPath);
+        Image image = defaultIcon.getImage();
+        Image resizedImage = image.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        return new ImageIcon(resizedImage);
+    }
+
+    public void displayUserProfile() {
+        int desiredWidth = profile.getWidth(); 
+        int desiredHeight = profile.getHeight();
+        ImageIcon userImageIcon = fetchUserImage(desiredWidth, desiredHeight);
+        profile.setIcon(userImageIcon);
+    }
+    //ADD EXPENSES
     private void kButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton7ActionPerformed
-        /*String custname=txtCustname.getText();
-        String custphone=txtCustphone.getText();
-        String custemail=txtCustemail.getText();
-        String custaddress=txtCustaddress.getText();
-        
+       
+        String category = (String) categorycombobox.getSelectedItem();
+        String amountText = amounttextfield1.getText();
+        java.util.Date utilDate = jDateChooser1.getDate();
+        String description = txtdescription.getText();
+
+        java.sql.Date sqlDate = null;
+        if (utilDate != null) {
+            sqlDate = new java.sql.Date(utilDate.getTime());
+        }
+
         try {
-            pst=con.prepareStatement("INSERT INTO customer (customerName, phoneNumber, email, address) VALUES(?,?,?,?)");
-            pst.setString(1, custname);
-            pst.setString(2, custphone);
-            pst.setString(3, custemail);
-            pst.setString(4, custaddress);
+            pst = con.prepareStatement("INSERT INTO expenses (userid, category, amount, description, date) VALUES (?, ?, ?, ?, ?)");
+
+            pst.setInt(1, userID); 
+            pst.setString(2, category);
+            pst.setBigDecimal(3, new BigDecimal(amountText));
+            pst.setString(4, description);
+            pst.setDate(5, sqlDate); 
             
-            int k=pst.executeUpdate();
+            int k = pst.executeUpdate();
             
-            if(k==1){
-                JOptionPane.showMessageDialog(this, "CUSTOMER ADDED!");
-                txtCustname.setText(" ");
-                txtCustphone.setText(" ");
-                txtCustemail.setText(" ");
-                txtCustaddress.setText(" ");  
-                fetch();
-                loadCustomer();
-            }else{
-                JOptionPane.showMessageDialog(this, "CUSTOMER FAILED TO SAVE!");
+            if (k == 1) {
+                JOptionPane.showMessageDialog(this, "EXPENSE ADDED!");
+                categorycombobox.setSelectedIndex(0);
+                amounttextfield1.setText("");
+                txtdescription.setText("");  
+                jDateChooser1.setDate(null);
+                fetchExpenses();
+                loadExpenses();
+            } else {
+                JOptionPane.showMessageDialog(this, "EXPENSE FAILED TO SAVE!");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid amount.");
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_kButton7ActionPerformed
+    //SEARCH COMBO BOX EXPENSES
+    private void kButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton1ActionPerformed
+        try {
+            String cid = exID.getSelectedItem().toString(); // Get selected customer ID
+
+            pst = con.prepareStatement("SELECT * FROM expenses WHERE expenseid=?");
+            pst.setString(1, cid);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                categorycombobox.setSelectedItem(rs.getString("category"));
+                amounttextfield1.setText(rs.getBigDecimal("amount").toString());
+                jDateChooser1.setDate(rs.getDate("date"));
+                txtdescription.setText(rs.getString("description"));
+            } else {
+                JOptionPane.showMessageDialog(this, "Expense with ID " + cid + " not found!");
+                categorycombobox.setSelectedIndex(0);
+                amounttextfield1.setText("");
+                jDateChooser1.setDate(null);
+                txtdescription.setText("");
             }
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
-        */
-    }//GEN-LAST:event_kButton7ActionPerformed
-    //SEARCH COMBO BOX CUSTOMER
-    private void kButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton1ActionPerformed
-       /* try {
-            String cid=custID.getSelectedItem().toString();
-            pst=con.prepareStatement("SELECT * FROM customer WHERE customerID=?");
-            pst.setString(1, cid);
-            rs=pst.executeQuery();
-            
-            if (rs.next()){
-                txtCustname.setText(rs.getString(2));
-                txtCustphone.setText(rs.getString(3));
-                txtCustemail.setText(rs.getString(4));
-                txtCustaddress.setText(rs.getString(5));
-            }else{
-                JOptionPane.showMessageDialog(this, "CUSTOMER DOES NOT EXIST!");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
     }//GEN-LAST:event_kButton1ActionPerformed
     //UPDATE CUSTOMER
-    private void custUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custUpdateActionPerformed
-        /*try {
-            String custname=txtCustname.getText();
-            String custphone=txtCustphone.getText();
-            String custemail=txtCustemail.getText();
-            String custaddress=txtCustaddress.getText();
-            String cid=custID.getSelectedItem().toString();
+    private void exUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exUpdateActionPerformed
+        try {
+            String category = (String) categorycombobox.getSelectedItem();
+            String amountText = amounttextfield1.getText();
+            java.util.Date utilDate = jDateChooser1.getDate();
+            String description = txtdescription.getText();
+            String expenseId = exID.getSelectedItem().toString(); // Assuming exID is the combo box for selecting expense ID
+
+            java.sql.Date sqlDate = null;
+            if (utilDate != null) {
+                sqlDate = new java.sql.Date(utilDate.getTime());
+            }
+
+            pst = con.prepareStatement("UPDATE expenses SET category=?, amount=?, description=?, date=? WHERE expenseid=?");
+
             
-            pst=con.prepareStatement("UPDATE customer SET customerName=?,phoneNumber=?, email=?, address=? WHERE customerID=?");
-            pst.setString(1, custname);
-            pst.setString(2, custphone);
-            pst.setString(3, custemail);
-            pst.setString(4, custaddress); 
-            pst.setString(5, cid); 
-            int k=pst.executeUpdate();
-            if(k==1){
-                JOptionPane.showMessageDialog(this, "CUSTOMER UPDATED!");
-                txtCustname.setText(" ");
-                txtCustphone.setText(" ");
-                txtCustemail.setText(" ");
-                txtCustaddress.setText(" ");  
-                txtCustname.requestFocus();
-                fetch();
-                loadCustomer();
-            }else{
-                JOptionPane.showMessageDialog(this, "CUSTOMER FAILED TO UPDATE!");
+            pst.setString(1, category);
+            pst.setBigDecimal(2, new BigDecimal(amountText));
+            pst.setString(3, description);
+            pst.setDate(4, sqlDate);
+            pst.setString(5, expenseId);
+
+            int k = pst.executeUpdate();
+
+            if (k == 1) {
+                JOptionPane.showMessageDialog(this, "EXPENSE UPDATED!");
+                
+                categorycombobox.setSelectedIndex(0);
+                amounttextfield1.setText("");
+                jDateChooser1.setDate(null);
+                txtdescription.setText("");
+                fetchExpenses();
+                loadExpenses();
+            } else {
+                JOptionPane.showMessageDialog(this, "EXPENSE FAILED TO UPDATE!");
             }
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-    }//GEN-LAST:event_custUpdateActionPerformed
-    //DELETE CUSTOMER
-    private void custDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custDeleteActionPerformed
-        /*try {
-            String cid=custID.getSelectedItem().toString();
-            pst=con.prepareStatement("DELETE FROM customer WHERE customerID=?");
-            pst.setString(1, cid);
-            int k=pst.executeUpdate();
-            if(k==1){
-                JOptionPane.showMessageDialog(this, "CUSTOMER DELETED!");
-                //txtCustname.setText(" ");
-                txtCustphone.setText(" ");
-                //txtCustemail.setText(" ");
-                txtCustaddress.setText(" ");  
-                //txtCustname.requestFocus();
-                fetch();
-                loadCustomer();
-            }else{
-                JOptionPane.showMessageDialog(this, "CUSTOMER FAILED TO DELETE!");
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid amount.");
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_exUpdateActionPerformed
+    //DELETE EXPENSES
+    private void exDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exDeleteActionPerformed
+        try {
+            String expenseId = exID.getSelectedItem().toString();
+
+            pst = con.prepareStatement("DELETE FROM expenses WHERE expenseid=?");
+
+            pst.setString(1, expenseId);
+
+            int k = pst.executeUpdate();
+
+            if (k == 1) {
+                JOptionPane.showMessageDialog(this, "EXPENSE DELETED!");
+                categorycombobox.setSelectedIndex(0);
+                amounttextfield1.setText("");
+                jDateChooser1.setDate(null);
+                txtdescription.setText("");
+                fetchExpenses();
+                loadExpenses();
+            } else {
+                JOptionPane.showMessageDialog(this, "EXPENSE FAILED TO DELETE!");
             }
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-    }//GEN-LAST:event_custDeleteActionPerformed
+        }
+    }//GEN-LAST:event_exDeleteActionPerformed
 
    
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
@@ -1802,8 +1845,8 @@ public class Dashboard extends javax.swing.JFrame {
             try {
                 img = ImageIO.read(selectedImageFile);
                 ImageIcon ii = new ImageIcon(img);
-                Image image = ii.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
-                jLabel1.setIcon(new ImageIcon(image));
+                Image image = ii.getImage().getScaledInstance(profile.getWidth(), profile.getHeight(), Image.SCALE_SMOOTH);
+                profile.setIcon(new ImageIcon(image));
             } catch (IOException ex) {
                 Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
             } 
@@ -1839,6 +1882,50 @@ public class Dashboard extends javax.swing.JFrame {
     private void buddeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buddeleteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buddeleteActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            // Get the image file
+            File imageFile = new File(imagePath);
+            byte[] imageData = Files.readAllBytes(imageFile.toPath());
+
+            // Retrieve the logged-in user's ID
+            int userId = UserSession.getUserID(); // Assuming UserSession.getUserID() returns the logged-in user's ID
+
+            // Check if a record with the provided user ID already exists
+            pst = con.prepareStatement("SELECT * FROM users WHERE userid = ?");
+            pst.setInt(1, userId);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                // If a record exists, update the existing record with the new image
+                pst = con.prepareStatement("UPDATE users SET image = ? WHERE userid = ?");
+                pst.setBytes(1, imageData);
+                pst.setInt(2, userId);
+                int k = pst.executeUpdate();
+
+                if (k == 1) {
+                    JOptionPane.showMessageDialog(this, "IMAGE UPDATED!");
+                } else {
+                    JOptionPane.showMessageDialog(this, "FAILED TO UPDATE IMAGE!");
+                }
+            } else {
+                // If no record exists, insert a new record with the image
+                pst = con.prepareStatement("INSERT INTO users (userid, image) VALUES (?, ?)");
+                pst.setInt(1, userId);
+                pst.setBytes(2, imageData);
+                int k = pst.executeUpdate();
+
+                if (k == 1) {
+                    JOptionPane.showMessageDialog(this, "IMAGE INSERTED!");
+                } else {
+                    JOptionPane.showMessageDialog(this, "FAILED TO INSERT IMAGE!");
+                }
+            }
+        } catch (IOException | SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     
     public static void main(String args[]) {
@@ -1874,20 +1961,22 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField amounttextfield1;
     private javax.swing.border.BevelBorder bevelBorder1;
     private com.k33ptoo.components.KButton budadd;
     private com.k33ptoo.components.KButton buddelete;
     private com.k33ptoo.components.KButton budupdate;
-    private com.k33ptoo.components.KButton custDelete;
-    private javax.swing.JComboBox<String> custID;
-    private com.k33ptoo.components.KButton custUpdate;
+    private javax.swing.JComboBox<String> categorycombobox;
+    private com.k33ptoo.components.KButton exDelete;
+    private javax.swing.JComboBox<String> exID;
+    private com.k33ptoo.components.KButton exUpdate;
+    private javax.swing.JTable expensetable;
     private javax.swing.JPanel home;
     private com.k33ptoo.components.KButton inadd;
     private com.k33ptoo.components.KButton indelete;
     private com.k33ptoo.components.KButton inupdate;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private com.toedter.calendar.JDateChooser jDateChooser1;
@@ -1962,7 +2051,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField1;
@@ -1979,6 +2067,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel menu8;
     private javax.swing.JComboBox<String> prodID;
     private javax.swing.JComboBox<String> prodID1;
+    private javax.swing.JLabel profile;
     private javax.swing.JPanel recenttrans;
     private javax.swing.JPanel savings;
     private com.k33ptoo.components.KButton searchProd1;
@@ -1986,7 +2075,6 @@ public class Dashboard extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton searchProd3;
     private javax.swing.JPanel totalex;
     private javax.swing.JPanel totalin;
-    private javax.swing.JTextArea txtCustaddress;
-    private javax.swing.JTextField txtCustphone;
+    private javax.swing.JTextArea txtdescription;
     // End of variables declaration//GEN-END:variables
 }

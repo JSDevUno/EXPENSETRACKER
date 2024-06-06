@@ -491,15 +491,19 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="170" max="32767" attributes="0"/>
+                      <Component id="profile" alignment="1" pref="170" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="170" max="32767" attributes="0"/>
+                      <Component id="profile" alignment="1" pref="170" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="profile">
+                </Component>
+              </SubComponents>
             </Container>
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
@@ -531,6 +535,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="INSERT"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel32">
               <Properties>
@@ -903,8 +910,8 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="kButton7" min="-2" pref="72" max="-2" attributes="0"/>
-                                      <Component id="custDelete" min="-2" pref="72" max="-2" attributes="0"/>
-                                      <Component id="custUpdate" min="-2" pref="72" max="-2" attributes="0"/>
+                                      <Component id="exDelete" min="-2" pref="72" max="-2" attributes="0"/>
+                                      <Component id="exUpdate" min="-2" pref="72" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -915,10 +922,10 @@
                                   <EmptySpace min="36" pref="36" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtCustphone" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
+                                          <Component id="amounttextfield1" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
                                           <Component id="jDateChooser1" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jComboBox1" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
+                                      <Component id="categorycombobox" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -929,7 +936,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="custID" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="exID" min="-2" pref="150" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                                   <Component id="kButton1" min="-2" pref="70" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
@@ -953,7 +960,7 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="kButton1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                       <Component id="searchProd2" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                                      <Component id="custID" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                      <Component id="exID" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
@@ -969,20 +976,20 @@
                                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel38" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="categorycombobox" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="kButton7" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txtCustphone" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="amounttextfield1" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel39" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="custUpdate" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                      <Component id="exUpdate" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="custDelete" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                              <Component id="exDelete" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                               <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -1013,7 +1020,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="jTable2">
+                    <Component class="javax.swing.JTable" name="expensetable">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1075,7 +1082,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="txtCustaddress">
+                    <Component class="javax.swing.JTextArea" name="txtdescription">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1090,7 +1097,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JTextField" name="txtCustphone">
+                <Component class="javax.swing.JTextField" name="amounttextfield1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1147,7 +1154,7 @@
                     <Property name="text" type="java.lang.String" value="CATEGORY:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox1">
+                <Component class="javax.swing.JComboBox" name="categorycombobox">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="10">
@@ -1169,8 +1176,11 @@
                   </AuxValues>
                 </Component>
                 <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+                  <Properties>
+                    <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd"/>
+                  </Properties>
                 </Component>
-                <Component class="com.k33ptoo.components.KButton" name="custDelete">
+                <Component class="com.k33ptoo.components.KButton" name="exDelete">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="DELETE"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1181,7 +1191,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="custDeleteActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exDeleteActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="com.k33ptoo.components.KButton" name="kButton7">
@@ -1195,7 +1205,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kButton7ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="com.k33ptoo.components.KButton" name="custUpdate">
+                <Component class="com.k33ptoo.components.KButton" name="exUpdate">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="UPDATE"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1203,10 +1213,10 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="custUpdateActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exUpdateActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="custID">
+                <Component class="javax.swing.JComboBox" name="exID">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
