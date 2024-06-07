@@ -2309,7 +2309,23 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    private BigDecimal calculateTotalSpentAmount(String category, int userID) {
+        BigDecimal totalSpent = BigDecimal.ZERO;
+        try {
+            pst = con.prepareStatement("SELECT SUM(amount) as total FROM expenses WHERE userid = ? AND category = ?");
+            pst.setInt(1, userID);
+            pst.setString(2, category);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                totalSpent = rs.getBigDecimal("total");
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return totalSpent;
+    }
     //ADD EXPENSES
     private void kButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton7ActionPerformed
        String category = (String) categorycombobox.getSelectedItem();
@@ -2323,22 +2339,7 @@ public class Dashboard extends javax.swing.JFrame {
             sqlDate = new java.sql.Date(utilDate.getTime());
         }
 
-        try {            
-            pst = con.prepareStatement("SELECT budgetamount, spentamount FROM budget WHERE userid = ? AND category = ?");
-            pst.setInt(1, userID);
-            pst.setString(2, category);
-            rs = pst.executeQuery();
-
-            if (rs.next()) {
-                BigDecimal budgetAmount = rs.getBigDecimal("budgetamount");
-                BigDecimal spentAmount = rs.getBigDecimal("spentamount");
-                BigDecimal newSpentAmount = spentAmount.add(expenseAmount);
-
-                if (newSpentAmount.compareTo(budgetAmount) > 0) {
-                    JOptionPane.showMessageDialog(this, "This expense exceeds the budget for the category: " + category);
-                    return;
-                }
-            } 
+        try {
             pst = con.prepareStatement("INSERT INTO expenses (userid, category, amount, description, date) VALUES (?, ?, ?, ?, ?)");
             pst.setInt(1, userID);
             pst.setString(2, category);
@@ -2350,25 +2351,25 @@ public class Dashboard extends javax.swing.JFrame {
 
             if (k == 1) {
                 JOptionPane.showMessageDialog(this, "EXPENSE ADDED!");
-              
+
+                BigDecimal totalSpent = calculateTotalSpentAmount(category, userID);
+
                 pst = con.prepareStatement("SELECT * FROM budget WHERE userid = ? AND category = ?");
                 pst.setInt(1, userID);
                 pst.setString(2, category);
                 ResultSet rs = pst.executeQuery();
 
-                if (rs.next()) {                    
-                    BigDecimal spentAmount = rs.getBigDecimal("spentamount").add(expenseAmount);
-
+                if (rs.next()) {
                     pst = con.prepareStatement("UPDATE budget SET spentamount = ? WHERE userid = ? AND category = ?");
-                    pst.setBigDecimal(1, spentAmount);
+                    pst.setBigDecimal(1, totalSpent);
                     pst.setInt(2, userID);
                     pst.setString(3, category);
                     pst.executeUpdate();
-                } else {                    
+                } else {
                     pst = con.prepareStatement("INSERT INTO budget (userid, category, budgetamount, spentamount, date) VALUES (?, ?, 0, ?, ?)");
                     pst.setInt(1, userID);
                     pst.setString(2, category);
-                    pst.setBigDecimal(3, expenseAmount);
+                    pst.setBigDecimal(3, totalSpent);
                     pst.setDate(4, sqlDate);
                     pst.executeUpdate();
                 }
