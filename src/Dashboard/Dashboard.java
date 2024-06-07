@@ -11,6 +11,7 @@ package Dashboard;
 import EP.Db;
 import EP.Login;
 import EP.UserSession;
+import java.awt.BorderLayout;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,15 +28,22 @@ import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Vector;
+import org.jfree.data.general.DefaultPieDataset;
 import javax.imageio.ImageIO;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PiePlot;
+import org.jfree.ui.RectangleInsets;
 public class Dashboard extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Dashboard
-     */
+    private DefaultPieDataset pieDataset;
+    private JFreeChart pieChart;
+    private PiePlot piePlot;
+    private ChartPanel chartPanel;
+    
     Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
@@ -52,10 +60,89 @@ public class Dashboard extends javax.swing.JFrame {
         fetchBudget();
         loadBudget();
         displayUserProfile(); 
+        showPieChart();
         setLocationRelativeTo(null);
         DefaultColor = new Color(51,51,51);
         ClickedColor = new Color(0,255,255);
-        //jTable3.getColumnModel().getColumn(6).setCellRenderer(new ImageIconCellRenderer());
+    }
+    public void showPieChart(){
+        pieDataset = new DefaultPieDataset();
+
+        pieDataset.setValue("Total Expense", getTotalExpense());
+        pieDataset.setValue("Total Income", getTotalIncome());
+        pieDataset.setValue("Total Budget", getTotalBudget());
+        pieDataset.setValue("Total Savings", getTotalSavings());
+
+        pieChart = ChartFactory.createPieChart("CHART TOTALS", pieDataset, true, true, false);
+
+        pieChart.setBackgroundPaint(Color.WHITE);
+        pieChart.setBorderVisible(false);
+        pieChart.setPadding(new RectangleInsets(0, 0, 0, 0));
+
+        pieChart.getPlot().setBackgroundPaint(Color.WHITE);
+
+        chartPanel = new ChartPanel(pieChart);
+        chartPanel.setPreferredSize(new java.awt.Dimension(360, 280));
+
+        pieChartPanel.removeAll();
+        pieChartPanel.add(chartPanel, BorderLayout.CENTER);
+        pieChartPanel.revalidate();
+    
+    pieChartPanel.setVisible(true);
+    }
+    private BigDecimal getTotalExpense() {
+        BigDecimal totalExpense = BigDecimal.ZERO;
+        try {
+            pst = con.prepareStatement("SELECT SUM(amount) as total FROM expenses WHERE userid = ?");
+            pst.setInt(1, userID);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                totalExpense = rs.getBigDecimal("total");
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return totalExpense;
+    }
+
+    private BigDecimal getTotalIncome() {
+        BigDecimal totalIncome = BigDecimal.ZERO;
+        try {
+            pst = con.prepareStatement("SELECT SUM(amount) as total FROM income WHERE userid = ?");
+            pst.setInt(1, userID);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                totalIncome = rs.getBigDecimal("total");
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return totalIncome;
+    }
+
+    private BigDecimal getTotalBudget() {
+        BigDecimal totalBudget = BigDecimal.ZERO;
+        try {
+            pst = con.prepareStatement("SELECT SUM(budgetamount) as total FROM budget WHERE userid = ?");
+            pst.setInt(1, userID);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                totalBudget = rs.getBigDecimal("total");
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return totalBudget;
+    }
+
+    private BigDecimal getTotalSavings() {
+        return getTotalIncome().subtract(getTotalExpense());
     }
     private String imagePath;
     class ImageIconCellRenderer implements TableCellRenderer{
@@ -198,6 +285,7 @@ public class Dashboard extends javax.swing.JFrame {
         sumreport = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
+        pieChartPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("dashboard");
@@ -1403,7 +1491,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel9)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 28, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1526,39 +1614,44 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel35.setForeground(new java.awt.Color(51, 51, 51));
         jLabel35.setText("REPORTS");
 
+        pieChartPanel.setBackground(new java.awt.Color(255, 255, 102));
+        pieChartPanel.setLayout(new java.awt.BorderLayout());
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addComponent(jLabel35)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(132, 132, 132))
+                    .addComponent(jLabel35)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addComponent(pieChartPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(103, 103, 103)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(115, 115, 115)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(183, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pieChartPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(75, 75, 75))
         );
 
         jTabbedPane1.addTab("tab9", jPanel12);
@@ -3029,6 +3122,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel menu2;
     private javax.swing.JPanel menu3;
     private javax.swing.JPanel menu8;
+    private javax.swing.JPanel pieChartPanel;
     private javax.swing.JLabel profile;
     private javax.swing.JPanel recenttrans;
     private javax.swing.JPanel savings;
