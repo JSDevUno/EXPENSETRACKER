@@ -61,9 +61,9 @@ public class IncomeReport extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(inlabel, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE))
+                .addComponent(inlabel, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,7 +169,7 @@ public class IncomeReport extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inminusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inminusMouseClicked
-        this.setExtendedState(Dashboard.ICONIFIED);
+        this.setExtendedState(IncomeReport.ICONIFIED);
     }//GEN-LAST:event_inminusMouseClicked
 
     private void inexitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inexitMouseClicked
@@ -202,7 +202,7 @@ public class IncomeReport extends javax.swing.JFrame {
 
             rs.close();
             pst.close();
-            inlabel.setText("Total Income: " + totalIncome);
+            inlabel.setText("PHP: " + totalIncome);
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }

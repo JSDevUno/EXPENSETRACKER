@@ -1372,6 +1372,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_natural_user_interface_2_25px_1.png"))); // NOI18N
         jLabel37.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel37.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel37MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
         jPanel23.setLayout(jPanel23Layout);
@@ -1826,6 +1831,7 @@ public class Dashboard extends javax.swing.JFrame {
 
             rs.close();
             pst.close();
+            fetchBudget();
             updateTotalExpenseLabel();
             updateTotalSavingsLabel();
             updateRecentSpentLabel();
@@ -2370,6 +2376,7 @@ public class Dashboard extends javax.swing.JFrame {
                 fetchExpenses();
                 loadExpenses();
                 fetchBudget();
+                loadBudget();
             } else {
                 JOptionPane.showMessageDialog(this, "EXPENSE FAILED TO SAVE!");
             }
@@ -2473,6 +2480,7 @@ public class Dashboard extends javax.swing.JFrame {
                 jDateChooser1.setDate(null);
                 txtdescription.setText("");
                 fetchExpenses();
+                loadExpenses();
                 fetchBudget(); 
             } else {
                 JOptionPane.showMessageDialog(this, "EXPENSE FAILED TO DELETE!");
@@ -2741,7 +2749,6 @@ public class Dashboard extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
 
             if (rs.next()) {
-                // If a record exists, update the existing record with the new image
                 pst = con.prepareStatement("UPDATE users SET image = ? WHERE userid = ?");
                 pst.setBytes(1, imageData);
                 pst.setInt(2, userId);
@@ -2924,6 +2931,12 @@ public class Dashboard extends javax.swing.JFrame {
         inp.setVisible(true);
         inp.setLocationRelativeTo(null);
     }//GEN-LAST:event_inreportMouseClicked
+
+    private void jLabel37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel37MouseClicked
+        BudgetReport budp=new BudgetReport();
+        budp.setVisible(true);
+        budp.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jLabel37MouseClicked
     
     
     public static void main(String args[]) {

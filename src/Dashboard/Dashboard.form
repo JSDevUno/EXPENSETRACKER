@@ -2346,6 +2346,9 @@
                             </Property>
                             <Property name="verticalAlignment" type="int" value="1"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel37MouseClicked"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>

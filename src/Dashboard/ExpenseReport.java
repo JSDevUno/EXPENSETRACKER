@@ -87,9 +87,9 @@ public class ExpenseReport extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(exlabel, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE))
+                .addComponent(exlabel, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,7 +173,7 @@ public class ExpenseReport extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exminusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exminusMouseClicked
-        this.setExtendedState(Dashboard.ICONIFIED);
+        this.setExtendedState(ExpenseReport.ICONIFIED);
     }//GEN-LAST:event_exminusMouseClicked
 
     private void exexitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exexitMouseClicked
