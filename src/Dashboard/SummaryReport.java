@@ -60,10 +60,10 @@ public class SummaryReport extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(51, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 0, 51));
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setForeground(new java.awt.Color(102, 255, 255));
         jLabel1.setText("SUMMARY REPORT");
 
         summinus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_minus_40px.png"))); // NOI18N
@@ -83,20 +83,22 @@ public class SummaryReport extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setForeground(new java.awt.Color(0, 51, 51));
         jLabel2.setText("TOTAL EXPENSES:");
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setForeground(new java.awt.Color(0, 51, 51));
         jLabel3.setText("TOTAL BUDGET:");
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setForeground(new java.awt.Color(0, 51, 51));
         jLabel4.setText("TOTAL SAVINGS:");
 
+        jPanel2.setBackground(new java.awt.Color(51, 0, 51));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         sumexpense.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        sumexpense.setForeground(new java.awt.Color(51, 255, 255));
         sumexpense.setText("jLabel3");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -112,9 +114,11 @@ public class SummaryReport extends javax.swing.JFrame {
             .addComponent(sumexpense, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
+        jPanel3.setBackground(new java.awt.Color(51, 0, 51));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
         sumbudget.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        sumbudget.setForeground(new java.awt.Color(51, 255, 255));
         sumbudget.setText("jLabel3");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -130,10 +134,12 @@ public class SummaryReport extends javax.swing.JFrame {
             .addComponent(sumbudget, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
+        jPanel4.setBackground(new java.awt.Color(51, 0, 51));
         jPanel4.setForeground(new java.awt.Color(255, 255, 255));
         jPanel4.setPreferredSize(new java.awt.Dimension(230, 40));
 
         sumsavings.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        sumsavings.setForeground(new java.awt.Color(51, 255, 255));
         sumsavings.setText("jLabel3");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -149,9 +155,12 @@ public class SummaryReport extends javax.swing.JFrame {
             .addComponent(sumsavings, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
+        jPanel6.setBackground(new java.awt.Color(51, 0, 51));
         jPanel6.setForeground(new java.awt.Color(255, 255, 255));
 
+        sumincome.setBackground(new java.awt.Color(51, 255, 255));
         sumincome.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        sumincome.setForeground(new java.awt.Color(51, 255, 255));
         sumincome.setText("jLabel3");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -168,7 +177,7 @@ public class SummaryReport extends javax.swing.JFrame {
         );
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5.setForeground(new java.awt.Color(0, 51, 51));
         jLabel5.setText("TOTAL INCOME:");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -217,11 +226,15 @@ public class SummaryReport extends javax.swing.JFrame {
                 .addGap(11, 11, 11))
         );
 
+        jPanel7.setBackground(new java.awt.Color(51, 0, 51));
+        jPanel7.setForeground(new java.awt.Color(0, 51, 51));
+
         daterange.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        daterange.setForeground(new java.awt.Color(51, 255, 255));
         daterange.setText("jLabel6");
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setForeground(new java.awt.Color(51, 255, 255));
         jLabel6.setText("DATE RANGE:");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -229,20 +242,19 @@ public class SummaryReport extends javax.swing.JFrame {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
                 .addComponent(jLabel6)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addComponent(daterange, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(daterange, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(11, 11, 11))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(daterange)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

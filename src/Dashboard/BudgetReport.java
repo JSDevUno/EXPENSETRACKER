@@ -137,15 +137,17 @@ public class BudgetReport extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(51, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 0, 51));
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setForeground(new java.awt.Color(102, 255, 255));
         jLabel1.setText("BUDGET REPORT");
 
+        jPanel2.setBackground(new java.awt.Color(51, 0, 51));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         budlabel.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        budlabel.setForeground(new java.awt.Color(51, 255, 255));
         budlabel.setText("jLabel3");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -162,7 +164,7 @@ public class BudgetReport extends javax.swing.JFrame {
         );
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setForeground(new java.awt.Color(51, 255, 255));
         jLabel2.setText("TOTAL BUDGET:");
 
         budminus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_minus_40px.png"))); // NOI18N
@@ -180,16 +182,18 @@ public class BudgetReport extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setForeground(new java.awt.Color(51, 255, 255));
         jLabel3.setText("TOTAL SPENT:");
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setForeground(new java.awt.Color(51, 255, 255));
         jLabel4.setText("REMAINING AMOUNT:");
 
+        jPanel3.setBackground(new java.awt.Color(51, 0, 51));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
         budlabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        budlabel1.setForeground(new java.awt.Color(51, 255, 255));
         budlabel1.setText("jLabel3");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -227,9 +231,11 @@ public class BudgetReport extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(budgettable);
 
+        jPanel4.setBackground(new java.awt.Color(51, 0, 51));
         jPanel4.setForeground(new java.awt.Color(255, 255, 255));
 
         budlabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        budlabel2.setForeground(new java.awt.Color(51, 255, 255));
         budlabel2.setText("jLabel3");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);

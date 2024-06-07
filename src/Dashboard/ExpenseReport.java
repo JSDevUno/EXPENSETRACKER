@@ -47,7 +47,7 @@ public class ExpenseReport extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(51, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 0, 51));
 
         expensetable2.setBackground(new java.awt.Color(255, 255, 255));
         expensetable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -75,12 +75,14 @@ public class ExpenseReport extends javax.swing.JFrame {
         jScrollPane2.setViewportView(expensetable2);
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setForeground(new java.awt.Color(51, 255, 255));
         jLabel1.setText("EXPENSE REPORT");
 
+        jPanel2.setBackground(new java.awt.Color(51, 0, 51));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         exlabel.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        exlabel.setForeground(new java.awt.Color(51, 255, 255));
         exlabel.setText("jLabel3");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -97,6 +99,7 @@ public class ExpenseReport extends javax.swing.JFrame {
         );
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 255, 255));
         jLabel2.setText("TOTAL EXPENSES:");
 
         exminus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_minus_40px.png"))); // NOI18N
@@ -154,7 +157,9 @@ public class ExpenseReport extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel2)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
