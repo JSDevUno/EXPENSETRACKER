@@ -48,45 +48,45 @@ public class BudgetReport extends javax.swing.JFrame {
     }
     public void fetchBudget() {
         int userId = UserSession.getUserID();
-    BigDecimal totalBudget = BigDecimal.ZERO;
-    BigDecimal totalRemain = BigDecimal.ZERO;
+        BigDecimal totalBudget = BigDecimal.ZERO;
+        BigDecimal totalRemain = BigDecimal.ZERO;
 
-    try {
-        pst = con.prepareStatement("SELECT * FROM budget WHERE userid = ?");
-        pst.setInt(1, userId);
+        try {
+            pst = con.prepareStatement("SELECT * FROM budget WHERE userid = ?");
+            pst.setInt(1, userId);
 
-        ResultSet rs = pst.executeQuery();
+            ResultSet rs = pst.executeQuery();
 
-        DefaultTableModel budgetTableModel = (DefaultTableModel) budgettable.getModel();
-        budgetTableModel.setRowCount(0);
+            DefaultTableModel budgetTableModel = (DefaultTableModel) budgettable.getModel();
+            budgetTableModel.setRowCount(0);
 
-        while (rs.next()) {
-            String category = rs.getString("category");
-            BigDecimal budgetAmount = rs.getBigDecimal("budgetamount");
-            BigDecimal totalExpenses = calculateTotalExpensesForCategory(category);
-            BigDecimal remainingAmount = budgetAmount.subtract(totalExpenses);
+            while (rs.next()) {
+                String category = rs.getString("category");
+                BigDecimal budgetAmount = rs.getBigDecimal("budgetamount");
+                BigDecimal totalExpenses = calculateTotalExpensesForCategory(category);
+                BigDecimal remainingAmount = budgetAmount.subtract(totalExpenses);
 
-            Object[] rowData = {
-                rs.getInt("budgetid"),
-                category,
-                budgetAmount,
-                totalExpenses,               
-                remainingAmount,
-                rs.getDate("date")
-            };
-            budgetTableModel.addRow(rowData);
-            totalBudget = totalBudget.add(budgetAmount);
-            totalRemain = totalRemain.add(remainingAmount); // Fixing the totalRemain calculation
+                Object[] rowData = {
+                    rs.getInt("budgetid"),
+                    category,
+                    budgetAmount,
+                    totalExpenses,               
+                    remainingAmount,
+                    rs.getDate("date")
+                };
+                budgetTableModel.addRow(rowData);
+                totalBudget = totalBudget.add(budgetAmount);
+                totalRemain = totalRemain.add(remainingAmount); 
+            }
+
+            rs.close();
+            pst.close();
+            budlabel.setText("PHP: " + totalBudget);
+            updateTotalExpenseLabel();
+            budlabel2.setText("PHP: " + totalRemain);
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        rs.close();
-        pst.close();
-        budlabel.setText("PHP: " + totalBudget);
-        updateTotalExpenseLabel();
-        budlabel2.setText("PHP: " + totalRemain);
-    } catch (SQLException ex) {
-        Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-    }
     }
     public BigDecimal calculateTotalExpense() {
         int userId = UserSession.getUserID();
@@ -185,7 +185,7 @@ public class BudgetReport extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("REMANING AMOUNT:");
+        jLabel4.setText("REMAINING AMOUNT:");
 
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 

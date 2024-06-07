@@ -2886,7 +2886,9 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_budreportMouseClicked
 
     private void sumreportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sumreportMouseClicked
-        
+        SummaryReport sump=new SummaryReport();
+        sump.setVisible(true);
+        sump.setLocationRelativeTo(null);
     }//GEN-LAST:event_sumreportMouseClicked
     
     
