@@ -1771,7 +1771,22 @@ public class Dashboard extends javax.swing.JFrame {
         BigDecimal recentSpent = fetchMostRecentSpent();
         labelspent.setText("PHP " + recentSpent.toString());
     }
-
+    BigDecimal getExpenseAmount(int expenseId) {
+        BigDecimal amount = BigDecimal.ZERO;
+        try {
+            pst = con.prepareStatement("SELECT amount FROM expenses WHERE expenseid = ?");
+            pst.setInt(1, expenseId);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                amount = rs.getBigDecimal("amount");
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return amount;
+    }
     public void fetchExpenses(){
         int userId = UserSession.getUserID(); 
     
@@ -2183,20 +2198,21 @@ public class Dashboard extends javax.swing.JFrame {
             budgetTableModel.setRowCount(0);
 
             while (rs.next()) {
+                String category = rs.getString("category");
                 BigDecimal budgetAmount = rs.getBigDecimal("budgetamount");
-                BigDecimal spentAmount = rs.getBigDecimal("spentamount");
-                BigDecimal remainingAmount = budgetAmount.subtract(spentAmount);
+                BigDecimal totalExpenses = calculateTotalExpensesForCategory(category);
+                BigDecimal remainingAmount = budgetAmount.subtract(totalExpenses);
 
                 Object[] rowData = {
                     rs.getInt("budgetid"),
-                    rs.getString("category"),
+                    category,
                     budgetAmount,
-                    spentAmount,
+                    totalExpenses,               
                     remainingAmount,
                     rs.getDate("date")
-                };
-                budgetTableModel.addRow(rowData);
-            }
+                    };
+                    budgetTableModel.addRow(rowData);
+                }
 
             rs.close();
             pst.close();
@@ -2225,6 +2241,24 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public BigDecimal calculateTotalExpensesForCategory(String category) {
+        BigDecimal totalExpenses = BigDecimal.ZERO;
+        try {
+            pst = con.prepareStatement("SELECT SUM(amount) AS total FROM expenses WHERE userid = ? AND category = ?");
+            pst.setInt(1, userID);
+            pst.setString(2, category);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                totalExpenses = rs.getBigDecimal("total");
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return totalExpenses != null ? totalExpenses : BigDecimal.ZERO;
+    }
+
     public void fetchBudgetSort(String column, String order) {
         int userId = UserSession.getUserID();
         try {
@@ -2406,20 +2440,26 @@ public class Dashboard extends javax.swing.JFrame {
         try {
             String expenseId = exID.getSelectedItem().toString();
 
+            BigDecimal expenseAmount = getExpenseAmount(Integer.parseInt(expenseId));
+
             pst = con.prepareStatement("DELETE FROM expenses WHERE expenseid=?");
-
             pst.setString(1, expenseId);
-
             int k = pst.executeUpdate();
 
             if (k == 1) {
+                pst = con.prepareStatement("UPDATE budget SET spentamount = spentamount - ? WHERE budgetid IN (SELECT budgetid FROM expenses WHERE expenseid = ?)");
+                pst.setBigDecimal(1, expenseAmount);
+                pst.setString(2, expenseId);
+                pst.executeUpdate();
+                pst.close();
+
                 JOptionPane.showMessageDialog(this, "EXPENSE DELETED!");
                 categorycombobox.setSelectedIndex(0);
                 amounttextfield1.setText("");
                 jDateChooser1.setDate(null);
                 txtdescription.setText("");
                 fetchExpenses();
-                loadExpenses();
+                fetchBudget(); 
             } else {
                 JOptionPane.showMessageDialog(this, "EXPENSE FAILED TO DELETE!");
             }
@@ -2841,9 +2881,11 @@ public class Dashboard extends javax.swing.JFrame {
             rs = pst.executeQuery();
 
             if (rs.next()) {
+                String category = rs.getString("category");
+                BigDecimal totalExpenses = calculateTotalExpensesForCategory(category);
                 categorycombobox2.setSelectedItem(rs.getString("category"));
                 txtbudgetamount.setText(rs.getBigDecimal("budgetamount").toString());
-                txtspentamount.setText(rs.getBigDecimal("spentamount").toString());
+                txtspentamount.setText(totalExpenses.toString());
                 jDateChooser3.setDate(rs.getDate("date"));
             } else {
                 JOptionPane.showMessageDialog(this, "Budget with ID " + budgetId + " not found!");
