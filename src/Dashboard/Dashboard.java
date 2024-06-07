@@ -183,7 +183,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
-        jLabel36 = new javax.swing.JLabel();
+        inreport = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jPanel23 = new javax.swing.JPanel();
@@ -1316,8 +1316,13 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel22.setForeground(new java.awt.Color(0, 0, 0));
         jPanel22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_natural_user_interface_2_25px_1.png"))); // NOI18N
-        jLabel36.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        inreport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_natural_user_interface_2_25px_1.png"))); // NOI18N
+        inreport.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        inreport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inreportMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
         jPanel22.setLayout(jPanel22Layout);
@@ -1325,13 +1330,13 @@ public class Dashboard extends javax.swing.JFrame {
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
                 .addGap(0, 14, Short.MAX_VALUE)
-                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(inreport, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inreport, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -2913,6 +2918,12 @@ public class Dashboard extends javax.swing.JFrame {
         exp.setVisible(true);
         exp.setLocationRelativeTo(null);
     }//GEN-LAST:event_exreportMouseClicked
+
+    private void inreportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inreportMouseClicked
+        IncomeReport inp=new IncomeReport();
+        inp.setVisible(true);
+        inp.setLocationRelativeTo(null);
+    }//GEN-LAST:event_inreportMouseClicked
     
     
     public static void main(String args[]) {
@@ -2968,6 +2979,7 @@ public class Dashboard extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton inadd;
     private javax.swing.JTable incometable;
     private com.k33ptoo.components.KButton indelete;
+    private javax.swing.JLabel inreport;
     private com.k33ptoo.components.KButton inupdate;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -2998,7 +3010,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
