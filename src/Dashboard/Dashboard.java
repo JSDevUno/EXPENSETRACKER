@@ -989,6 +989,8 @@ public class Dashboard extends javax.swing.JFrame {
 
         frequencycombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monthly", "Bi-Weekly", "Weekly", "Daily" }));
 
+        jDateChooser2.setDateFormatString("yyyy-MM-dd");
+
         jLabel45.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(51, 51, 51));
         jLabel45.setText("DATE:");
@@ -1169,6 +1171,8 @@ public class Dashboard extends javax.swing.JFrame {
                 sortComboBox3ActionPerformed(evt);
             }
         });
+
+        jDateChooser3.setDateFormatString("yyyy-MM-dd");
 
         jLabel49.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         jLabel49.setForeground(new java.awt.Color(51, 51, 51));
