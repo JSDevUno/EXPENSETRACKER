@@ -1867,7 +1867,6 @@ public class Dashboard extends javax.swing.JFrame {
                 };
                 expenseTableModel.addRow(rowData); 
             }
-
             rs.close();
             pst.close();
             fetchBudget();
