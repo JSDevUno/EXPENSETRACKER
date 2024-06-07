@@ -2365,7 +2365,7 @@ public class Dashboard extends javax.swing.JFrame {
         }
         return totalSpent;
     }
-    //ADD EXPENSES
+   
     private void kButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton7ActionPerformed
        String category = (String) categorycombobox.getSelectedItem();
         String amountText = amounttextfield1.getText();
@@ -2427,7 +2427,7 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_kButton7ActionPerformed
-    //SEARCH COMBO BOX EXPENSES
+   
     private void kButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton1ActionPerformed
         try {
             String cid = exID.getSelectedItem().toString(); 
@@ -2452,7 +2452,7 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_kButton1ActionPerformed
-    //UPDATE EXPENSES
+    
     private void exUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exUpdateActionPerformed
         try {
             String category = (String) categorycombobox.getSelectedItem();
@@ -2496,7 +2496,7 @@ public class Dashboard extends javax.swing.JFrame {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_exUpdateActionPerformed
-    //DELETE EXPENSES
+   
     private void exDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exDeleteActionPerformed
         try {
             String expenseId = exID.getSelectedItem().toString();
