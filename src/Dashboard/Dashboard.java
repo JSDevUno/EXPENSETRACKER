@@ -2416,6 +2416,7 @@ public class Dashboard extends javax.swing.JFrame {
                 loadExpenses();
                 fetchBudget();
                 loadBudget();
+                showPieChart();
             } else {
                 JOptionPane.showMessageDialog(this, "EXPENSE FAILED TO SAVE!");
             }
@@ -2485,6 +2486,7 @@ public class Dashboard extends javax.swing.JFrame {
                 txtdescription.setText("");
                 fetchExpenses();
                 loadExpenses();
+                showPieChart();
             } else {
                 JOptionPane.showMessageDialog(this, "EXPENSE FAILED TO UPDATE!");
             }
@@ -2521,6 +2523,7 @@ public class Dashboard extends javax.swing.JFrame {
                 fetchExpenses();
                 loadExpenses();
                 fetchBudget(); 
+                showPieChart();
             } else {
                 JOptionPane.showMessageDialog(this, "EXPENSE FAILED TO DELETE!");
             }
@@ -2591,6 +2594,7 @@ public class Dashboard extends javax.swing.JFrame {
                 jDateChooser2.setDate(null);
                 fetchIncome(); 
                 loadIncome();  
+                showPieChart();
             } else {
                 JOptionPane.showMessageDialog(this, "INCOME FAILED TO SAVE!");
             }
@@ -2634,6 +2638,7 @@ public class Dashboard extends javax.swing.JFrame {
                 frequencycombobox.setSelectedIndex(0);
                 fetchIncome();
                 loadIncome();
+                showPieChart();
             } else {
                 JOptionPane.showMessageDialog(this, "INCOME FAILED TO UPDATE!");
             }
@@ -2662,6 +2667,7 @@ public class Dashboard extends javax.swing.JFrame {
                 frequencycombobox.setSelectedIndex(0);
                 fetchIncome(); 
                 loadIncome();
+                showPieChart();
             } else {
                 JOptionPane.showMessageDialog(this, "INCOME FAILED TO DELETE!");
             }
@@ -2727,7 +2733,7 @@ public class Dashboard extends javax.swing.JFrame {
             jDateChooser3.setDate(null);
             fetchBudget();
             loadBudget();
-
+            showPieChart();
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NumberFormatException ex) {
@@ -2753,6 +2759,7 @@ public class Dashboard extends javax.swing.JFrame {
                 jDateChooser3.setDate(null);
                 fetchBudget(); 
                 loadBudget(); 
+                showPieChart();
             } else {
                 JOptionPane.showMessageDialog(this, "BUDGET FAILED TO DELETE!");
             }
@@ -2921,6 +2928,7 @@ public class Dashboard extends javax.swing.JFrame {
                 jDateChooser3.setDate(null);
                 fetchBudget();  
                 loadBudget();
+                showPieChart();
             } else {
                 JOptionPane.showMessageDialog(this, "BUDGET FAILED TO UPDATE!");
             }
