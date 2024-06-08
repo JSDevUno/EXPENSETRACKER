@@ -102,14 +102,14 @@ public class ExpenseReport extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(51, 255, 255));
         jLabel2.setText("TOTAL EXPENSES:");
 
-        exminus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_minus_40px.png"))); // NOI18N
+        exminus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_minimize_window_40px.png"))); // NOI18N
         exminus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 exminusMouseClicked(evt);
             }
         });
 
-        exexit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_cancel_40px.png"))); // NOI18N
+        exexit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_close_window_40px.png"))); // NOI18N
         exexit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 exexitMouseClicked(evt);

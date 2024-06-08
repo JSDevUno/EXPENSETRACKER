@@ -328,7 +328,7 @@
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/EP/icons8_cancel_40px.png"/>
+                  <Image iconType="3" name="/EP/icons8_close_window_40px.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -343,7 +343,7 @@
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/EP/icons8_minus_40px.png"/>
+                  <Image iconType="3" name="/EP/icons8_minimize_window_40px.png"/>
                 </Property>
               </Properties>
               <Events>
