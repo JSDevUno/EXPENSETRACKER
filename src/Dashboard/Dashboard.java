@@ -109,6 +109,23 @@ public class Dashboard extends javax.swing.JFrame {
         }
         return totalExpense;
     }
+    private BigDecimal getTotalExpensesExcludingCurrent(String expenseId) {
+    BigDecimal totalExpenses = BigDecimal.ZERO;
+    try {
+        pst = con.prepareStatement("SELECT SUM(amount) as total FROM expenses WHERE userid = ? AND expenseid != ?");
+        pst.setInt(1, userID);
+        pst.setString(2, expenseId);
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+            totalExpenses = rs.getBigDecimal("total");
+        }
+        rs.close();
+        pst.close();
+    } catch (SQLException ex) {
+        Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return totalExpenses;
+}
 
     private BigDecimal getTotalIncome() {
         BigDecimal totalIncome = BigDecimal.ZERO;
@@ -2406,7 +2423,22 @@ public class Dashboard extends javax.swing.JFrame {
         }
         return totalSpent;
     }
-   
+    private BigDecimal calculateTotalSpentAmount(int userID) {
+        BigDecimal totalSpent = BigDecimal.ZERO;
+        try {
+            pst = con.prepareStatement("SELECT SUM(amount) as total FROM expenses WHERE userid = ?");
+            pst.setInt(1, userID);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                totalSpent = rs.getBigDecimal("total");
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return totalSpent;
+    }
     private void kButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton7ActionPerformed
        String category = (String) categorycombobox.getSelectedItem();
         String amountText = amounttextfield1.getText();
@@ -2420,6 +2452,13 @@ public class Dashboard extends javax.swing.JFrame {
         }
 
         try {
+            BigDecimal totalExpenses = calculateTotalSpentAmount(userID).add(expenseAmount);
+            BigDecimal totalBudget = getTotalBudget();
+
+            if (totalExpenses.compareTo(totalBudget) > 0) {
+                JOptionPane.showMessageDialog(this, "The total expenses exceed the total budget!");
+                return;
+            }
             pst = con.prepareStatement("INSERT INTO expenses (userid, category, amount, description, date) VALUES (?, ?, ?, ?, ?)");
             pst.setInt(1, userID);
             pst.setString(2, category);
@@ -2496,23 +2535,32 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_kButton1ActionPerformed
     
     private void exUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exUpdateActionPerformed
-        try {
-            String category = (String) categorycombobox.getSelectedItem();
-            String amountText = amounttextfield1.getText();
-            java.util.Date utilDate = jDateChooser1.getDate();
-            String description = txtdescription.getText();
-            String expenseId = exID.getSelectedItem().toString(); 
+        String category = (String) categorycombobox.getSelectedItem();
+        String amountText = amounttextfield1.getText();
+        java.util.Date utilDate = jDateChooser1.getDate();
+        String description = txtdescription.getText();
+        String expenseId = exID.getSelectedItem().toString(); 
 
-            java.sql.Date sqlDate = null;
-            if (utilDate != null) {
-                sqlDate = new java.sql.Date(utilDate.getTime());
+        java.sql.Date sqlDate = null;
+        if (utilDate != null) {
+            sqlDate = new java.sql.Date(utilDate.getTime());
+        }
+
+        BigDecimal newExpenseAmount = new BigDecimal(amountText);
+
+        try {
+            BigDecimal totalExpensesExcludingCurrent = getTotalExpensesExcludingCurrent(expenseId);
+            BigDecimal totalBudget = getTotalBudget();
+
+            if (totalExpensesExcludingCurrent.add(newExpenseAmount).compareTo(totalBudget) > 0) {
+                JOptionPane.showMessageDialog(this, "The total expenses exceed the total budget!");
+                return;
             }
 
             pst = con.prepareStatement("UPDATE expenses SET category=?, amount=?, description=?, date=? WHERE expenseid=?");
 
-            
             pst.setString(1, category);
-            pst.setBigDecimal(2, new BigDecimal(amountText));
+            pst.setBigDecimal(2, newExpenseAmount);
             pst.setString(3, description);
             pst.setDate(4, sqlDate);
             pst.setString(5, expenseId);
@@ -2521,7 +2569,7 @@ public class Dashboard extends javax.swing.JFrame {
 
             if (k == 1) {
                 JOptionPane.showMessageDialog(this, "EXPENSE UPDATED!");
-                
+
                 categorycombobox.setSelectedIndex(0);
                 amounttextfield1.setText("");
                 jDateChooser1.setDate(null);
