@@ -184,7 +184,7 @@ public class Dashboard extends javax.swing.JFrame {
             if (rs.next()) {
                 totalBudget = rs.getBigDecimal("total");
                 if (totalBudget == null) {
-                    totalBudget = BigDecimal.ZERO; // Handle the case where the total is null
+                    totalBudget = BigDecimal.ZERO; 
                 }
             }
             rs.close();
