@@ -143,7 +143,23 @@ public class Dashboard extends javax.swing.JFrame {
         }
         return totalBudget;
     }
-
+    private BigDecimal getTotalBudgetExcludingCurrent(String budgetId) {
+        BigDecimal totalBudget = BigDecimal.ZERO;
+        try {
+            pst = con.prepareStatement("SELECT SUM(budgetamount) as total FROM budget WHERE userid = ? AND budgetid != ?");
+            pst.setInt(1, userID);
+            pst.setString(2, budgetId);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                totalBudget = rs.getBigDecimal("total");
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return totalBudget;
+    }
     private BigDecimal getTotalSavings() {
         return getTotalIncome().subtract(getTotalExpense());
     }
@@ -2936,10 +2952,20 @@ public class Dashboard extends javax.swing.JFrame {
         }
 
         try {
+            BigDecimal newBudgetAmount = new BigDecimal(budgetAmountText);
+
+            BigDecimal totalBudgetExcludingCurrent = getTotalBudgetExcludingCurrent(budgetId);
+            BigDecimal totalIncome = getTotalIncome();
+
+            if (totalBudgetExcludingCurrent.add(newBudgetAmount).compareTo(totalIncome) > 0) {
+                JOptionPane.showMessageDialog(this, "The total budget exceeds the total income!");
+                return;
+            }
+
             pst = con.prepareStatement("UPDATE budget SET category=?, budgetamount=?, spentamount=?, date=? WHERE budgetid=?");
 
             pst.setString(1, category);
-            pst.setBigDecimal(2, new BigDecimal(budgetAmountText));
+            pst.setBigDecimal(2, newBudgetAmount);
             pst.setBigDecimal(3, new BigDecimal(spentAmountText));
             pst.setDate(4, sqlDate);
             pst.setString(5, budgetId);
@@ -2952,7 +2978,7 @@ public class Dashboard extends javax.swing.JFrame {
                 txtbudgetamount.setText("");
                 txtspentamount.setText("");
                 jDateChooser3.setDate(null);
-                fetchBudget();  
+                fetchBudget();
                 loadBudget();
                 showPieChart();
             } else {
