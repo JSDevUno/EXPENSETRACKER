@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Windows 10
  */
 public class ExpenseReport extends javax.swing.JFrame {
+    private int initialClickX, initialClickY;
     Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
@@ -48,6 +49,16 @@ public class ExpenseReport extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(51, 0, 51));
+        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel1MouseDragged(evt);
+            }
+        });
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel1MousePressed(evt);
+            }
+        });
 
         expensetable2.setBackground(new java.awt.Color(255, 255, 255));
         expensetable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -184,6 +195,17 @@ public class ExpenseReport extends javax.swing.JFrame {
     private void exexitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exexitMouseClicked
         this.dispose();
     }//GEN-LAST:event_exexitMouseClicked
+
+    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
+        int newX = getX() + evt.getX() - initialClickX;
+        int newY = getY() + evt.getY() - initialClickY;
+        setLocation(newX, newY);
+    }//GEN-LAST:event_jPanel1MouseDragged
+
+    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
+        initialClickX = evt.getX();
+        initialClickY = evt.getY();
+    }//GEN-LAST:event_jPanel1MousePressed
 
     public void fetchExpenses(){
         int userId = UserSession.getUserID(); 

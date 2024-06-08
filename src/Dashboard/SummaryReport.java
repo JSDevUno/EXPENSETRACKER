@@ -20,6 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 public class SummaryReport extends javax.swing.JFrame {
+    private int initialClickX, initialClickY;
     Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
@@ -61,6 +62,16 @@ public class SummaryReport extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(51, 0, 51));
+        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel1MouseDragged(evt);
+            }
+        });
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel1MousePressed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 255, 255));
@@ -315,6 +326,17 @@ public class SummaryReport extends javax.swing.JFrame {
     private void sumexitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sumexitMouseClicked
         this.dispose();
     }//GEN-LAST:event_sumexitMouseClicked
+
+    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
+        int newX = getX() + evt.getX() - initialClickX;
+	int newY = getY() + evt.getY() - initialClickY;
+	setLocation(newX, newY);
+    }//GEN-LAST:event_jPanel1MouseDragged
+
+    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
+        initialClickX = evt.getX();
+	initialClickY = evt.getY();
+    }//GEN-LAST:event_jPanel1MousePressed
     public void fetchSummary() {
         int userId = UserSession.getUserID();
         try {          

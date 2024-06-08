@@ -20,6 +20,8 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    private int initialClickX, initialClickY;
+    
     Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
@@ -72,6 +74,16 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(51, 0, 51));
         jPanel1.setPreferredSize(new java.awt.Dimension(1080, 564));
+        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel1MouseDragged(evt);
+            }
+        });
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel1MousePressed(evt);
+            }
+        });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
@@ -84,6 +96,16 @@ public class Login extends javax.swing.JFrame {
         kGradientPanel1.setkEndColor(new java.awt.Color(0, 255, 255));
         kGradientPanel1.setkStartColor(new java.awt.Color(0, 204, 204));
         kGradientPanel1.setName("panelsale"); // NOI18N
+        kGradientPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                kGradientPanel1MouseDragged(evt);
+            }
+        });
+        kGradientPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                kGradientPanel1MousePressed(evt);
+            }
+        });
 
         jLabel6.setBackground(new java.awt.Color(0, 255, 255));
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -218,7 +240,7 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("SYSTEM");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 320, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 310, -1, -1));
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(834, 123, -1, -1));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EP/icons8_peso_symbol_60px.png"))); // NOI18N
@@ -311,6 +333,28 @@ public class Login extends javax.swing.JFrame {
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         this.setExtendedState(Login.ICONIFIED);
     }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void kGradientPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel1MouseDragged
+        int newX = getX() + evt.getX() - initialClickX;
+        int newY = getY() + evt.getY() - initialClickY;
+        setLocation(newX, newY);
+    }//GEN-LAST:event_kGradientPanel1MouseDragged
+
+    private void kGradientPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel1MousePressed
+        initialClickX = evt.getX();
+        initialClickY = evt.getY();
+    }//GEN-LAST:event_kGradientPanel1MousePressed
+
+    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
+        int newX = getX() + evt.getX() - initialClickX;
+        int newY = getY() + evt.getY() - initialClickY;
+        setLocation(newX, newY);
+    }//GEN-LAST:event_jPanel1MouseDragged
+
+    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
+        initialClickX = evt.getX();
+        initialClickY = evt.getY();
+    }//GEN-LAST:event_jPanel1MousePressed
 
     
    

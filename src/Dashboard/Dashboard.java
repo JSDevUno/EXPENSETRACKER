@@ -20,6 +20,7 @@ import javax.swing.*;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -43,6 +44,7 @@ public class Dashboard extends javax.swing.JFrame {
     private JFreeChart pieChart;
     private PiePlot piePlot;
     private ChartPanel chartPanel;
+    private int initialClickX, initialClickY;
     
     Connection con = null;
     PreparedStatement pst = null;
@@ -53,6 +55,7 @@ public class Dashboard extends javax.swing.JFrame {
         initComponents();
         userID = UserSession.getUserID();
         con = Db.myconnection();
+        displayFirstName();
         loadExpenses();
         fetchExpenses();
         loadIncome();
@@ -88,7 +91,7 @@ public class Dashboard extends javax.swing.JFrame {
         pieChartPanel.add(chartPanel, BorderLayout.CENTER);
         pieChartPanel.revalidate();
     
-    pieChartPanel.setVisible(true);
+        pieChartPanel.setVisible(true);
     }
     private BigDecimal getTotalExpense() {
         BigDecimal totalExpense = BigDecimal.ZERO;
@@ -191,10 +194,10 @@ public class Dashboard extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        dragpanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
+        fnamelabel = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
@@ -596,55 +599,65 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
         );
 
-        jPanel4.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel4.setPreferredSize(new java.awt.Dimension(830, 52));
+        dragpanel.setBackground(new java.awt.Color(0, 153, 153));
+        dragpanel.setPreferredSize(new java.awt.Dimension(830, 52));
+        dragpanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                dragpanelMouseDragged(evt);
+            }
+        });
+        dragpanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                dragpanelMousePressed(evt);
+            }
+        });
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_cancel_40px.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_close_window_40px.png"))); // NOI18N
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_minus_40px.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_minimize_window_40px.png"))); // NOI18N
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);
             }
         });
 
-        jLabel23.setFont(new java.awt.Font("Tw Cen MT", 1, 36)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(0, 255, 255));
-        jLabel23.setText("Jeevs");
+        fnamelabel.setFont(new java.awt.Font("Tw Cen MT", 1, 36)); // NOI18N
+        fnamelabel.setForeground(new java.awt.Color(0, 255, 255));
+        fnamelabel.setText("Jeevs");
 
         jLabel24.setFont(new java.awt.Font("Tw Cen MT", 1, 36)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Welcome,");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout dragpanelLayout = new javax.swing.GroupLayout(dragpanel);
+        dragpanel.setLayout(dragpanelLayout);
+        dragpanelLayout.setHorizontalGroup(
+            dragpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dragpanelLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel24)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel23)
+                .addComponent(fnamelabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 475, Short.MAX_VALUE)
                 .addComponent(jLabel7)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        dragpanelLayout.setVerticalGroup(
+            dragpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dragpanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(dragpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(dragpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel24)
-                        .addComponent(jLabel23))
+                        .addComponent(fnamelabel))
                     .addComponent(jLabel7))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
@@ -1664,7 +1677,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dragpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1675,7 +1688,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dragpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1684,7 +1697,21 @@ public class Dashboard extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private void displayFirstName() {
+        try {
+            pst = con.prepareStatement("SELECT firstname FROM users WHERE userid = ?");
+            pst.setInt(1, userID);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                String firstName = rs.getString("firstname");
+                fnamelabel.setText(firstName);
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     private void menu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu1MouseClicked
        jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_menu1MouseClicked
@@ -2990,6 +3017,17 @@ public class Dashboard extends javax.swing.JFrame {
         sump.setVisible(true);
         sump.setLocationRelativeTo(null);
     }//GEN-LAST:event_sumreportMouseClicked
+
+    private void dragpanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dragpanelMouseDragged
+        int newX = getX() + evt.getX() - initialClickX;
+        int newY = getY() + evt.getY() - initialClickY;
+        setLocation(newX, newY);
+    }//GEN-LAST:event_dragpanelMouseDragged
+
+    private void dragpanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dragpanelMousePressed
+        initialClickX = evt.getX();
+        initialClickY = evt.getY();
+    }//GEN-LAST:event_dragpanelMousePressed
     
     
     public static void main(String args[]) {
@@ -3035,11 +3073,13 @@ public class Dashboard extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton budupdate;
     private javax.swing.JComboBox<String> categorycombobox;
     private javax.swing.JComboBox<String> categorycombobox2;
+    private javax.swing.JPanel dragpanel;
     private com.k33ptoo.components.KButton exDelete;
     private javax.swing.JComboBox<String> exID;
     private com.k33ptoo.components.KButton exUpdate;
     private javax.swing.JTable expensetable;
     private javax.swing.JLabel exreport;
+    private javax.swing.JLabel fnamelabel;
     private javax.swing.JComboBox<String> frequencycombobox;
     private javax.swing.JPanel home;
     private javax.swing.JComboBox<String> inID;
@@ -3064,7 +3104,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -3106,7 +3145,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;

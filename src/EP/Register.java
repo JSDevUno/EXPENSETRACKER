@@ -20,6 +20,7 @@ public class Register extends javax.swing.JFrame {
     /**
      * Creates new form Register
      */
+    private int initialClickX, initialClickY;
     Connection con = null;
     PreparedStatement pst = null;
     public Register() {
@@ -67,6 +68,16 @@ public class Register extends javax.swing.JFrame {
         kGradientPanel2.setkBorderRadius(0);
         kGradientPanel2.setkEndColor(new java.awt.Color(0, 204, 204));
         kGradientPanel2.setkStartColor(new java.awt.Color(0, 153, 153));
+        kGradientPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                kGradientPanel2MouseDragged(evt);
+            }
+        });
+        kGradientPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                kGradientPanel2MousePressed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -293,6 +304,17 @@ public class Register extends javax.swing.JFrame {
         l.setVisible(true);
         l.setLocationRelativeTo(null);
     }//GEN-LAST:event_kButton2ActionPerformed
+
+    private void kGradientPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel2MouseDragged
+        int newX = getX() + evt.getX() - initialClickX;
+        int newY = getY() + evt.getY() - initialClickY;
+        setLocation(newX, newY);
+    }//GEN-LAST:event_kGradientPanel2MouseDragged
+
+    private void kGradientPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kGradientPanel2MousePressed
+        initialClickX = evt.getX();
+        initialClickY = evt.getY();
+    }//GEN-LAST:event_kGradientPanel2MousePressed
 
     /**
      * @param args the command line arguments
