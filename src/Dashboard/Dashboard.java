@@ -1782,7 +1782,6 @@ public class Dashboard extends javax.swing.JFrame {
 
     public void loadExpenses(){
         int userId = UserSession.getUserID();
-
         try {
             pst = con.prepareStatement("SELECT expenseid FROM expenses WHERE userid = ?");
             pst.setInt(1, userId); 
