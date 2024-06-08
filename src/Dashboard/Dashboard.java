@@ -110,22 +110,36 @@ public class Dashboard extends javax.swing.JFrame {
         return totalExpense;
     }
     private BigDecimal getTotalExpensesExcludingCurrent(String expenseId) {
-    BigDecimal totalExpenses = BigDecimal.ZERO;
-    try {
-        pst = con.prepareStatement("SELECT SUM(amount) as total FROM expenses WHERE userid = ? AND expenseid != ?");
-        pst.setInt(1, userID);
-        pst.setString(2, expenseId);
-        ResultSet rs = pst.executeQuery();
-        if (rs.next()) {
-            totalExpenses = rs.getBigDecimal("total");
+        BigDecimal totalExpenses = BigDecimal.ZERO;
+        try {
+            pst = con.prepareStatement("SELECT COUNT(*) as count FROM expenses WHERE userid = ?");
+            pst.setInt(1, userID);
+            ResultSet rsCount = pst.executeQuery();
+            if (rsCount.next() && rsCount.getInt("count") > 1) {
+                pst = con.prepareStatement("SELECT SUM(amount) as total FROM expenses WHERE userid = ? AND expenseid != ?");
+                pst.setInt(1, userID);
+                pst.setString(2, expenseId);
+                ResultSet rs = pst.executeQuery();
+                if (rs.next()) {
+                    totalExpenses = rs.getBigDecimal("total");
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, "Error fetching total expenses excluding current", ex);
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, "Error closing resources", ex);
+            }
         }
-        rs.close();
-        pst.close();
-    } catch (SQLException ex) {
-        Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        return totalExpenses;
     }
-    return totalExpenses;
-}
 
     private BigDecimal getTotalIncome() {
         BigDecimal totalIncome = BigDecimal.ZERO;
@@ -169,6 +183,9 @@ public class Dashboard extends javax.swing.JFrame {
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
                 totalBudget = rs.getBigDecimal("total");
+                if (totalBudget == null) {
+                    totalBudget = BigDecimal.ZERO; // Handle the case where the total is null
+                }
             }
             rs.close();
             pst.close();
