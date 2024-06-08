@@ -113,7 +113,7 @@ public class BudgetReport extends javax.swing.JFrame {
     }
     public void updateTotalExpenseLabel() {
         BigDecimal totalExpense = calculateTotalExpense();
-        budlabel1.setText("PHP "+totalExpense.toString());
+        budlabel1.setText("PHP: "+totalExpense.toString());
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
