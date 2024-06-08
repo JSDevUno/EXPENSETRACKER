@@ -178,7 +178,18 @@ public class Dashboard extends javax.swing.JFrame {
         return totalBudget;
     }
     private BigDecimal getTotalSavings() {
-        return getTotalIncome().subtract(getTotalExpense());
+        BigDecimal totalIncome = getTotalIncome();
+        BigDecimal totalExpense = getTotalExpense();
+
+        if (totalIncome != null && totalExpense != null) {
+            if (totalIncome.compareTo(totalExpense) >= 0) {
+                return totalIncome.subtract(totalExpense);
+            } else {
+                return BigDecimal.ZERO;
+            }
+        } else {
+            return BigDecimal.ZERO;
+        }
     }
     private String imagePath;
     class ImageIconCellRenderer implements TableCellRenderer{
@@ -2423,22 +2434,7 @@ public class Dashboard extends javax.swing.JFrame {
         }
         return totalSpent;
     }
-    private BigDecimal calculateTotalSpentAmount(int userID) {
-        BigDecimal totalSpent = BigDecimal.ZERO;
-        try {
-            pst = con.prepareStatement("SELECT SUM(amount) as total FROM expenses WHERE userid = ?");
-            pst.setInt(1, userID);
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                totalSpent = rs.getBigDecimal("total");
-            }
-            rs.close();
-            pst.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return totalSpent;
-    }
+   
     private void kButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton7ActionPerformed
        String category = (String) categorycombobox.getSelectedItem();
         String amountText = amounttextfield1.getText();
@@ -2452,13 +2448,6 @@ public class Dashboard extends javax.swing.JFrame {
         }
 
         try {
-            BigDecimal totalExpenses = calculateTotalSpentAmount(userID).add(expenseAmount);
-            BigDecimal totalBudget = getTotalBudget();
-
-            if (totalExpenses.compareTo(totalBudget) > 0) {
-                JOptionPane.showMessageDialog(this, "The total expenses exceed the total budget!");
-                return;
-            }
             pst = con.prepareStatement("INSERT INTO expenses (userid, category, amount, description, date) VALUES (?, ?, ?, ?, ?)");
             pst.setInt(1, userID);
             pst.setString(2, category);
