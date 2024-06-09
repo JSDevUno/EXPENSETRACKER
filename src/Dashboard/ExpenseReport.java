@@ -69,6 +69,7 @@ public class ExpenseReport extends javax.swing.JFrame {
         });
 
         expensetable2.setBackground(new java.awt.Color(255, 255, 255));
+        expensetable2.setFont(new java.awt.Font("Tw Cen MT", 3, 12)); // NOI18N
         expensetable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},

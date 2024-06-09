@@ -110,6 +110,7 @@ public class IncomeReport extends javax.swing.JFrame {
         });
 
         incometable.setBackground(new java.awt.Color(255, 255, 255));
+        incometable.setFont(new java.awt.Font("Tw Cen MT", 3, 12)); // NOI18N
         incometable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},

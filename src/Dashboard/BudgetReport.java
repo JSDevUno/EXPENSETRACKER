@@ -229,6 +229,7 @@ public class BudgetReport extends javax.swing.JFrame {
         );
 
         budgettable.setBackground(new java.awt.Color(255, 255, 255));
+        budgettable.setFont(new java.awt.Font("Tw Cen MT", 3, 12)); // NOI18N
         budgettable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},

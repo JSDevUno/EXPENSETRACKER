@@ -905,7 +905,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         expensetable.setBackground(new java.awt.Color(255, 255, 255));
         expensetable.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        expensetable.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        expensetable.setFont(new java.awt.Font("Tw Cen MT", 3, 12)); // NOI18N
         expensetable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -932,12 +932,14 @@ public class Dashboard extends javax.swing.JFrame {
 
         txtdescription.setBackground(new java.awt.Color(255, 255, 255));
         txtdescription.setColumns(20);
+        txtdescription.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtdescription.setForeground(new java.awt.Color(0, 0, 0));
         txtdescription.setLineWrap(true);
         txtdescription.setRows(5);
         jScrollPane4.setViewportView(txtdescription);
 
         amounttextfield1.setBackground(new java.awt.Color(255, 255, 255));
+        amounttextfield1.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         amounttextfield1.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel41.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
@@ -957,9 +959,11 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel38.setForeground(new java.awt.Color(51, 51, 51));
         jLabel38.setText("CATEGORY:");
 
+        categorycombobox.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         categorycombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Groceries", "Utilities", "Transportation", "Housing", "Healthcare", "Entertainment", "Education", "Clothing", "Travel", "Personal Care" }));
 
         jDateChooser1.setDateFormatString("yyyy-MM-dd");
+        jDateChooser1.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
 
         exDelete.setText("DELETE");
         exDelete.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
@@ -987,6 +991,7 @@ public class Dashboard extends javax.swing.JFrame {
         });
 
         exID.setBackground(new java.awt.Color(255, 255, 255));
+        exID.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         exID.setForeground(new java.awt.Color(0, 0, 0));
         exID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -1002,6 +1007,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel33.setForeground(new java.awt.Color(51, 51, 51));
         jLabel33.setText("EXPENSES");
 
+        sortComboBox1.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         sortComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sort by amount asc", "sort by amount dsc", "sort by date asc", "sort by date dsc" }));
         sortComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1017,80 +1023,84 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(kButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(exDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(exUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel40, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel39, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel38, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(amounttextfield1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(categorycombobox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(84, 84, 84)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel41)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel33)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(192, 192, 192)
                         .addComponent(exID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(70, 70, 70)
                         .addComponent(sortComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(kButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76)
+                        .addComponent(jLabel38)
+                        .addGap(36, 36, 36)
+                        .addComponent(categorycombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(84, 84, 84)
+                        .addComponent(jLabel41))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(exUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(exDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(87, 87, 87)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel39)
+                            .addComponent(jLabel40))
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(amounttextfield1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(84, 84, 84)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(exID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sortComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(exID, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(sortComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel38))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(categorycombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel41)))
+                .addGap(1, 1, 1)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel38)
-                            .addComponent(categorycombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(kButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(amounttextfield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel39)
-                            .addComponent(exUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(exDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel40)))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(5, 5, 5)
+                        .addComponent(exUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(exDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel41)
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel39)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel40))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(amounttextfield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)))
-                .addGap(3504, 3504, 3504))
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jTabbedPane1.addTab("tab2", jPanel5);
@@ -1098,6 +1108,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(0, 255, 255));
 
         incometable.setBackground(new java.awt.Color(255, 255, 255));
+        incometable.setFont(new java.awt.Font("Tw Cen MT", 3, 12)); // NOI18N
         incometable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -1145,6 +1156,7 @@ public class Dashboard extends javax.swing.JFrame {
         });
 
         txtsource.setBackground(new java.awt.Color(255, 255, 255));
+        txtsource.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtsource.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel43.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
@@ -1160,11 +1172,14 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel42.setText("AMOUNT:");
 
         txtamount2.setBackground(new java.awt.Color(255, 255, 255));
+        txtamount2.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtamount2.setForeground(new java.awt.Color(0, 0, 0));
 
+        frequencycombobox.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         frequencycombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monthly", "Bi-Weekly", "Weekly", "Daily" }));
 
         jDateChooser2.setDateFormatString("yyyy-MM-dd");
+        jDateChooser2.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
 
         jLabel45.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(51, 51, 51));
@@ -1179,12 +1194,15 @@ public class Dashboard extends javax.swing.JFrame {
         });
 
         inID.setBackground(new java.awt.Color(255, 255, 255));
+        inID.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         inID.setForeground(new java.awt.Color(0, 0, 0));
+        inID.setPreferredSize(new java.awt.Dimension(78, 24));
 
         jLabel31.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(51, 51, 51));
         jLabel31.setText("INCOME");
 
+        sortComboBox2.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         sortComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sort by amount asc", "sort by amount dsc", "sort by date asc", "sort by date dsc" }));
         sortComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1273,8 +1291,10 @@ public class Dashboard extends javax.swing.JFrame {
         jTabbedPane1.addTab("tab3", jPanel6);
 
         jPanel7.setBackground(new java.awt.Color(0, 255, 255));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         budgetTable.setBackground(new java.awt.Color(255, 255, 255));
+        budgetTable.setFont(new java.awt.Font("Tw Cen MT", 3, 12)); // NOI18N
         budgetTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -1296,6 +1316,8 @@ public class Dashboard extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(budgetTable);
 
+        jPanel7.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 60, 754, 326));
+
         kButton3.setText("SEARCH ID");
         kButton3.setFont(new java.awt.Font("Tw Cen MT", 1, 12)); // NOI18N
         kButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -1303,9 +1325,13 @@ public class Dashboard extends javax.swing.JFrame {
                 kButton3ActionPerformed(evt);
             }
         });
+        jPanel7.add(kButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(507, 16, 70, 26));
 
         budID.setBackground(new java.awt.Color(255, 255, 255));
+        budID.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         budID.setForeground(new java.awt.Color(0, 0, 0));
+        budID.setPreferredSize(new java.awt.Dimension(78, 24));
+        jPanel7.add(budID, new org.netbeans.lib.awtextra.AbsoluteConstraints(339, 17, 150, -1));
 
         budadd.setText("ADD");
         budadd.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
@@ -1314,6 +1340,7 @@ public class Dashboard extends javax.swing.JFrame {
                 budaddActionPerformed(evt);
             }
         });
+        jPanel7.add(budadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 410, 72, 32));
 
         budupdate.setText("UPDATE");
         budupdate.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
@@ -1322,36 +1349,46 @@ public class Dashboard extends javax.swing.JFrame {
                 budupdateActionPerformed(evt);
             }
         });
+        jPanel7.add(budupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 448, 72, 32));
 
         jLabel46.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         jLabel46.setForeground(new java.awt.Color(51, 51, 51));
         jLabel46.setText("CATEGORY:");
+        jPanel7.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 418, -1, -1));
 
         categorycombobox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Groceries", "Utilities", "Transportation", "Housing", "Healthcare", "Entertainment", "Education", "Clothing", "Travel", "Personal Care" }));
+        jPanel7.add(categorycombobox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 414, 180, -1));
 
         jLabel47.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(51, 51, 51));
         jLabel47.setText("BUDGET AMOUNT:");
+        jPanel7.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 456, -1, -1));
 
         txtbudgetamount.setBackground(new java.awt.Color(255, 255, 255));
         txtbudgetamount.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel7.add(txtbudgetamount, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 451, 180, -1));
 
         jLabel34.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(51, 51, 51));
         jLabel34.setText("BUDGET");
+        jPanel7.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 21, -1, 21));
 
+        sortComboBox3.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         sortComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sort by budget amount asc", "sort by budget amount dsc", "sort by spent amount asc", "sort by spent amount dsc", "sort by date asc", "sort by date dsc" }));
         sortComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sortComboBox3ActionPerformed(evt);
             }
         });
+        jPanel7.add(sortComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(608, 18, -1, -1));
 
         jDateChooser3.setDateFormatString("yyyy-MM-dd");
+        jPanel7.add(jDateChooser3, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 488, 180, -1));
 
         jLabel49.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         jLabel49.setForeground(new java.awt.Color(51, 51, 51));
         jLabel49.setText("DATE:");
+        jPanel7.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 494, -1, -1));
 
         txtspentamount.setEditable(false);
         txtspentamount.setBackground(new java.awt.Color(255, 255, 255));
@@ -1374,9 +1411,12 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel7.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(612, 442, -1, -1));
+
         jLabel48.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         jLabel48.setForeground(new java.awt.Color(51, 51, 51));
         jLabel48.setText("SPENT AMOUNT:");
+        jPanel7.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 420, -1, -1));
 
         buddelete.setText("DELETE");
         buddelete.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
@@ -1386,100 +1426,7 @@ public class Dashboard extends javax.swing.JFrame {
                 buddeleteActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel34)
-                        .addGap(211, 211, 211)
-                        .addComponent(budID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(sortComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(budadd, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(budupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(33, 33, 33)
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addGap(42, 42, 42)
-                                        .addComponent(jLabel46))
-                                    .addComponent(jLabel47)))
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(buddelete, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(110, 110, 110)
-                                .addComponent(jLabel49)))
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(categorycombobox2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtbudgetamount, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(137, 137, 137)
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addGap(40, 40, 40)
-                                        .addComponent(jLabel48))
-                                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(budID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(sortComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(budadd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(budupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel46)
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel47))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(categorycombobox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)
-                        .addComponent(txtbudgetamount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel48)
-                        .addGap(4, 4, 4)
-                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buddelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel49)))))
-        );
+        jPanel7.add(buddelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 486, 72, 32));
 
         jTabbedPane1.addTab("tab4", jPanel7);
 
