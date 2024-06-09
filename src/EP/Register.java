@@ -265,6 +265,7 @@ public class Register extends javax.swing.JFrame {
         
         if (Fname.isEmpty()|| Mname.isEmpty()|| Lname.isEmpty()||Email.isEmpty()|| Pword.isEmpty()){
             JOptionPane.showMessageDialog(this, "All fields must be filled");
+            return;
         }
         
         try {

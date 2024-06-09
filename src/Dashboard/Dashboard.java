@@ -40,6 +40,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.ui.RectangleInsets;
 import java.awt.geom.RoundRectangle2D;
+import javax.swing.table.DefaultTableCellRenderer;
 public class Dashboard extends javax.swing.JFrame {
     private DefaultPieDataset pieDataset;
     private JFreeChart pieChart;
@@ -69,6 +70,18 @@ public class Dashboard extends javax.swing.JFrame {
         DefaultColor = new Color(51,51,51);
         ClickedColor = new Color(0,255,255);
         setShape(new RoundRectangle2D.Double(0,0,getWidth(),getHeight(),40,30));
+        expensetable.getTableHeader().setDefaultRenderer(new DefaultTableCellRenderer() {{
+            setBackground(new Color(32, 136, 203));
+            setForeground(Color.WHITE);
+        }});
+        incometable.getTableHeader().setDefaultRenderer(new DefaultTableCellRenderer() {{
+            setBackground(new Color(32, 136, 203));
+            setForeground(Color.WHITE);
+        }});
+        budgetTable.getTableHeader().setDefaultRenderer(new DefaultTableCellRenderer() {{
+            setBackground(new Color(32, 136, 203));
+            setForeground(Color.WHITE);
+        }});
     }
     public void showPieChart(){
         pieDataset = new DefaultPieDataset();
@@ -891,6 +904,8 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(0, 255, 255));
 
         expensetable.setBackground(new java.awt.Color(255, 255, 255));
+        expensetable.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        expensetable.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         expensetable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},

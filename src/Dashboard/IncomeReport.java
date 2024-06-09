@@ -10,6 +10,7 @@ package Dashboard;
  */
 import EP.Db;
 import EP.UserSession;
+import java.awt.Color;
 import java.awt.geom.RoundRectangle2D;
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -18,6 +19,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 public class IncomeReport extends javax.swing.JFrame {
@@ -30,6 +32,10 @@ public class IncomeReport extends javax.swing.JFrame {
         initComponents();
         fetchIncome();
         setShape(new RoundRectangle2D.Double(0,0,getWidth(),getHeight(),40,30));
+        incometable.getTableHeader().setDefaultRenderer(new DefaultTableCellRenderer() {{
+            setBackground(new Color(32, 136, 203));
+            setForeground(Color.WHITE);
+        }});
     }
 
     @SuppressWarnings("unchecked")
