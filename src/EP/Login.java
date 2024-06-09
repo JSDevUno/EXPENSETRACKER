@@ -11,6 +11,7 @@ package EP;
 import Dashboard.Dashboard;
 import EP.Db;
 import EP.Register;
+import java.awt.geom.RoundRectangle2D;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,6 +32,7 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         TextEmail.setBackground(new java.awt.Color(0,0,0,1));
         TextPassword.setBackground(new java.awt.Color(0,0,0,1));
+        setShape(new RoundRectangle2D.Double(0,0,getWidth(),getHeight(),40,30));
     }
 
     /**

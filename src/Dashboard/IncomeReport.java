@@ -10,6 +10,7 @@ package Dashboard;
  */
 import EP.Db;
 import EP.UserSession;
+import java.awt.geom.RoundRectangle2D;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,6 +29,7 @@ public class IncomeReport extends javax.swing.JFrame {
         con = Db.myconnection();
         initComponents();
         fetchIncome();
+        setShape(new RoundRectangle2D.Double(0,0,getWidth(),getHeight(),40,30));
     }
 
     @SuppressWarnings("unchecked")

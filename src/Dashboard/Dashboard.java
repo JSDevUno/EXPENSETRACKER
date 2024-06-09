@@ -39,6 +39,7 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.ui.RectangleInsets;
+import java.awt.geom.RoundRectangle2D;
 public class Dashboard extends javax.swing.JFrame {
     private DefaultPieDataset pieDataset;
     private JFreeChart pieChart;
@@ -67,6 +68,7 @@ public class Dashboard extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         DefaultColor = new Color(51,51,51);
         ClickedColor = new Color(0,255,255);
+        setShape(new RoundRectangle2D.Double(0,0,getWidth(),getHeight(),40,30));
     }
     public void showPieChart(){
         pieDataset = new DefaultPieDataset();

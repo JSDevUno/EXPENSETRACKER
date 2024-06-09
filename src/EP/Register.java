@@ -4,6 +4,7 @@
  */
 package EP;
 
+import java.awt.geom.RoundRectangle2D;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -27,6 +28,7 @@ public class Register extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         initComponents();
         con = Db.myconnection();
+        setShape(new RoundRectangle2D.Double(0,0,getWidth(),getHeight(),40,30));
     }
 
     /**
