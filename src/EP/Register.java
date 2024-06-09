@@ -48,6 +48,8 @@ public class Register extends javax.swing.JFrame {
         TextFirstname = new javax.swing.JTextField();
         TextMiddlename = new javax.swing.JTextField();
         TextLastname = new javax.swing.JTextField();
+        hidepass = new javax.swing.JLabel();
+        showpass = new javax.swing.JLabel();
         TextPassword = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -65,6 +67,7 @@ public class Register extends javax.swing.JFrame {
         kGradientPanel1.setkBorderRadius(0);
         kGradientPanel1.setkEndColor(new java.awt.Color(0, 102, 102));
         kGradientPanel1.setkStartColor(new java.awt.Color(51, 51, 51));
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         kGradientPanel2.setBackground(new java.awt.Color(51, 0, 51));
         kGradientPanel2.setkBorderRadius(0);
@@ -127,27 +130,55 @@ public class Register extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        kGradientPanel1.add(kGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 594, -1));
+
         TextFirstname.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        kGradientPanel1.add(TextFirstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 179, 295, -1));
 
         TextMiddlename.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        kGradientPanel1.add(TextMiddlename, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 251, 295, -1));
 
         TextLastname.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        kGradientPanel1.add(TextLastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 323, 295, -1));
+
+        hidepass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EP/icons8_invisible_20px_1.png"))); // NOI18N
+        hidepass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hidepassMouseClicked(evt);
+            }
+        });
+        kGradientPanel1.add(hidepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, -1, 20));
+
+        showpass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EP/icons8_eye_20px_5.png"))); // NOI18N
+        showpass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showpassMouseClicked(evt);
+            }
+        });
+        kGradientPanel1.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, -1, 20));
+
+        TextPassword.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        kGradientPanel1.add(TextPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 468, 295, -1));
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("FIRSTNAME:");
+        kGradientPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 180, 79, -1));
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("MIDDLENAME:");
+        kGradientPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 252, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("LASTNAME:");
+        kGradientPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 324, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("PASSWORD:");
+        kGradientPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 470, -1, -1));
 
         kButton1.setText("REGISTER");
         kButton1.setkBorderRadius(15);
@@ -156,6 +187,7 @@ public class Register extends javax.swing.JFrame {
                 kButton1ActionPerformed(evt);
             }
         });
+        kGradientPanel1.add(kButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 523, 119, 27));
 
         kButton2.setText("LOGIN");
         kButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -163,84 +195,20 @@ public class Register extends javax.swing.JFrame {
                 kButton2ActionPerformed(evt);
             }
         });
+        kGradientPanel1.add(kButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 573, 89, 22));
 
         jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Already have an account?");
+        kGradientPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 577, -1, -1));
+
+        TextEmail.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
+        kGradientPanel1.add(TextEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 395, 295, -1));
 
         jLabel8.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("EMAIL:");
-
-        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
-        kGradientPanel1.setLayout(kGradientPanel1Layout);
-        kGradientPanel1Layout.setHorizontalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addContainerGap(95, Short.MAX_VALUE)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addGap(18, 18, 18)
-                            .addComponent(TextMiddlename, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel8)
-                            .addGap(63, 63, 63)
-                            .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(TextFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TextEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TextLastname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addComponent(jLabel4))
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(TextPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(97, 97, 97))
-        );
-        kGradientPanel1Layout.setVerticalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(51, 51, 51)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextMiddlename, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(51, 51, 51)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextLastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(51, 51, 51)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addGap(51, 51, 51)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(33, 33, 33)
-                .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(42, Short.MAX_VALUE))
-        );
+        kGradientPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 397, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -250,7 +218,7 @@ public class Register extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(kGradientPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)
         );
 
         pack();
@@ -319,6 +287,22 @@ public class Register extends javax.swing.JFrame {
         initialClickY = evt.getY();
     }//GEN-LAST:event_kGradientPanel2MousePressed
 
+    private void hidepassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hidepassMouseClicked
+        TextPassword.setEchoChar((char)0);
+        hidepass.setVisible(false);
+        hidepass.setEnabled(false);
+        showpass.setVisible(true);
+        showpass.setEnabled(true);
+    }//GEN-LAST:event_hidepassMouseClicked
+
+    private void showpassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showpassMouseClicked
+        TextPassword.setEchoChar('*');
+        hidepass.setVisible(true);
+        hidepass.setEnabled(true);
+        showpass.setVisible(false);
+        showpass.setEnabled(false);
+    }//GEN-LAST:event_showpassMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -360,6 +344,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField TextLastname;
     private javax.swing.JTextField TextMiddlename;
     private javax.swing.JPasswordField TextPassword;
+    private javax.swing.JLabel hidepass;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -373,5 +358,6 @@ public class Register extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton kButton2;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel2;
+    private javax.swing.JLabel showpass;
     // End of variables declaration//GEN-END:variables
 }

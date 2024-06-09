@@ -54,6 +54,8 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         TextEmail = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        showpass = new javax.swing.JLabel();
+        hidepass = new javax.swing.JLabel();
         TextPassword = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -95,7 +97,7 @@ public class Login extends javax.swing.JFrame {
 
         kGradientPanel1.setForeground(new java.awt.Color(0, 255, 255));
         kGradientPanel1.setkBorderRadius(0);
-        kGradientPanel1.setkEndColor(new java.awt.Color(0, 255, 255));
+        kGradientPanel1.setkEndColor(new java.awt.Color(0, 153, 255));
         kGradientPanel1.setkStartColor(new java.awt.Color(0, 204, 204));
         kGradientPanel1.setName("panelsale"); // NOI18N
         kGradientPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -108,28 +110,50 @@ public class Login extends javax.swing.JFrame {
                 kGradientPanel1MousePressed(evt);
             }
         });
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setBackground(new java.awt.Color(0, 255, 255));
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("EXPENSE-TRACKER");
+        kGradientPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 46, -1, 65));
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Email:");
+        kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 154, -1, -1));
 
         TextEmail.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         TextEmail.setForeground(new java.awt.Color(0, 0, 0));
-        TextEmail.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
+        TextEmail.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         TextEmail.setOpaque(false);
+        kGradientPanel1.add(TextEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 178, 255, 32));
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Password:");
+        kGradientPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 257, -1, -1));
+
+        showpass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EP/icons8_eye_20px_4.png"))); // NOI18N
+        showpass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showpassMouseClicked(evt);
+            }
+        });
+        kGradientPanel1.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, -1, 32));
+
+        hidepass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EP/icons8_invisible_20px.png"))); // NOI18N
+        hidepass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hidepassMouseClicked(evt);
+            }
+        });
+        kGradientPanel1.add(hidepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, -1, 32));
 
         TextPassword.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         TextPassword.setForeground(new java.awt.Color(0, 0, 0));
-        TextPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(0, 0, 0)));
+        TextPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        kGradientPanel1.add(TextPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 281, 255, 32));
 
         jButton1.setBackground(new java.awt.Color(0, 153, 153));
         jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -141,10 +165,12 @@ public class Login extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        kGradientPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 331, 103, 35));
 
         jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Don't have an account?");
+        kGradientPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 418, -1, -1));
 
         btnReg.setBackground(new java.awt.Color(0, 153, 153));
         btnReg.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -155,62 +181,9 @@ public class Login extends javax.swing.JFrame {
                 btnRegActionPerformed(evt);
             }
         });
+        kGradientPanel1.add(btnReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 415, -1, -1));
 
-        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
-        kGradientPanel1.setLayout(kGradientPanel1Layout);
-        kGradientPanel1Layout.setHorizontalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jLabel6))
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnReg, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(kGradientPanel1Layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(TextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(64, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                        .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(TextPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(109, 109, 109))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(185, 185, 185))))
-        );
-        kGradientPanel1Layout.setVerticalGroup(
-            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TextPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addGroup(kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(btnReg))
-                .addContainerGap(123, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 540));
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 558, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EP/icons8_close_window_40px.png"))); // NOI18N
@@ -242,7 +215,7 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("SYSTEM");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 310, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, -1, -1));
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(834, 123, -1, -1));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EP/icons8_peso_symbol_60px.png"))); // NOI18N
@@ -358,6 +331,22 @@ public class Login extends javax.swing.JFrame {
         initialClickY = evt.getY();
     }//GEN-LAST:event_jPanel1MousePressed
 
+    private void hidepassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hidepassMouseClicked
+        TextPassword.setEchoChar((char)0);
+        hidepass.setVisible(false);
+        hidepass.setEnabled(false);
+        showpass.setVisible(true);
+        showpass.setEnabled(true);
+    }//GEN-LAST:event_hidepassMouseClicked
+
+    private void showpassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showpassMouseClicked
+        TextPassword.setEchoChar('*');
+        hidepass.setVisible(true);
+        hidepass.setEnabled(true);
+        showpass.setVisible(false);
+        showpass.setEnabled(false);
+    }//GEN-LAST:event_showpassMouseClicked
+
     
    
     
@@ -401,6 +390,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField TextEmail;
     private javax.swing.JPasswordField TextPassword;
     public javax.swing.JButton btnReg;
+    private javax.swing.JLabel hidepass;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -420,6 +410,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JSeparator jSeparator1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
+    private javax.swing.JLabel showpass;
     // End of variables declaration//GEN-END:variables
 
     private void setLocationRelativeToNull(int i) {
