@@ -54,8 +54,8 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         TextEmail = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        showpass = new javax.swing.JLabel();
         hidepass = new javax.swing.JLabel();
+        showpass = new javax.swing.JLabel();
         TextPassword = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -134,14 +134,6 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setText("Password:");
         kGradientPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 257, -1, -1));
 
-        showpass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EP/icons8_eye_20px_4.png"))); // NOI18N
-        showpass.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                showpassMouseClicked(evt);
-            }
-        });
-        kGradientPanel1.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, -1, 32));
-
         hidepass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EP/icons8_invisible_20px.png"))); // NOI18N
         hidepass.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -149,6 +141,14 @@ public class Login extends javax.swing.JFrame {
             }
         });
         kGradientPanel1.add(hidepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, -1, 32));
+
+        showpass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EP/icons8_eye_20px_4.png"))); // NOI18N
+        showpass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showpassMouseClicked(evt);
+            }
+        });
+        kGradientPanel1.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, -1, 32));
 
         TextPassword.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         TextPassword.setForeground(new java.awt.Color(0, 0, 0));
