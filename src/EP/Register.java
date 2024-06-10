@@ -7,6 +7,7 @@ package EP;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +25,7 @@ public class Register extends javax.swing.JFrame {
     private int initialClickX, initialClickY;
     Connection con = null;
     PreparedStatement pst = null;
+    ResultSet rs = null;
     public Register() {
         setLocationRelativeTo(null);
         initComponents();
@@ -236,6 +238,14 @@ public class Register extends javax.swing.JFrame {
         }
         
         try {
+            pst = con.prepareStatement("SELECT COUNT(*) FROM users WHERE email = ?");
+            pst.setString(1, Email);
+            rs = pst.executeQuery();
+            if (rs.next() && rs.getInt(1) > 0) {
+                JOptionPane.showMessageDialog(this, "Email already exists. Please use a different email.");
+                TextEmail.setText("");
+                return;
+            }
             pst=con.prepareStatement("INSERT INTO users (firstname, middlename, lastname,email, password) VALUES(?,?,?,?,?)");
             pst.setString(1, Fname);
             pst.setString(2, Mname);
