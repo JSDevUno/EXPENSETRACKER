@@ -43,8 +43,8 @@ public class Register extends javax.swing.JFrame {
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
         kGradientPanel2 = new com.k33ptoo.components.KGradientPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        minusreg = new javax.swing.JLabel();
+        exreg = new javax.swing.JLabel();
         TextFirstname = new javax.swing.JTextField();
         TextMiddlename = new javax.swing.JTextField();
         TextLastname = new javax.swing.JTextField();
@@ -88,18 +88,17 @@ public class Register extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("REGISTRATION");
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EP/icons8_close_window_40px.png"))); // NOI18N
-        jLabel9.setToolTipText("");
-        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+        minusreg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_subtract_30px.png"))); // NOI18N
+        minusreg.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel9MouseClicked(evt);
+                minusregMouseClicked(evt);
             }
         });
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EP/icons8_minimize_window_40px.png"))); // NOI18N
-        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+        exreg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_multiply_30px.png"))); // NOI18N
+        exreg.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel10MouseClicked(evt);
+                exregMouseClicked(evt);
             }
         });
 
@@ -110,11 +109,11 @@ public class Register extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
+                .addComponent(minusreg)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addContainerGap())
+                .addComponent(exreg)
+                .addGap(7, 7, 7))
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,9 +123,9 @@ public class Register extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
             .addGroup(kGradientPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel9))
+                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(exreg)
+                    .addComponent(minusreg))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -261,14 +260,6 @@ public class Register extends javax.swing.JFrame {
         
     }//GEN-LAST:event_kButton1ActionPerformed
 
-    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-        this.setExtendedState(Login.ICONIFIED);
-    }//GEN-LAST:event_jLabel10MouseClicked
-
-    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_jLabel9MouseClicked
-
     private void kButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton2ActionPerformed
         dispose();
         Login l = new Login();
@@ -302,6 +293,14 @@ public class Register extends javax.swing.JFrame {
         showpass.setVisible(false);
         showpass.setEnabled(false);
     }//GEN-LAST:event_showpassMouseClicked
+
+    private void minusregMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minusregMouseClicked
+        this.setExtendedState(Register.ICONIFIED);
+    }//GEN-LAST:event_minusregMouseClicked
+
+    private void exregMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exregMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_exregMouseClicked
 
     /**
      * @param args the command line arguments
@@ -344,20 +343,20 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField TextLastname;
     private javax.swing.JTextField TextMiddlename;
     private javax.swing.JPasswordField TextPassword;
+    private javax.swing.JLabel exreg;
     private javax.swing.JLabel hidepass;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private com.k33ptoo.components.KButton kButton1;
     private com.k33ptoo.components.KButton kButton2;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel2;
+    private javax.swing.JLabel minusreg;
     private javax.swing.JLabel showpass;
     // End of variables declaration//GEN-END:variables
 }

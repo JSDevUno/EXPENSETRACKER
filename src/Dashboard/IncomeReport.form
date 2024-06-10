@@ -56,7 +56,7 @@
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="inminus" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="inexit" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
               </Group>
@@ -170,7 +170,7 @@
         <Component class="javax.swing.JLabel" name="inminus">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Dashboard/icons8_minimize_window_40px.png"/>
+              <Image iconType="3" name="/Dashboard/icons8_subtract_30px.png"/>
             </Property>
           </Properties>
           <Events>
@@ -180,7 +180,7 @@
         <Component class="javax.swing.JLabel" name="inexit">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Dashboard/icons8_close_window_40px.png"/>
+              <Image iconType="3" name="/Dashboard/icons8_multiply_30px.png"/>
             </Property>
           </Properties>
           <Events>

@@ -95,14 +95,14 @@ public class IncomeReport extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(51, 255, 255));
         jLabel2.setText("TOTAL INCOME:");
 
-        inminus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_minimize_window_40px.png"))); // NOI18N
+        inminus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_subtract_30px.png"))); // NOI18N
         inminus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 inminusMouseClicked(evt);
             }
         });
 
-        inexit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_close_window_40px.png"))); // NOI18N
+        inexit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_multiply_30px.png"))); // NOI18N
         inexit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 inexitMouseClicked(evt);
@@ -141,7 +141,7 @@ public class IncomeReport extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(inminus)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(inexit)
                 .addGap(5, 5, 5))
             .addGroup(jPanel1Layout.createSequentialGroup()

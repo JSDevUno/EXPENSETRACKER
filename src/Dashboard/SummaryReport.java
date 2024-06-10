@@ -79,14 +79,14 @@ public class SummaryReport extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(102, 255, 255));
         jLabel1.setText("SUMMARY REPORT");
 
-        summinus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_minimize_window_40px.png"))); // NOI18N
+        summinus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_subtract_30px.png"))); // NOI18N
         summinus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 summinusMouseClicked(evt);
             }
         });
 
-        sumexit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_close_window_40px.png"))); // NOI18N
+        sumexit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_multiply_30px.png"))); // NOI18N
         sumexit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sumexitMouseClicked(evt);
@@ -279,15 +279,16 @@ public class SummaryReport extends javax.swing.JFrame {
                         .addGap(23, 23, 23)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 17, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jLabel1)
-                        .addGap(399, 399, 399)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(summinus)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(sumexit)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -368,11 +369,11 @@ public class SummaryReport extends javax.swing.JFrame {
             BigDecimal totalIncome = BigDecimal.ZERO;
             if (rs.next()) {
                 totalIncome = rs.getBigDecimal("total_income");
+                if (totalIncome == null) totalIncome = BigDecimal.ZERO;
             }
 
             rs.close();
 
-            // Fetch total expenses
             pst = con.prepareStatement("SELECT SUM(amount) AS total_expense FROM expenses WHERE userid = ?");
             pst.setInt(1, userId);
             rs = pst.executeQuery();
@@ -380,6 +381,7 @@ public class SummaryReport extends javax.swing.JFrame {
             BigDecimal totalExpense = BigDecimal.ZERO;
             if (rs.next()) {
                 totalExpense = rs.getBigDecimal("total_expense");
+                 if (totalExpense == null) totalExpense = BigDecimal.ZERO;
             }
 
             rs.close();
@@ -391,6 +393,7 @@ public class SummaryReport extends javax.swing.JFrame {
             BigDecimal totalBudget = BigDecimal.ZERO;
             if (rs.next()) {
                 totalBudget = rs.getBigDecimal("total_budget");
+                if (totalBudget == null) totalBudget = BigDecimal.ZERO;
             }
 
             rs.close();

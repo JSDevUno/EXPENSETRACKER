@@ -52,6 +52,7 @@ public class Login extends javax.swing.JFrame {
         kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         TextEmail = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         hidepass = new javax.swing.JLabel();
@@ -123,6 +124,9 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setText("Email:");
         kGradientPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 154, -1, -1));
 
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EP/icons8_customer_20px.png"))); // NOI18N
+        kGradientPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, -1));
+
         TextEmail.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         TextEmail.setForeground(new java.awt.Color(0, 0, 0));
         TextEmail.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
@@ -186,21 +190,21 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 540));
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 558, -1, -1));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EP/icons8_close_window_40px.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EP/icons8_multiply_30px.png"))); // NOI18N
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel8MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(905, 6, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 10, -1, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EP/icons8_minimize_window_40px.png"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EP/icons8_subtract_30px.png"))); // NOI18N
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel9MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(847, 6, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -397,6 +401,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

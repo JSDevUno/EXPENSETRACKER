@@ -186,14 +186,14 @@ public class BudgetReport extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(51, 255, 255));
         jLabel2.setText("TOTAL BUDGET:");
 
-        budminus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_minimize_window_40px.png"))); // NOI18N
+        budminus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_subtract_30px.png"))); // NOI18N
         budminus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 budminusMouseClicked(evt);
             }
         });
 
-        budexit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_close_window_40px.png"))); // NOI18N
+        budexit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_multiply_30px.png"))); // NOI18N
         budexit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 budexitMouseClicked(evt);

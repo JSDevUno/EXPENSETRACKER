@@ -247,6 +247,8 @@ public class Dashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         bevelBorder1 = (javax.swing.border.BevelBorder)javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED);
+        jToolBar1 = new javax.swing.JToolBar();
+        jDateChooser4 = new com.toedter.calendar.JDateChooser();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -280,16 +282,21 @@ public class Dashboard extends javax.swing.JFrame {
         totalex = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         labelexpense = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         savings = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         labelsavings = new javax.swing.JLabel();
+        jPanel17 = new javax.swing.JPanel();
         totalin = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
         labelincome = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
         recenttrans = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         labelspent = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        jPanel19 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         expensetable = new javax.swing.JTable();
@@ -365,6 +372,8 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         pieChartPanel = new javax.swing.JPanel();
+
+        jToolBar1.setRollover(true);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("dashboard");
@@ -688,14 +697,14 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_close_window_40px.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_multiply_30px.png"))); // NOI18N
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_minimize_window_40px.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_subtract_30px.png"))); // NOI18N
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);
@@ -719,9 +728,9 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(jLabel24)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fnamelabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 475, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 489, Short.MAX_VALUE)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addGap(12, 12, 12))
         );
@@ -754,6 +763,20 @@ public class Dashboard extends javax.swing.JFrame {
         labelexpense.setText("jLabel36");
         labelexpense.setToolTipText("");
 
+        jPanel4.setBackground(new java.awt.Color(51, 0, 51));
+        jPanel4.setForeground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout totalexLayout = new javax.swing.GroupLayout(totalex);
         totalex.setLayout(totalexLayout);
         totalexLayout.setHorizontalGroup(
@@ -767,6 +790,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addComponent(labelexpense, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         totalexLayout.setVerticalGroup(
             totalexLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -775,7 +799,8 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(jLabel25)
                 .addGap(18, 18, 18)
                 .addComponent(labelexpense)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel3.add(totalex, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 119, -1, -1));
@@ -793,6 +818,20 @@ public class Dashboard extends javax.swing.JFrame {
         labelsavings.setText("jLabel36");
         labelsavings.setToolTipText("");
 
+        jPanel17.setBackground(new java.awt.Color(51, 0, 51));
+        jPanel17.setForeground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout savingsLayout = new javax.swing.GroupLayout(savings);
         savings.setLayout(savingsLayout);
         savingsLayout.setHorizontalGroup(
@@ -805,6 +844,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE)
                 .addComponent(labelsavings, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
+            .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         savingsLayout.setVerticalGroup(
             savingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -813,7 +853,8 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(jLabel26)
                 .addGap(18, 18, 18)
                 .addComponent(labelsavings)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel3.add(savings, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 308, -1, -1));
@@ -830,6 +871,20 @@ public class Dashboard extends javax.swing.JFrame {
         labelincome.setText("jLabel36");
         labelincome.setToolTipText("");
 
+        jPanel11.setBackground(new java.awt.Color(51, 0, 51));
+        jPanel11.setForeground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout totalinLayout = new javax.swing.GroupLayout(totalin);
         totalin.setLayout(totalinLayout);
         totalinLayout.setHorizontalGroup(
@@ -842,6 +897,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labelincome, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
+            .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         totalinLayout.setVerticalGroup(
             totalinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -850,7 +906,8 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(jLabel27)
                 .addGap(18, 18, 18)
                 .addComponent(labelincome)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel3.add(totalin, new org.netbeans.lib.awtextra.AbsoluteConstraints(496, 119, -1, -1));
@@ -867,6 +924,20 @@ public class Dashboard extends javax.swing.JFrame {
         labelspent.setText("jLabel36");
         labelspent.setToolTipText("");
 
+        jPanel18.setBackground(new java.awt.Color(51, 0, 51));
+        jPanel18.setForeground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout recenttransLayout = new javax.swing.GroupLayout(recenttrans);
         recenttrans.setLayout(recenttransLayout);
         recenttransLayout.setHorizontalGroup(
@@ -880,6 +951,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addComponent(labelspent, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
+            .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         recenttransLayout.setVerticalGroup(
             recenttransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -888,16 +960,21 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(jLabel28)
                 .addGap(18, 18, 18)
                 .addComponent(labelspent)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel3.add(recenttrans, new org.netbeans.lib.awtextra.AbsoluteConstraints(496, 308, -1, -1));
 
         jLabel8.setBackground(new java.awt.Color(51, 0, 51));
-        jLabel8.setFont(new java.awt.Font("Trebuchet MS", 1, 36)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(51, 0, 51));
+        jLabel8.setFont(new java.awt.Font("Trebuchet MS", 3, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("EXPENSE TRACKER");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, -1, -1));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 12, -1, 40));
+
+        jPanel19.setBackground(new java.awt.Color(51, 0, 51));
+        jPanel19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 320, 10));
 
         jTabbedPane1.addTab("tab1", jPanel3);
 
@@ -1356,6 +1433,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel46.setText("CATEGORY:");
         jPanel7.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 418, -1, -1));
 
+        categorycombobox2.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         categorycombobox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Groceries", "Utilities", "Transportation", "Housing", "Healthcare", "Entertainment", "Education", "Clothing", "Travel", "Personal Care" }));
         jPanel7.add(categorycombobox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 414, 180, -1));
 
@@ -1365,6 +1443,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel7.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 456, -1, -1));
 
         txtbudgetamount.setBackground(new java.awt.Color(255, 255, 255));
+        txtbudgetamount.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtbudgetamount.setForeground(new java.awt.Color(0, 0, 0));
         jPanel7.add(txtbudgetamount, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 451, 180, -1));
 
@@ -1383,6 +1462,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel7.add(sortComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(608, 18, -1, -1));
 
         jDateChooser3.setDateFormatString("yyyy-MM-dd");
+        jDateChooser3.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         jPanel7.add(jDateChooser3, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 488, 180, -1));
 
         jLabel49.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
@@ -1392,6 +1472,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         txtspentamount.setEditable(false);
         txtspentamount.setBackground(new java.awt.Color(255, 255, 255));
+        txtspentamount.setFont(new java.awt.Font("Trebuchet MS", 1, 12)); // NOI18N
         txtspentamount.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
@@ -3136,6 +3217,7 @@ public class Dashboard extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private com.toedter.calendar.JDateChooser jDateChooser3;
+    private com.toedter.calendar.JDateChooser jDateChooser4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -3178,16 +3260,21 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -3198,6 +3285,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JToolBar jToolBar1;
     private com.k33ptoo.components.KButton kButton1;
     private com.k33ptoo.components.KButton kButton2;
     private com.k33ptoo.components.KButton kButton3;
