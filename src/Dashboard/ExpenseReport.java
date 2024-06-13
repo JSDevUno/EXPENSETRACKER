@@ -243,7 +243,7 @@ public class ExpenseReport extends javax.swing.JFrame {
 
             rs.close();
             pst.close();
-            exlabel.setText("PHP " + totalExpense);
+            exlabel.setText("PHP: " + totalExpense);
         } catch (SQLException ex) {
             Logger.getLogger(Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }

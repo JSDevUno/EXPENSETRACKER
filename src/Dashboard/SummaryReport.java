@@ -402,10 +402,10 @@ public class SummaryReport extends javax.swing.JFrame {
            
             daterange.setText(startDate + " to " + endDate);
            
-            sumincome.setText("PHP "+totalIncome.toString());
-            sumexpense.setText("PHP "+totalExpense.toString());
-            sumbudget.setText("PHP "+totalBudget.toString());
-            sumsavings.setText("PHP "+totalSavings.toString());
+            sumincome.setText("PHP: "+totalIncome.toString());
+            sumexpense.setText("PHP: "+totalExpense.toString());
+            sumbudget.setText("PHP: "+totalBudget.toString());
+            sumsavings.setText("PHP: "+totalSavings.toString());
 
             pst.close();
         } catch (SQLException ex) {
