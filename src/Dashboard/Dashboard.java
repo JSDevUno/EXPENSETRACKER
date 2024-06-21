@@ -1938,7 +1938,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel36.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         jLabel36.setForeground(new java.awt.Color(255, 255, 255));
         jLabel36.setText("DELETE ACCOUNT");
-        kGradientPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, 30));
+        kGradientPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, 30));
 
         kButton4.setText("DELETE ACCOUNT");
         kButton4.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -1947,10 +1947,10 @@ public class Dashboard extends javax.swing.JFrame {
                 kButton4ActionPerformed(evt);
             }
         });
-        kGradientPanel1.add(kButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 150, -1));
+        kGradientPanel1.add(kButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 150, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_delete_document_40px.png"))); // NOI18N
-        kGradientPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        kGradientPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
@@ -1971,8 +1971,8 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(180, 180, 180)
+                        .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
 
