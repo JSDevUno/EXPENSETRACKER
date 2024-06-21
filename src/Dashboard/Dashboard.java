@@ -272,6 +272,9 @@ public class Dashboard extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
+        menu5 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
         dragpanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -372,6 +375,16 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         pieChartPanel = new javax.swing.JPanel();
+        jPanel20 = new javax.swing.JPanel();
+        kGradientPanel2 = new com.k33ptoo.components.KGradientPanel();
+        EMAIL_MATCH = new javax.swing.JTextField();
+        CURRENT_PASS = new javax.swing.JTextField();
+        NEW_PASS = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        CHANGEPASS = new com.k33ptoo.components.KButton();
+        jLabel30 = new javax.swing.JLabel();
 
         jToolBar1.setRollover(true);
 
@@ -624,6 +637,44 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel32.setForeground(new java.awt.Color(255, 255, 255));
         jLabel32.setText("PROFILE");
 
+        menu5.setBackground(new java.awt.Color(51, 51, 51));
+        menu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menu5MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                menu5MousePressed(evt);
+            }
+        });
+
+        jLabel19.setBackground(new java.awt.Color(153, 255, 255));
+        jLabel19.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("MANAGE");
+
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_account_28px.png"))); // NOI18N
+
+        javax.swing.GroupLayout menu5Layout = new javax.swing.GroupLayout(menu5);
+        menu5.setLayout(menu5Layout);
+        menu5Layout.setHorizontalGroup(
+            menu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu5Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel19)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        menu5Layout.setVerticalGroup(
+            menu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu5Layout.createSequentialGroup()
+                .addGap(7, 7, 7)
+                .addGroup(menu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel19))
+                .addContainerGap(7, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -657,6 +708,10 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel32)
                 .addGap(90, 90, 90))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(menu5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -679,6 +734,8 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(menu3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(menu8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(menu5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(19, 19, 19))
@@ -1775,6 +1832,116 @@ public class Dashboard extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab9", jPanel12);
 
+        jPanel20.setBackground(new java.awt.Color(0, 255, 255));
+
+        kGradientPanel2.setkBorderRadius(0);
+        kGradientPanel2.setOpaque(false);
+
+        EMAIL_MATCH.setBackground(new java.awt.Color(255, 255, 255));
+        EMAIL_MATCH.setForeground(new java.awt.Color(0, 0, 0));
+
+        CURRENT_PASS.setBackground(new java.awt.Color(255, 255, 255));
+        CURRENT_PASS.setForeground(new java.awt.Color(0, 0, 0));
+
+        NEW_PASS.setBackground(new java.awt.Color(255, 255, 255));
+        NEW_PASS.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel20.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("EMAIL");
+
+        jLabel21.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("CURRENT PASSWORD");
+
+        jLabel29.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel29.setText("NEW PASSWORD");
+
+        CHANGEPASS.setText("CHANGE");
+        CHANGEPASS.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        CHANGEPASS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CHANGEPASSActionPerformed(evt);
+            }
+        });
+
+        jLabel30.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel30.setText("CHANGE PASSWORD");
+
+        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
+        kGradientPanel2.setLayout(kGradientPanel2Layout);
+        kGradientPanel2Layout.setHorizontalGroup(
+            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
+                .addContainerGap(149, Short.MAX_VALUE)
+                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(NEW_PASS, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CURRENT_PASS, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                        .addComponent(EMAIL_MATCH, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(147, 147, 147))))
+            .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addComponent(jLabel30))
+                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                        .addGap(184, 184, 184)
+                        .addComponent(CHANGEPASS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(jLabel21))
+                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                        .addGap(249, 249, 249)
+                        .addComponent(jLabel20))
+                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(jLabel29)))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        kGradientPanel2Layout.setVerticalGroup(
+            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(EMAIL_MATCH, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CURRENT_PASS, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(NEW_PASS, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(CHANGEPASS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
+        jPanel20.setLayout(jPanel20Layout);
+        jPanel20Layout.setHorizontalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel20Layout.createSequentialGroup()
+                .addGap(134, 134, 134)
+                .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(142, Short.MAX_VALUE))
+        );
+        jPanel20Layout.setVerticalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel20Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("tab9", jPanel20);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1827,6 +1994,7 @@ public class Dashboard extends javax.swing.JFrame {
         menu2.setBackground(DefaultColor);
         menu3.setBackground(DefaultColor);
         menu8.setBackground(DefaultColor);
+        menu5.setBackground(DefaultColor);
         home.setBackground(DefaultColor);
     }//GEN-LAST:event_menu1MousePressed
 
@@ -1839,6 +2007,7 @@ public class Dashboard extends javax.swing.JFrame {
         menu2.setBackground(DefaultColor);
         menu3.setBackground(DefaultColor);
         menu8.setBackground(DefaultColor);
+        menu5.setBackground(DefaultColor);
         home.setBackground(ClickedColor);
     }//GEN-LAST:event_homeMousePressed
 
@@ -1851,6 +2020,7 @@ public class Dashboard extends javax.swing.JFrame {
         menu2.setBackground(ClickedColor);
         menu3.setBackground(DefaultColor);
         menu8.setBackground(DefaultColor);
+        menu5.setBackground(DefaultColor);
         home.setBackground(DefaultColor);
     }//GEN-LAST:event_menu2MousePressed
 
@@ -1863,6 +2033,7 @@ public class Dashboard extends javax.swing.JFrame {
         menu2.setBackground(DefaultColor);
         menu3.setBackground(ClickedColor);
         menu8.setBackground(DefaultColor);
+        menu5.setBackground(DefaultColor);
         home.setBackground(DefaultColor);
     }//GEN-LAST:event_menu3MousePressed
 
@@ -1875,6 +2046,7 @@ public class Dashboard extends javax.swing.JFrame {
         menu2.setBackground(DefaultColor);
         menu3.setBackground(DefaultColor);
         menu8.setBackground(ClickedColor);
+        menu5.setBackground(DefaultColor);
         home.setBackground(DefaultColor);
     }//GEN-LAST:event_menu8MousePressed
 
@@ -3152,6 +3324,65 @@ public class Dashboard extends javax.swing.JFrame {
         initialClickX = evt.getX();
         initialClickY = evt.getY();
     }//GEN-LAST:event_dragpanelMousePressed
+
+    private void menu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu5MouseClicked
+       jTabbedPane1.setSelectedIndex(5);
+    }//GEN-LAST:event_menu5MouseClicked
+
+    private void menu5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu5MousePressed
+        menu1.setBackground(DefaultColor);
+        menu2.setBackground(DefaultColor);
+        menu3.setBackground(DefaultColor);
+        menu8.setBackground(DefaultColor);
+        menu5.setBackground(ClickedColor);
+        home.setBackground(DefaultColor);
+    }//GEN-LAST:event_menu5MousePressed
+
+    private void CHANGEPASSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CHANGEPASSActionPerformed
+        String email = EMAIL_MATCH.getText(); // Assuming EMAIL_MATCH is where users enter their email
+        String currentPassword = CURRENT_PASS.getText(); // Assuming CURRENT_PASS is where users enter their current password
+        String newPassword = NEW_PASS.getText(); // Assuming NEW_PASS is where users enter their new password
+
+        if (!email.isEmpty() && !currentPassword.isEmpty() && !newPassword.isEmpty()) {
+            try {
+                // Check if the entered email and password match the currently logged-in user
+                int userId = UserSession.getUserID(); // Get the logged-in user's ID (assuming you have a method to retrieve this)
+                pst = con.prepareStatement("SELECT * FROM users WHERE userid = ? AND email = ? AND password = ?");
+                pst.setInt(1, userId);
+                pst.setString(2, email);
+                pst.setString(3, currentPassword); // Assuming password is stored in plain text (not recommended)
+
+                rs = pst.executeQuery();
+
+                if (rs.next()) {
+                    // Email and current password match for the logged-in user, update the password in the database
+                    pst = con.prepareStatement("UPDATE users SET password = ? WHERE userid = ?");
+                    pst.setString(1, newPassword);
+                    pst.setInt(2, userId);
+                    pst.executeUpdate();
+
+                    JOptionPane.showMessageDialog(this, "Password changed successfully.");
+                    Login log = new Login();
+                    log.setVisible(true);
+                    dispose(); // Close the current window after changing password
+                } else {
+                    JOptionPane.showMessageDialog(this, "Invalid email or current password. Please enter valid details.");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(this, "Error changing password: " + ex.getMessage());
+            } finally {
+                try {
+                    if (rs != null) rs.close();
+                    if (pst != null) pst.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please fill in all fields.");
+        }
+    }//GEN-LAST:event_CHANGEPASSActionPerformed
     
     
     public static void main(String args[]) {
@@ -3187,6 +3418,10 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.k33ptoo.components.KButton CHANGEPASS;
+    private javax.swing.JTextField CURRENT_PASS;
+    private javax.swing.JTextField EMAIL_MATCH;
+    private javax.swing.JTextField NEW_PASS;
     private javax.swing.JTextField amounttextfield1;
     private javax.swing.border.BevelBorder bevelBorder1;
     private javax.swing.JComboBox<String> budID;
@@ -3227,14 +3462,20 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
@@ -3270,6 +3511,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel25;
@@ -3290,6 +3532,7 @@ public class Dashboard extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton kButton2;
     private com.k33ptoo.components.KButton kButton3;
     private com.k33ptoo.components.KButton kButton7;
+    private com.k33ptoo.components.KGradientPanel kGradientPanel2;
     private javax.swing.JLabel labelexpense;
     private javax.swing.JLabel labelincome;
     private javax.swing.JLabel labelsavings;
@@ -3297,6 +3540,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel menu1;
     private javax.swing.JPanel menu2;
     private javax.swing.JPanel menu3;
+    private javax.swing.JPanel menu5;
     private javax.swing.JPanel menu8;
     private javax.swing.JPanel pieChartPanel;
     private javax.swing.JLabel profile;
