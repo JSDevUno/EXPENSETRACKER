@@ -385,6 +385,10 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         CHANGEPASS = new com.k33ptoo.components.KButton();
         jLabel30 = new javax.swing.JLabel();
+        kGradientPanel1 = new com.k33ptoo.components.KGradientPanel();
+        jLabel36 = new javax.swing.JLabel();
+        kButton4 = new com.k33ptoo.components.KButton();
+        jLabel11 = new javax.swing.JLabel();
 
         jToolBar1.setRollover(true);
 
@@ -1834,7 +1838,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel20.setBackground(new java.awt.Color(0, 255, 255));
 
-        kGradientPanel2.setkBorderRadius(0);
+        kGradientPanel2.setkBorderRadius(20);
         kGradientPanel2.setOpaque(false);
 
         EMAIL_MATCH.setBackground(new java.awt.Color(255, 255, 255));
@@ -1875,68 +1879,101 @@ public class Dashboard extends javax.swing.JFrame {
         kGradientPanel2Layout.setHorizontalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
-                .addContainerGap(149, Short.MAX_VALUE)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(CURRENT_PASS, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
-                    .addComponent(EMAIL_MATCH, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(NEW_PASS))
-                .addGap(148, 148, 148))
+                .addContainerGap(78, Short.MAX_VALUE)
+                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CURRENT_PASS, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NEW_PASS, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EMAIL_MATCH, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(76, 76, 76))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel30)
+                        .addGap(92, 92, 92))))
             .addGroup(kGradientPanel2Layout.createSequentialGroup()
                 .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(159, 159, 159)
-                        .addComponent(jLabel30))
+                        .addGap(138, 138, 138)
+                        .addComponent(jLabel29))
                     .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(184, 184, 184)
-                        .addComponent(CHANGEPASS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(176, 176, 176)
+                        .addComponent(jLabel20)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(190, 190, 190)
+                        .addGap(118, 118, 118)
                         .addComponent(jLabel21))
                     .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(249, 249, 249)
-                        .addComponent(jLabel20))
-                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(210, 210, 210)
-                        .addComponent(jLabel29)))
+                        .addGap(114, 114, 114)
+                        .addComponent(CHANGEPASS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(52, 52, 52)
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(EMAIL_MATCH, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(CURRENT_PASS, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(NEW_PASS, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(30, 30, 30)
                 .addComponent(CHANGEPASS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
+
+        kGradientPanel1.setkBorderRadius(20);
+        kGradientPanel1.setOpaque(false);
+        kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel36.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel36.setText("DELETE ACCOUNT");
+        kGradientPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, 30));
+
+        kButton4.setText("DELETE ACCOUNT");
+        kButton4.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        kButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kButton4ActionPerformed(evt);
+            }
+        });
+        kGradientPanel1.add(kButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 150, -1));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/icons8_delete_document_40px.png"))); // NOI18N
+        kGradientPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
         jPanel20Layout.setHorizontalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel20Layout.createSequentialGroup()
-                .addGap(134, 134, 134)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addGap(49, 49, 49))
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel20Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel20Layout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(kGradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab9", jPanel20);
@@ -3338,23 +3375,21 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_menu5MousePressed
 
     private void CHANGEPASSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CHANGEPASSActionPerformed
-        String email = EMAIL_MATCH.getText(); // Assuming EMAIL_MATCH is where users enter their email
-        String currentPassword = CURRENT_PASS.getText(); // Assuming CURRENT_PASS is where users enter their current password
-        String newPassword = NEW_PASS.getText(); // Assuming NEW_PASS is where users enter their new password
+        String email = EMAIL_MATCH.getText(); 
+        String currentPassword = CURRENT_PASS.getText(); 
+        String newPassword = NEW_PASS.getText(); 
 
         if (!email.isEmpty() && !currentPassword.isEmpty() && !newPassword.isEmpty()) {
-            try {
-                // Check if the entered email and password match the currently logged-in user
-                int userId = UserSession.getUserID(); // Get the logged-in user's ID (assuming you have a method to retrieve this)
+            try {               
+                int userId = UserSession.getUserID(); 
                 pst = con.prepareStatement("SELECT * FROM users WHERE userid = ? AND email = ? AND password = ?");
                 pst.setInt(1, userId);
                 pst.setString(2, email);
-                pst.setString(3, currentPassword); // Assuming password is stored in plain text (not recommended)
+                pst.setString(3, currentPassword); 
 
                 rs = pst.executeQuery();
 
-                if (rs.next()) {
-                    // Email and current password match for the logged-in user, update the password in the database
+                if (rs.next()) {                  
                     pst = con.prepareStatement("UPDATE users SET password = ? WHERE userid = ?");
                     pst.setString(1, newPassword);
                     pst.setInt(2, userId);
@@ -3363,7 +3398,7 @@ public class Dashboard extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Password changed successfully.");
                     Login log = new Login();
                     log.setVisible(true);
-                    dispose(); // Close the current window after changing password
+                    dispose(); 
                 } else {
                     JOptionPane.showMessageDialog(this, "Invalid email or current password. Please enter valid details.");
                 }
@@ -3382,6 +3417,38 @@ public class Dashboard extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Please fill in all fields.");
         }
     }//GEN-LAST:event_CHANGEPASSActionPerformed
+
+    private void kButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton4ActionPerformed
+       int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete your account?", "Delete Account", JOptionPane.YES_NO_OPTION);
+    
+        if (confirm == JOptionPane.YES_OPTION) {
+            try {
+                
+                pst = con.prepareStatement("DELETE FROM users WHERE userid = ?");
+                pst.setInt(1, userID);
+                int affectedRows = pst.executeUpdate();
+
+                if (affectedRows > 0) {
+                    JOptionPane.showMessageDialog(this, "Your account has been deleted successfully.");
+                    
+                    Login log = new Login();
+                    log.setVisible(true);
+                    dispose(); // Close the current window after account deletion
+                } else {
+                    JOptionPane.showMessageDialog(this, "Error deleting account. Please try again.");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(this, "Error deleting account: " + ex.getMessage());
+            } finally {
+                try {
+                    if (pst != null) pst.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }//GEN-LAST:event_kButton4ActionPerformed
     
     
     public static void main(String args[]) {
@@ -3454,6 +3521,7 @@ public class Dashboard extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jDateChooser4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -3480,6 +3548,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
@@ -3530,7 +3599,9 @@ public class Dashboard extends javax.swing.JFrame {
     private com.k33ptoo.components.KButton kButton1;
     private com.k33ptoo.components.KButton kButton2;
     private com.k33ptoo.components.KButton kButton3;
+    private com.k33ptoo.components.KButton kButton4;
     private com.k33ptoo.components.KButton kButton7;
+    private com.k33ptoo.components.KGradientPanel kGradientPanel1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel2;
     private javax.swing.JLabel labelexpense;
     private javax.swing.JLabel labelincome;
